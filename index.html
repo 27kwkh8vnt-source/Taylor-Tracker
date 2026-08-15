@@ -2,14 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Taylor Tracker">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#f7f4ef">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+>
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="Taylor Tracker"
+>
+
+<link
+    rel="apple-touch-icon"
+    href="TaylorGoodStanding.png"
+>
 
 <title>Taylor Tracker</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
@@ -19,8 +43,15 @@ body {
     margin: 0;
     background: #f7f4ef;
     color: #171717;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                 "Helvetica Neue", Arial, sans-serif;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
     padding-bottom: 100px;
 }
 
@@ -32,6 +63,7 @@ header {
 header h1 {
     margin: 0;
     font-size: 30px;
+    font-weight: 900;
 }
 
 header p {
@@ -39,6 +71,9 @@ header p {
     color: #777;
     font-size: 14px;
 }
+
+
+/* PAGES */
 
 .page {
     display: none;
@@ -51,29 +86,112 @@ header p {
     display: block;
 }
 
+
+/* CARDS */
+
 .card {
     background: white;
     border-radius: 22px;
     padding: 20px;
     margin: 12px 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, .07);
 }
 
 .center {
     text-align: center;
 }
 
+
+/* TAYLOR */
+
 .character {
-    width: 210px;
-    height: 210px;
+    width: 220px;
+    height: 220px;
+
     object-fit: contain;
+
     display: block;
-    margin: 0 auto 8px;
+
+    margin:
+        0 auto 8px;
+
+    transform-origin:
+        center bottom;
 }
+
+.jump {
+    animation:
+        jumpTaylor .7s ease;
+}
+
+.slump {
+    animation:
+        slumpTaylor 1s ease;
+}
+
+@keyframes jumpTaylor {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    40% {
+        transform:
+            translateY(-50px)
+            scale(1.06);
+    }
+
+    70% {
+        transform:
+            translateY(4px)
+            scale(.98);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes slumpTaylor {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    40% {
+        transform:
+            translateY(22px)
+            scale(.92);
+    }
+
+    80% {
+        transform:
+            translateY(22px)
+            scale(.92);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* SCORE */
 
 .score {
     font-size: 68px;
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1;
     margin-top: 8px;
 }
@@ -98,32 +216,53 @@ header p {
     margin-top: 8px;
 }
 
+
+/* SCORE BAR */
+
 .progress {
     width: 100%;
     height: 8px;
+
     background: #eee;
+
     border-radius: 10px;
+
     overflow: hidden;
+
     margin-top: 16px;
 }
 
 .progressFill {
     height: 100%;
     width: 75%;
+
     background: #2f9b62;
+
     border-radius: 10px;
-    transition: width .25s ease;
+
+    transition:
+        width .25s ease;
 }
+
+
+/* BUTTONS */
 
 button {
     border: none;
     border-radius: 15px;
-    padding: 17px 15px;
+
+    padding:
+        17px 15px;
+
     width: 100%;
+
     font-size: 16px;
     font-weight: 800;
+
     cursor: pointer;
-    touch-action: manipulation;
+
+    touch-action:
+        manipulation;
 }
 
 .green {
@@ -150,15 +289,26 @@ button {
     height: 10px;
 }
 
+
+/* SECTIONS */
+
 .sectionTitle {
     font-size: 20px;
     font-weight: 800;
-    margin: 18px 2px 8px;
+
+    margin:
+        18px 2px 8px;
 }
 
+
+/* ACTIVITY */
+
 .activity {
-    padding: 13px 0;
-    border-bottom: 1px solid #eee;
+    padding:
+        13px 0;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 .activity:last-child {
@@ -167,7 +317,10 @@ button {
 
 .activityTop {
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
     gap: 12px;
 }
 
@@ -193,41 +346,129 @@ button {
 
 .empty {
     color: #888;
+
     text-align: center;
-    padding: 25px 10px;
+
+    padding:
+        25px 10px;
 }
 
+
+/* HISTORY */
+
 .historyRow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    padding:
+        15px 0;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 .historyRow:last-child {
     border-bottom: none;
 }
 
+.historyTop {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
 .historyScore {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 24px;
+    font-weight: 900;
 }
 
 .small {
     color: #888;
     font-size: 13px;
+    margin-top: 3px;
 }
+
+.historyDetails {
+    margin-top: 12px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid #eee;
+}
+
+.historyBehavior {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    padding:
+        5px 0;
+
+    font-size: 13px;
+}
+
+
+/* STATS */
+
+.statsGrid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+.statCard {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, .05);
+}
+
+.statNumber {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.statLabel {
+    color: #777;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
 
 /* MODAL */
 
 .overlay {
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,.42);
+
+    background:
+        rgba(0, 0, 0, .42);
+
     display: none;
-    align-items: flex-end;
-    justify-content: center;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
     z-index: 100;
 }
 
@@ -238,75 +479,169 @@ button {
 .sheet {
     width: 100%;
     max-width: 600px;
+
     background: white;
-    border-radius: 25px 25px 0 0;
-    padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
-    max-height: 80vh;
+
+    border-radius:
+        25px 25px 0 0;
+
+    padding:
+        20px 16px
+        calc(
+            20px +
+            env(safe-area-inset-bottom)
+        );
+
+    max-height: 82vh;
+
     overflow-y: auto;
 }
 
 .sheet h2 {
-    margin: 0 0 14px;
+    margin:
+        0 0 5px;
+}
+
+.sheetSubtitle {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
 }
 
 .option {
     width: 100%;
+
     text-align: left;
+
     background: #f4f4f4;
+
     color: #171717;
+
     margin: 6px 0;
+
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
     align-items: center;
 }
 
-.customRow {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
+.option strong {
+    flex-shrink: 0;
 }
 
-.customRow input {
-    flex: 1;
-    min-width: 0;
-    border: 1px solid #ddd;
+
+/* CUSTOM */
+
+.customSection {
+    margin-top: 18px;
+
+    border-top:
+        1px solid #eee;
+
+    padding-top: 15px;
+}
+
+.customTitle {
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.customInput {
+    width: 100%;
+
+    border:
+        1px solid #ddd;
+
     border-radius: 12px;
+
     padding: 14px;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+.pointsRow {
+    display: flex;
+    gap: 8px;
+}
+
+.pointsInput {
+    width: 90px;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 14px;
+
     font-size: 16px;
 }
 
-.customRow button {
-    width: auto;
-    padding-left: 18px;
-    padding-right: 18px;
+.customAddButton {
+    flex: 1;
 }
 
-/* BOTTOM NAV */
+
+/* NAVIGATION */
 
 nav {
     position: fixed;
+
     bottom: 0;
     left: 0;
     right: 0;
-    height: calc(72px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: rgba(255,255,255,.97);
-    border-top: 1px solid #ddd;
+
+    height:
+        calc(
+            72px +
+            env(safe-area-inset-bottom)
+        );
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    background:
+        rgba(255, 255, 255, .97);
+
+    border-top:
+        1px solid #ddd;
+
     display: flex;
+
     z-index: 50;
 }
 
 .navButton {
     flex: 1;
-    background: transparent;
+
+    background:
+        transparent;
+
     color: #777;
+
     border-radius: 0;
-    padding: 10px 4px;
+
+    padding:
+        10px 4px;
+
     font-size: 11px;
+
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 }
 
 .navButton .icon {
@@ -317,19 +652,33 @@ nav {
 .navButton.active {
     color: #4979bd;
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
-    <h1>Taylor Tracker</h1>
-    <p>Official Boyfriend Accountability System</p>
+
+    <h1>
+        Taylor Tracker
+    </h1>
+
+    <p>
+        Official Boyfriend
+        Performance Management System
+    </p>
+
 </header>
+
 
 <!-- TODAY -->
 
-<section id="todayPage" class="page active">
+<section
+    id="todayPage"
+    class="page active"
+>
 
     <div class="card center">
 
@@ -337,46 +686,88 @@ nav {
             id="taylorImage"
             class="character"
             src="TaylorGoodStanding.png"
-            alt="Taylor"
+            alt="Tiny Taylor"
         >
 
-        <div id="score" class="score">75</div>
-        <div class="label">BOYFRIEND RATING</div>
-
-        <div id="status" class="status">
-            👍 GOOD STANDING
+        <div
+            id="score"
+            class="score"
+        >
+            75
         </div>
 
-        <div id="message" class="message">
-            Performance is currently acceptable.
+        <div class="label">
+            BOYFRIEND RATING
         </div>
+
+        <div
+            id="status"
+            class="status"
+        >
+            💚 GOOD STANDING
+        </div>
+
+        <div
+            id="message"
+            class="message"
+        >
+            No corrective action required.
+        </div>
+
 
         <div class="progress">
-            <div id="progressFill" class="progressFill"></div>
+
+            <div
+                id="progressFill"
+                class="progressFill"
+            ></div>
+
         </div>
 
     </div>
 
-    <button id="commendButton" class="green">
+
+    <button
+        id="commendButton"
+        class="green"
+    >
         💚 COMMEND TAYLOR
     </button>
 
+
     <div class="buttonGap"></div>
 
-    <button id="reportButton" class="red">
+
+    <button
+        id="reportButton"
+        class="red"
+    >
         🚨 REPORT INCIDENT
     </button>
 
+
     <div class="buttonGap"></div>
 
-    <button id="newDayButton" class="blue">
+
+    <button
+        id="newDayButton"
+        class="blue"
+    >
         🌅 START NEW DAY
     </button>
 
-    <div class="sectionTitle">Today's Activity</div>
+
+    <div class="sectionTitle">
+        Today's Activity
+    </div>
+
 
     <div class="card">
-        <div id="todayActivity"></div>
+
+        <div
+            id="todayActivity"
+        ></div>
+
     </div>
 
 </section>
@@ -384,12 +775,33 @@ nav {
 
 <!-- HISTORY -->
 
-<section id="historyPage" class="page">
+<section
+    id="historyPage"
+    class="page"
+>
 
-    <div class="sectionTitle">Score History</div>
+    <div class="sectionTitle">
+        Performance Analytics
+    </div>
+
+
+    <div
+        id="statsGrid"
+        class="statsGrid"
+    ></div>
+
+
+    <div class="sectionTitle">
+        Daily History
+    </div>
+
 
     <div class="card">
-        <div id="historyList"></div>
+
+        <div
+            id="historyList"
+        ></div>
+
     </div>
 
 </section>
@@ -397,12 +809,22 @@ nav {
 
 <!-- LOGS -->
 
-<section id="logsPage" class="page">
+<section
+    id="logsPage"
+    class="page"
+>
 
-    <div class="sectionTitle">All Behavior Logs</div>
+    <div class="sectionTitle">
+        Complete Personnel File
+    </div>
+
 
     <div class="card">
-        <div id="allLogs"></div>
+
+        <div
+            id="allLogs"
+        ></div>
+
     </div>
 
 </section>
@@ -410,26 +832,77 @@ nav {
 
 <!-- MODAL -->
 
-<div id="overlay" class="overlay">
+<div
+    id="overlay"
+    class="overlay"
+>
 
     <div class="sheet">
 
-        <h2 id="sheetTitle">Choose Behavior</h2>
+        <h2
+            id="sheetTitle"
+        >
+            Choose Behavior
+        </h2>
 
-        <div id="options"></div>
 
-        <div class="customRow">
+        <div
+            id="sheetSubtitle"
+            class="sheetSubtitle"
+        ></div>
+
+
+        <div
+            id="options"
+        ></div>
+
+
+        <div class="customSection">
+
+            <div class="customTitle">
+                Custom Behavior
+            </div>
+
+
             <input
                 id="customText"
+                class="customInput"
                 type="text"
-                placeholder="Custom behavior"
+                placeholder="What did Taylor do?"
             >
-            <button id="customAdd" class="blue">Add</button>
+
+
+            <div class="pointsRow">
+
+                <input
+                    id="customPoints"
+                    class="pointsInput"
+                    type="number"
+                    min="1"
+                    max="25"
+                    value="3"
+                >
+
+
+                <button
+                    id="customAdd"
+                    class="blue customAddButton"
+                >
+                    Add
+                </button>
+
+            </div>
+
         </div>
+
 
         <div class="buttonGap"></div>
 
-        <button id="cancelButton" class="gray">
+
+        <button
+            id="cancelButton"
+            class="gray"
+        >
             Cancel
         </button>
 
@@ -442,615 +915,2240 @@ nav {
 
 <nav>
 
-    <button class="navButton active" data-page="todayPage">
-        <span class="icon">❤️</span>
+    <button
+        class="navButton active"
+        data-page="todayPage"
+    >
+
+        <span class="icon">
+            🏠
+        </span>
+
         Today
+
     </button>
 
-    <button class="navButton" data-page="historyPage">
-        <span class="icon">📊</span>
+
+    <button
+        class="navButton"
+        data-page="historyPage"
+    >
+
+        <span class="icon">
+            📊
+        </span>
+
         History
+
     </button>
 
-    <button class="navButton" data-page="logsPage">
-        <span class="icon">📋</span>
+
+    <button
+        class="navButton"
+        data-page="logsPage"
+    >
+
+        <span class="icon">
+            📋
+        </span>
+
         Logs
+
     </button>
 
 </nav>
 
 
+
 <script>
+
 (function () {
 
-    "use strict";
-
-    var START_SCORE = 75;
-
-    var compliments = [
-        ["Made Dinner", 5],
-        ["Did the Dishes", 4],
-        ["Cleaned Without Being Asked", 5],
-        ["Bought Flowers", 6],
-        ["Planned a Date", 7],
-        ["Gave Foot Rub", 4],
-        ["Good Communication", 5],
-        ["Extra Affectionate", 4],
-        ["Made Kate Laugh", 3],
-        ["Thoughtful Surprise", 6]
-    ];
-
-    var incidents = [
-        ["Didn't Listen", -4],
-        ["Left a Mess", -3],
-        ["Annoying for No Reason", -2],
-        ["Bad Communication", -5],
-        ["Forgot Something Important", -5],
-        ["Was Grumpy", -3],
-        ["Deez Nuts Joke", -3],
-        ["That's What She Said Joke", -3],
-        ["Cheating Joke", -5],
-        ["General Boyfriend Misconduct", -4]
-    ];
+"use strict";
 
 
-    function safeParse(value, fallback) {
-        if (!value) return fallback;
+/* ---------------------------------
+   SETTINGS
+--------------------------------- */
 
-        try {
-            return JSON.parse(value);
-        } catch (error) {
-            return fallback;
-        }
+var START_SCORE = 75;
+
+
+/* ---------------------------------
+   COMMENDATIONS
+--------------------------------- */
+
+var compliments = [
+
+    ["Forehead Kiss", 3],
+
+    ["Random I Love You", 3],
+
+    ["Brings Katelin Coffee", 4],
+
+    ["Brings You Flowers", 5],
+
+    ["Brings Home a Treat", 5],
+
+    ["Cooks Dinner", 8],
+
+    ["Brings You a Snack", 5],
+
+    ["Unprompted Compliment", 4],
+
+    ["Unprompted Cuddle", 3],
+
+    [
+        "Does a Chore Without Being Asked",
+        7
+    ],
+
+    [
+        "Remembers Something Katelin Mentioned",
+        6
+    ],
+
+    ["Thoughtful Surprise", 8],
+
+    [
+        "Plans a Date Without Assistance",
+        10
+    ],
+
+    ["Unprompted Foot Rub", 10],
+
+    [
+        "Excellent Emotional Support",
+        8
+    ],
+
+    [
+        "Takes a Good Picture of Katelin",
+        5
+    ],
+
+    [
+        "Takes Multiple Good Pictures Without Complaining",
+        8
+    ],
+
+    [
+        "Handles an Annoying Errand",
+        6
+    ],
+
+    [
+        "Admits Katelin Was Right",
+        10
+    ],
+
+    [
+        "Apologizes Without Being Prompted",
+        8
+    ],
+
+    [
+        "Makes Katelin Laugh When Annoyed",
+        6
+    ],
+
+    [
+        "Exceptional Boyfriend Behavior",
+        15
+    ],
+
+    [
+        "Puts Phone Away Without Being Asked",
+        5
+    ],
+
+    ["Makes the Bed", 4],
+
+    [
+        "Cleans Up After Himself Immediately",
+        5
+    ],
+
+    [
+        "Takes Out the Trash Without Being Asked",
+        4
+    ],
+
+    [
+        "Offers to Carry Something Heavy",
+        3
+    ],
+
+    [
+        "Brings Katelin Water Without Being Asked",
+        4
+    ],
+
+    [
+        "Gives Katelin the Better Bite",
+        4
+    ],
+
+    [
+        "Lets Katelin Pick the Movie Without Complaining",
+        3
+    ],
+
+    [
+        "Actually Watches the Movie Katelin Picked",
+        4
+    ],
+
+    [
+        "Remembers an Important Date",
+        8
+    ],
+
+    [
+        "Makes Plans Without Making Katelin Organize Everything",
+        6
+    ],
+
+    [
+        "Excellent Airport Boyfriend Performance",
+        10
+    ],
+
+    [
+        "Excellent Travel Boyfriend Performance",
+        10
+    ],
+
+    [
+        "Handles Spider or Bug Emergency",
+        5
+    ],
+
+    [
+        "Checks That Katelin Got Home Safe",
+        4
+    ],
+
+    [
+        "Offers Jacket When Katelin Is Cold",
+        4
+    ],
+
+    [
+        "Orders Food Katelin Likes Without Asking",
+        5
+    ],
+
+    [
+        "Voluntarily Runs to the Store",
+        5
+    ],
+
+    [
+        "Charges Katelin's Phone",
+        4
+    ],
+
+    [
+        "Makes Reservation Without Assistance",
+        7
+    ],
+
+    [
+        "Remembers Katelin's Order",
+        6
+    ],
+
+    [
+        "Notices Something Is Wrong Without Being Told",
+        8
+    ],
+
+    [
+        "Provides Snack at Critical Moment",
+        6
+    ],
+
+    [
+        "Excellent Public Boyfriend Performance",
+        7
+    ],
+
+    [
+        "Defends Katelin Correctly",
+        8
+    ],
+
+    [
+        "Survives Target Trip Without Complaining",
+        5
+    ],
+
+    [
+        "Gives Katelin the Comfier Spot",
+        4
+    ],
+
+    [
+        "Gets Up to Get Something So Katelin Doesn't Have To",
+        4
+    ],
+
+    [
+        "Sends Cute Text for No Reason",
+        4
+    ],
+
+    [
+        "Makes Genuine Effort With Katelin's Friends",
+        6
+    ],
+
+    [
+        "Makes Genuine Effort With Katelin's Family",
+        6
+    ],
+
+    [
+        "Remembers Tiny Detail From Previous Conversation",
+        7
+    ],
+
+    [
+        "Immediately Agrees to Take a Picture",
+        4
+    ],
+
+    ["Takes Initiative", 8],
+
+    [
+        "Handles a Problem Before Katelin Has to Ask",
+        9
+    ],
+
+    [
+        "Above and Beyond Boyfriend Service",
+        12
+    ]
+
+];
+
+
+/* ---------------------------------
+   INCIDENTS
+--------------------------------- */
+
+var incidents = [
+
+    ["Deez Nuts Joke", -3],
+
+    [
+        "That's What She Said Joke",
+        -3
+    ],
+
+    ["Cheating Joke", -5],
+
+    [
+        "Katelin Says Something and Taylor Simply Does Not Respond",
+        -2
+    ],
+
+    [
+        "Was Clearly Not Listening",
+        -5
+    ],
+
+    [
+        "Phone Crimes During Quality Time",
+        -4
+    ],
+
+    [
+        "Excessive Phone Scrolling",
+        -3
+    ],
+
+    [
+        "Steals the Blanket",
+        -4
+    ],
+
+    [
+        "Falls Asleep During Movie Katelin Picked",
+        -3
+    ],
+
+    [
+        "Says It'll Be an Early Night, Stays Out Late",
+        -8
+    ],
+
+    [
+        "Fails to Provide ETA",
+        -4
+    ],
+
+    [
+        "Unnecessary Devil's Advocate Behavior",
+        -5
+    ],
+
+    [
+        "Weaponized Incompetence",
+        -7
+    ],
+
+    [
+        "Leaves Mess for Future Taylor",
+        -4
+    ],
+
+    [
+        "Repeated Deez Nuts Offense",
+        -7
+    ],
+
+    [
+        "Makes Same Joke After Being Told It Wasn't Funny",
+        -6
+    ],
+
+    [
+        "Fake Apology / Sorry You Feel That Way",
+        -10
+    ],
+
+    [
+        "Disturbing the Peace",
+        -5
+    ],
+
+    [
+        "General Boyfriend Misconduct",
+        -5
+    ],
+
+    [
+        "Boyfriend Felony",
+        -25
+    ],
+
+    [
+        "Leaves Cabinet Door Open",
+        -2
+    ],
+
+    [
+        "Leaves Drawer Open",
+        -2
+    ],
+
+    [
+        "Leaves Clothes on Floor",
+        -3
+    ],
+
+    [
+        "Creates Additional Chore",
+        -5
+    ],
+
+    [
+        "Asks Where Something Is Before Looking",
+        -3
+    ],
+
+    [
+        "Selective Hearing",
+        -4
+    ],
+
+    [
+        "Forgets What Katelin Just Said",
+        -4
+    ],
+
+    [
+        "Questionable Tone",
+        -4
+    ],
+
+    [
+        "Unnecessary Mansplaining",
+        -6
+    ],
+
+    [
+        "Argues About Something Easily Googleable",
+        -4
+    ],
+
+    [
+        "Says We'll See Instead of Making a Decision",
+        -3
+    ],
+
+    [
+        "Takes Forever in the Bathroom",
+        -3
+    ],
+
+    [
+        "Does Not Replace Toilet Paper Roll",
+        -4
+    ],
+
+    [
+        "Leaves Empty Container in Fridge",
+        -4
+    ],
+
+    [
+        "Puts Empty Box Back in Cabinet",
+        -4
+    ],
+
+    [
+        "Doesn't Know What He Wants to Eat but Rejects Suggestions",
+        -5
+    ],
+
+    [
+        "Asks What Katelin Wants to Do Then Rejects It",
+        -5
+    ],
+
+    [
+        "Forgets to Text Back",
+        -3
+    ],
+
+    [
+        "Unexplained Disappearance From Text Conversation",
+        -4
+    ],
+
+    [
+        "Fails to Notice Obvious Hair or Outfit Change",
+        -4
+    ],
+
+    [
+        "Complains During Photo Taking",
+        -5
+    ],
+
+    [
+        "Takes One Bad Picture and Says It's Fine",
+        -6
+    ],
+
+    [
+        "Refuses Reasonable Retake Request",
+        -5
+    ],
+
+    [
+        "Falls Asleep at Critical Plot Point",
+        -4
+    ],
+
+    ["Spoils Something", -8],
+
+    [
+        "Hogs the Good Pillow",
+        -3
+    ],
+
+    [
+        "Hogs the Bed",
+        -4
+    ],
+
+    [
+        "Temperature Control Misconduct",
+        -4
+    ],
+
+    [
+        "Unnecessary Alarm Snoozing",
+        -5
+    ],
+
+    [
+        "Leaves Wet Towel Somewhere Unacceptable",
+        -4
+    ],
+
+    [
+        "Fails to Refill Water",
+        -3
+    ],
+
+    [
+        "Finishes Snack Without Warning Katelin",
+        -6
+    ],
+
+    [
+        "Eats Katelin's Food After Saying He Didn't Want Any",
+        -7
+    ],
+
+    [
+        "Fails to Bring Home Promised Treat",
+        -6
+    ],
+
+    [
+        "Makes Katelin Choose Every Single Plan",
+        -6
+    ],
+
+    [
+        "Needs Excessive Reminding",
+        -5
+    ],
+
+    [
+        "Says In a Minute and Does Not Do It",
+        -5
+    ],
+
+    [
+        "Repeat Offender Enhancement",
+        -8
+    ],
+
+    [
+        "Aggravated Boyfriend Misconduct",
+        -12
+    ],
+
+    [
+        "Conduct Unbecoming of a Boyfriend",
+        -10
+    ],
+
+    [
+        "Boyfriend Misdemeanor",
+        -8
+    ],
+
+    [
+        "Boyfriend Felony With Aggravating Circumstances",
+        -25
+    ]
+
+];
+
+
+/* ---------------------------------
+   LOCAL STORAGE
+--------------------------------- */
+
+function safeParse(
+    value,
+    fallback
+) {
+
+    if (!value) {
+        return fallback;
     }
 
+    try {
 
-    var savedScore = Number(localStorage.getItem("taylorScore"));
+        return JSON.parse(
+            value
+        );
 
-    var score = Number.isFinite(savedScore) && savedScore > 0
-        ? savedScore
+    } catch (error) {
+
+        return fallback;
+    }
+}
+
+
+var storedScore =
+    Number(
+        localStorage.getItem(
+            "taylorScore"
+        )
+    );
+
+
+var score =
+    Number.isFinite(
+        storedScore
+    )
+        ? storedScore
         : START_SCORE;
 
-    var activity = safeParse(
-        localStorage.getItem("taylorActivity"),
+
+var activity =
+    safeParse(
+        localStorage.getItem(
+            "taylorActivity"
+        ),
         []
     );
 
-    var history = safeParse(
-        localStorage.getItem("taylorHistory"),
+
+var history =
+    safeParse(
+        localStorage.getItem(
+            "taylorHistory"
+        ),
         []
     );
 
-    var dayStarted = localStorage.getItem("taylorDayStarted");
 
-    if (!dayStarted) {
-        dayStarted = new Date().toISOString();
-        localStorage.setItem("taylorDayStarted", dayStarted);
-    }
-
-
-    var scoreEl = document.getElementById("score");
-    var statusEl = document.getElementById("status");
-    var messageEl = document.getElementById("message");
-    var progressFill = document.getElementById("progressFill");
-    var taylorImage = document.getElementById("taylorImage");
-
-    var todayActivity = document.getElementById("todayActivity");
-    var historyList = document.getElementById("historyList");
-    var allLogs = document.getElementById("allLogs");
-
-    var overlay = document.getElementById("overlay");
-    var options = document.getElementById("options");
-    var sheetTitle = document.getElementById("sheetTitle");
-    var customText = document.getElementById("customText");
-
-    var currentMode = "positive";
+var dayStarted =
+    localStorage.getItem(
+        "taylorDayStarted"
+    );
 
 
-    function save() {
-        localStorage.setItem("taylorScore", String(score));
-        localStorage.setItem(
-            "taylorActivity",
-            JSON.stringify(activity)
-        );
-        localStorage.setItem(
-            "taylorHistory",
-            JSON.stringify(history)
-        );
-        localStorage.setItem(
-            "taylorDayStarted",
-            dayStarted
-        );
-    }
+if (!dayStarted) {
+
+    dayStarted =
+        new Date()
+            .toISOString();
+
+    localStorage.setItem(
+        "taylorDayStarted",
+        dayStarted
+    );
+}
 
 
-    function getTier(value) {
+/* ---------------------------------
+   ELEMENTS
+--------------------------------- */
 
-        if (value >= 90) {
-            return {
-                title: "👑 ELITE BOYFRIEND",
-                message: "Shareholders remain extremely pleased.",
-                image: "TaylorElite.png"
-            };
-        }
+var scoreEl =
+    document.getElementById(
+        "score"
+    );
 
-        if (value >= 75) {
-            return {
-                title: "👍 GOOD STANDING",
-                message: "Performance is currently acceptable.",
-                image: "TaylorGoodStanding.png"
-            };
-        }
+var statusEl =
+    document.getElementById(
+        "status"
+    );
 
-        if (value >= 60) {
-            return {
-                title: "⚠️ UNDER REVIEW",
-                message: "Management is monitoring the situation.",
-                image: "TaylorUnderReview.png"
-            };
-        }
+var messageEl =
+    document.getElementById(
+        "message"
+    );
 
-        if (value >= 40) {
-            return {
-                title: "🚨 PROBATION",
-                message: "Immediate behavioral improvement required.",
-                image: "TaylorProbation.png"
-            };
-        }
+var progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+var taylorImage =
+    document.getElementById(
+        "taylorImage"
+    );
+
+var todayActivity =
+    document.getElementById(
+        "todayActivity"
+    );
+
+var historyList =
+    document.getElementById(
+        "historyList"
+    );
+
+var allLogs =
+    document.getElementById(
+        "allLogs"
+    );
+
+var statsGrid =
+    document.getElementById(
+        "statsGrid"
+    );
+
+var overlay =
+    document.getElementById(
+        "overlay"
+    );
+
+var options =
+    document.getElementById(
+        "options"
+    );
+
+var sheetTitle =
+    document.getElementById(
+        "sheetTitle"
+    );
+
+var sheetSubtitle =
+    document.getElementById(
+        "sheetSubtitle"
+    );
+
+var customText =
+    document.getElementById(
+        "customText"
+    );
+
+var customPoints =
+    document.getElementById(
+        "customPoints"
+    );
+
+
+var currentMode =
+    "positive";
+
+
+/* ---------------------------------
+   SAVE
+--------------------------------- */
+
+function save() {
+
+    localStorage.setItem(
+        "taylorScore",
+        String(score)
+    );
+
+    localStorage.setItem(
+        "taylorActivity",
+        JSON.stringify(
+            activity
+        )
+    );
+
+    localStorage.setItem(
+        "taylorHistory",
+        JSON.stringify(
+            history
+        )
+    );
+
+    localStorage.setItem(
+        "taylorDayStarted",
+        dayStarted
+    );
+}
+
+
+/* ---------------------------------
+   TIER
+--------------------------------- */
+
+function getTier(
+    value
+) {
+
+    if (value >= 90) {
 
         return {
-            title: "🚔 BOYFRIEND JAIL",
-            message: "The board has reached its limit.",
-            image: "TaylorJail.png"
+
+            title:
+                "👑 ELITE BOYFRIEND",
+
+            message:
+                "Shareholders remain extremely pleased.",
+
+            image:
+                "TaylorElite.png"
         };
     }
 
 
-    function formatDate(iso) {
+    if (value >= 75) {
 
-        var date = new Date(iso);
+        return {
 
-        return date.toLocaleDateString(
-            undefined,
-            {
-                month: "short",
-                day: "numeric",
-                year: "numeric"
-            }
-        );
+            title:
+                "💚 GOOD STANDING",
+
+            message:
+                "No corrective action required.",
+
+            image:
+                "TaylorGoodStanding.png"
+        };
     }
 
 
-    function formatTime(iso) {
+    if (value >= 60) {
 
-        var date = new Date(iso);
+        return {
 
-        return date.toLocaleTimeString(
-            undefined,
-            {
-                hour: "numeric",
-                minute: "2-digit"
-            }
-        );
+            title:
+                "⚠️ UNDER REVIEW",
+
+            message:
+                "Performance has declined this quarter.",
+
+            image:
+                "TaylorUnderReview.png"
+        };
     }
 
 
-    function renderScore() {
+    if (value >= 40) {
 
-        var tier = getTier(score);
+        return {
 
-        scoreEl.textContent = score;
-        statusEl.textContent = tier.title;
-        messageEl.textContent = tier.message;
-        taylorImage.src = tier.image;
+            title:
+                "📋 PROBATION",
 
-        var percent = Math.max(
+            message:
+                "Management has identified several areas for improvement.",
+
+            image:
+                "TaylorProbation.png"
+        };
+    }
+
+
+    return {
+
+        title:
+            "🚔 BOYFRIEND JAIL",
+
+        message:
+            "Privileges suspended pending forehead-kiss remediation.",
+
+        image:
+            "TaylorJail.png"
+    };
+}
+
+
+/* ---------------------------------
+   DATE HELPERS
+--------------------------------- */
+
+function formatDate(
+    iso
+) {
+
+    var date =
+        new Date(iso);
+
+    return date
+        .toLocaleDateString(
+            undefined,
+            {
+                month:
+                    "short",
+
+                day:
+                    "numeric",
+
+                year:
+                    "numeric"
+            }
+        );
+}
+
+
+function formatTime(
+    iso
+) {
+
+    var date =
+        new Date(iso);
+
+    return date
+        .toLocaleTimeString(
+            undefined,
+            {
+                hour:
+                    "numeric",
+
+                minute:
+                    "2-digit"
+            }
+        );
+}
+
+
+/* ---------------------------------
+   ESCAPE HTML
+--------------------------------- */
+
+function escapeHTML(
+    text
+) {
+
+    var div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        String(text);
+
+    return div.innerHTML;
+}
+
+
+/* ---------------------------------
+   SCORE DISPLAY
+--------------------------------- */
+
+function renderScore() {
+
+    var tier =
+        getTier(score);
+
+
+    scoreEl.textContent =
+        score;
+
+
+    statusEl.textContent =
+        tier.title;
+
+
+    messageEl.textContent =
+        tier.message;
+
+
+    taylorImage.src =
+        tier.image;
+
+
+    progressFill.style.width =
+        Math.max(
             0,
-            Math.min(100, score)
-        );
+            Math.min(
+                100,
+                score
+            )
+        ) + "%";
+}
 
-        progressFill.style.width = percent + "%";
+
+/* ---------------------------------
+   ACTIVITY HTML
+--------------------------------- */
+
+function activityHTML(
+    item
+) {
+
+    var positive =
+        item.points > 0;
+
+
+    var pointsClass =
+        positive
+            ? "pointsPositive"
+            : "pointsNegative";
+
+
+    var sign =
+        positive
+            ? "+"
+            : "";
+
+
+    return (
+
+        '<div class="activity">' +
+
+            '<div class="activityTop">' +
+
+                '<div class="activityName">' +
+
+                    escapeHTML(
+                        item.name
+                    ) +
+
+                "</div>" +
+
+
+                '<div class="' +
+                    pointsClass +
+                '">' +
+
+                    sign +
+                    item.points +
+
+                "</div>" +
+
+            "</div>" +
+
+
+            '<div class="activityDate">' +
+
+                formatDate(
+                    item.date
+                ) +
+
+                " • " +
+
+                formatTime(
+                    item.date
+                ) +
+
+            "</div>" +
+
+        "</div>"
+    );
+}
+
+
+/* ---------------------------------
+   TODAY
+--------------------------------- */
+
+function renderToday() {
+
+    if (
+        activity.length === 0
+    ) {
+
+        todayActivity.innerHTML =
+
+            '<div class="empty">' +
+
+            "No behavior logged yet today." +
+
+            "</div>";
+
+        return;
     }
 
 
-    function activityHTML(item) {
+    var html = "";
 
-        var pointsClass =
-            item.points >= 0
-                ? "pointsPositive"
-                : "pointsNegative";
 
-        var sign =
-            item.points > 0
-                ? "+"
-                : "";
+    for (
+        var i =
+            activity.length - 1;
 
-        return (
-            '<div class="activity">' +
-                '<div class="activityTop">' +
-                    '<div class="activityName">' +
-                        escapeHTML(item.name) +
-                    '</div>' +
-                    '<div class="' + pointsClass + '">' +
-                        sign + item.points +
-                    '</div>' +
-                '</div>' +
-                '<div class="activityDate">' +
-                    formatDate(item.date) +
-                    " • " +
-                    formatTime(item.date) +
-                '</div>' +
-            '</div>'
-        );
+        i >= 0;
+
+        i--
+    ) {
+
+        html +=
+            activityHTML(
+                activity[i]
+            );
     }
 
 
-    function escapeHTML(text) {
-
-        var div = document.createElement("div");
-
-        div.textContent = String(text);
-
-        return div.innerHTML;
-    }
+    todayActivity.innerHTML =
+        html;
+}
 
 
-    function renderToday() {
+/* ---------------------------------
+   HISTORY
+--------------------------------- */
 
-        if (!activity.length) {
+function renderHistory() {
 
-            todayActivity.innerHTML =
-                '<div class="empty">' +
-                "No behavior logged yet today." +
-                "</div>";
+    if (
+        history.length === 0
+    ) {
 
-            return;
-        }
+        historyList.innerHTML =
+
+            '<div class="empty">' +
+
+            "No completed days yet." +
+
+            "</div>";
+
+    } else {
 
         var html = "";
 
-        for (var i = activity.length - 1; i >= 0; i--) {
-            html += activityHTML(activity[i]);
-        }
 
-        todayActivity.innerHTML = html;
-    }
+        for (
+            var i =
+                history.length - 1;
 
+            i >= 0;
 
-    function renderHistory() {
+            i--
+        ) {
 
-        if (!history.length) {
-
-            historyList.innerHTML =
-                '<div class="empty">' +
-                "No completed days yet." +
-                "</div>";
-
-            return;
-        }
-
-        var html = "";
-
-        for (var i = history.length - 1; i >= 0; i--) {
-
-            var day = history[i];
-            var tier = getTier(day.score);
-
-            html +=
-                '<div class="historyRow">' +
-                    "<div>" +
-                        "<strong>" +
-                            formatDate(day.date) +
-                        "</strong>" +
-                        '<div class="small">' +
-                            escapeHTML(tier.title) +
-                            " • " +
-                            day.activities.length +
-                            " logged behaviors" +
-                        "</div>" +
-                    "</div>" +
-                    '<div class="historyScore">' +
-                        day.score +
-                    "</div>" +
-                "</div>";
-        }
-
-        historyList.innerHTML = html;
-    }
+            var day =
+                history[i];
 
 
-    function renderLogs() {
-
-        var combined = [];
-
-        for (var i = 0; i < history.length; i++) {
-
-            var oldActivities = history[i].activities || [];
-
-            for (var j = 0; j < oldActivities.length; j++) {
-                combined.push(oldActivities[j]);
-            }
-        }
-
-        for (var k = 0; k < activity.length; k++) {
-            combined.push(activity[k]);
-        }
-
-        combined.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-        });
-
-        if (!combined.length) {
-
-            allLogs.innerHTML =
-                '<div class="empty">' +
-                "No behavior has been logged yet." +
-                "</div>";
-
-            return;
-        }
-
-        var html = "";
-
-        for (var x = 0; x < combined.length; x++) {
-            html += activityHTML(combined[x]);
-        }
-
-        allLogs.innerHTML = html;
-    }
-
-
-    function renderEverything() {
-        renderScore();
-        renderToday();
-        renderHistory();
-        renderLogs();
-    }
-
-
-    function addBehavior(name, points) {
-
-        score += points;
-
-        if (score < 0) {
-            score = 0;
-        }
-
-        if (score > 100) {
-            score = 100;
-        }
-
-        activity.push({
-            name: name,
-            points: points,
-            date: new Date().toISOString()
-        });
-
-        save();
-        closeSheet();
-        renderEverything();
-    }
-
-
-    function openSheet(mode) {
-
-        currentMode = mode;
-
-        var list =
-            mode === "positive"
-                ? compliments
-                : incidents;
-
-        sheetTitle.textContent =
-            mode === "positive"
-                ? "💚 Commend Taylor"
-                : "🚨 Report Incident";
-
-        options.innerHTML = "";
-
-        for (var i = 0; i < list.length; i++) {
-
-            (function (item) {
-
-                var button = document.createElement("button");
-
-                button.className = "option";
-
-                var sign =
-                    item[1] > 0
-                        ? "+"
-                        : "";
-
-                button.innerHTML =
-                    "<span>" +
-                        escapeHTML(item[0]) +
-                    "</span>" +
-                    "<strong>" +
-                        sign +
-                        item[1] +
-                    "</strong>";
-
-                button.addEventListener(
-                    "click",
-                    function () {
-                        addBehavior(
-                            item[0],
-                            item[1]
-                        );
-                    }
+            var tier =
+                getTier(
+                    day.score
                 );
 
-                options.appendChild(button);
 
-            })(list[i]);
-        }
+            html +=
 
-        customText.value = "";
-        overlay.classList.add("show");
-    }
+                '<div class="historyRow">' +
 
+                    '<div class="historyTop">' +
 
-    function closeSheet() {
-        overlay.classList.remove("show");
-    }
+                        "<div>" +
 
+                            "<strong>" +
 
-    function addCustomBehavior() {
+                                formatDate(
+                                    day.date
+                                ) +
 
-        var name = customText.value.trim();
-
-        if (!name) {
-            return;
-        }
-
-        var points =
-            currentMode === "positive"
-                ? 3
-                : -3;
-
-        addBehavior(name, points);
-    }
+                            "</strong>" +
 
 
-    function startNewDay() {
+                            '<div class="small">' +
 
-        var confirmed = window.confirm(
-            "Start a new Taylor log? Today's score and activity will be saved to History."
-        );
+                                escapeHTML(
+                                    tier.title
+                                ) +
 
-        if (!confirmed) {
-            return;
-        }
+                                " • " +
 
-        history.push({
-            date: dayStarted,
-            score: score,
-            activities: activity.slice()
-        });
+                                day.activities.length +
 
-        score = START_SCORE;
-        activity = [];
-        dayStarted = new Date().toISOString();
+                                " logged behaviors" +
 
-        save();
-        renderEverything();
+                            "</div>" +
 
-        showPage("todayPage");
-    }
+                        "</div>" +
 
 
-    function showPage(pageID) {
+                        '<div class="historyScore">' +
 
-        var pages =
-            document.querySelectorAll(".page");
+                            day.score +
 
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].classList.remove("active");
-        }
+                        "</div>" +
 
-        var selectedPage =
-            document.getElementById(pageID);
+                    "</div>";
 
-        if (selectedPage) {
-            selectedPage.classList.add("active");
-        }
-
-
-        var navButtons =
-            document.querySelectorAll(".navButton");
-
-        for (var j = 0; j < navButtons.length; j++) {
-
-            navButtons[j].classList.remove("active");
 
             if (
-                navButtons[j].getAttribute("data-page")
-                === pageID
+                day.activities.length
             ) {
-                navButtons[j].classList.add("active");
+
+                html +=
+                    '<div class="historyDetails">';
+
+
+                for (
+                    var j = 0;
+
+                    j <
+                    day.activities.length;
+
+                    j++
+                ) {
+
+                    var event =
+                        day.activities[j];
+
+
+                    html +=
+
+                        '<div class="historyBehavior">' +
+
+                            "<span>" +
+
+                                escapeHTML(
+                                    event.name
+                                ) +
+
+                            "</span>" +
+
+
+                            '<strong class="' +
+
+                                (
+                                    event.points > 0
+                                    ? "pointsPositive"
+                                    : "pointsNegative"
+                                ) +
+
+                            '">' +
+
+                                (
+                                    event.points > 0
+                                    ? "+"
+                                    : ""
+                                ) +
+
+                                event.points +
+
+                            "</strong>" +
+
+                        "</div>";
+                }
+
+
+                html +=
+                    "</div>";
             }
+
+
+            html +=
+                "</div>";
         }
 
-        window.scrollTo(0, 0);
 
-        renderEverything();
+        historyList.innerHTML =
+            html;
     }
 
 
-    document
-        .getElementById("commendButton")
-        .addEventListener(
-            "click",
-            function () {
-                openSheet("positive");
-            }
+    renderStats();
+}
+
+
+/* ---------------------------------
+   STATS
+--------------------------------- */
+
+function renderStats() {
+
+    var totalDays =
+        history.length;
+
+
+    if (
+        totalDays === 0
+    ) {
+
+        statsGrid.innerHTML =
+
+            '<div class="statCard">' +
+
+                '<div class="statNumber">—</div>' +
+
+                '<div class="statLabel">Average Rating</div>' +
+
+            "</div>" +
+
+
+            '<div class="statCard">' +
+
+                '<div class="statNumber">0</div>' +
+
+                '<div class="statLabel">Archived Days</div>' +
+
+            "</div>" +
+
+
+            '<div class="statCard">' +
+
+                '<div class="statNumber">—</div>' +
+
+                '<div class="statLabel">Best Day</div>' +
+
+            "</div>" +
+
+
+            '<div class="statCard">' +
+
+                '<div class="statNumber">—</div>' +
+
+                '<div class="statLabel">Worst Day</div>' +
+
+            "</div>";
+
+        return;
+    }
+
+
+    var totalScore = 0;
+
+    var best =
+        history[0].score;
+
+    var worst =
+        history[0].score;
+
+
+    for (
+        var i = 0;
+
+        i < history.length;
+
+        i++
+    ) {
+
+        totalScore +=
+            history[i].score;
+
+
+        if (
+            history[i].score >
+            best
+        ) {
+
+            best =
+                history[i].score;
+        }
+
+
+        if (
+            history[i].score <
+            worst
+        ) {
+
+            worst =
+                history[i].score;
+        }
+    }
+
+
+    var average =
+        Math.round(
+            totalScore /
+            history.length
         );
 
 
-    document
-        .getElementById("reportButton")
-        .addEventListener(
-            "click",
-            function () {
-                openSheet("negative");
-            }
+    statsGrid.innerHTML =
+
+        '<div class="statCard">' +
+
+            '<div class="statNumber">' +
+
+                average +
+
+            "</div>" +
+
+            '<div class="statLabel">Average Rating</div>' +
+
+        "</div>" +
+
+
+        '<div class="statCard">' +
+
+            '<div class="statNumber">' +
+
+                history.length +
+
+            "</div>" +
+
+            '<div class="statLabel">Archived Days</div>' +
+
+        "</div>" +
+
+
+        '<div class="statCard">' +
+
+            '<div class="statNumber">' +
+
+                best +
+
+            "</div>" +
+
+            '<div class="statLabel">Best Day</div>' +
+
+        "</div>" +
+
+
+        '<div class="statCard">' +
+
+            '<div class="statNumber">' +
+
+                worst +
+
+            "</div>" +
+
+            '<div class="statLabel">Worst Day</div>' +
+
+        "</div>";
+}
+
+
+/* ---------------------------------
+   ALL LOGS
+--------------------------------- */
+
+function renderLogs() {
+
+    var combined = [];
+
+
+    for (
+        var i = 0;
+
+        i < history.length;
+
+        i++
+    ) {
+
+        var oldActivities =
+            history[i].activities ||
+            [];
+
+
+        for (
+            var j = 0;
+
+            j <
+            oldActivities.length;
+
+            j++
+        ) {
+
+            combined.push(
+                oldActivities[j]
+            );
+        }
+    }
+
+
+    for (
+        var k = 0;
+
+        k < activity.length;
+
+        k++
+    ) {
+
+        combined.push(
+            activity[k]
         );
+    }
 
 
-    document
-        .getElementById("newDayButton")
-        .addEventListener(
-            "click",
-            startNewDay
-        );
+    combined.sort(
+        function (
+            a,
+            b
+        ) {
 
+            return (
+                new Date(
+                    b.date
+                ) -
 
-    document
-        .getElementById("cancelButton")
-        .addEventListener(
-            "click",
-            closeSheet
-        );
-
-
-    document
-        .getElementById("customAdd")
-        .addEventListener(
-            "click",
-            addCustomBehavior
-        );
-
-
-    overlay.addEventListener(
-        "click",
-        function (event) {
-
-            if (event.target === overlay) {
-                closeSheet();
-            }
+                new Date(
+                    a.date
+                )
+            );
         }
     );
 
 
-    var navButtons =
-        document.querySelectorAll(".navButton");
+    if (
+        combined.length === 0
+    ) {
 
-    for (var i = 0; i < navButtons.length; i++) {
+        allLogs.innerHTML =
 
-        navButtons[i].addEventListener(
-            "click",
-            function () {
+            '<div class="empty">' +
 
-                var page =
-                    this.getAttribute("data-page");
+            "No behavior has been logged yet." +
 
-                showPage(page);
-            }
+            "</div>";
+
+        return;
+    }
+
+
+    var html = "";
+
+
+    for (
+        var x = 0;
+
+        x <
+        combined.length;
+
+        x++
+    ) {
+
+        html +=
+            activityHTML(
+                combined[x]
+            );
+    }
+
+
+    allLogs.innerHTML =
+        html;
+}
+
+
+/* ---------------------------------
+   RENDER EVERYTHING
+--------------------------------- */
+
+function renderEverything() {
+
+    renderScore();
+
+    renderToday();
+
+    renderHistory();
+
+    renderLogs();
+}
+
+
+/* ---------------------------------
+   TAYLOR ANIMATION
+--------------------------------- */
+
+function animateTaylor(
+    points
+) {
+
+    taylorImage.classList.remove(
+        "jump"
+    );
+
+    taylorImage.classList.remove(
+        "slump"
+    );
+
+
+    void taylorImage.offsetWidth;
+
+
+    if (
+        points > 0
+    ) {
+
+        if (
+            score >= 90
+        ) {
+
+            taylorImage.src =
+                "TaylorElite.png";
+
+        } else {
+
+            taylorImage.src =
+                "TaylorGoodStanding.png";
+        }
+
+
+        taylorImage.classList.add(
+            "jump"
+        );
+
+    } else {
+
+        if (
+            score < 40
+        ) {
+
+            taylorImage.src =
+                "TaylorJail.png";
+
+        } else {
+
+            taylorImage.src =
+                "TaylorProbation.png";
+        }
+
+
+        taylorImage.classList.add(
+            "slump"
         );
     }
 
 
+    setTimeout(
+
+        function () {
+
+            taylorImage
+                .classList
+                .remove(
+                    "jump"
+                );
+
+
+            taylorImage
+                .classList
+                .remove(
+                    "slump"
+                );
+
+
+            taylorImage.src =
+                getTier(
+                    score
+                ).image;
+        },
+
+        1100
+    );
+}
+
+
+/* ---------------------------------
+   ADD BEHAVIOR
+--------------------------------- */
+
+function addBehavior(
+    name,
+    points
+) {
+
+    score +=
+        points;
+
+
+    score =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                score
+            )
+        );
+
+
+    activity.push({
+
+        name:
+            name,
+
+        points:
+            points,
+
+        date:
+            new Date()
+                .toISOString()
+    });
+
+
+    save();
+
+
+    closeSheet();
+
+
     renderEverything();
+
+
+    animateTaylor(
+        points
+    );
+}
+
+
+/* ---------------------------------
+   OPEN BEHAVIOR SHEET
+--------------------------------- */
+
+function openSheet(
+    mode
+) {
+
+    currentMode =
+        mode;
+
+
+    var list =
+        mode ===
+        "positive"
+
+        ? compliments
+
+        : incidents;
+
+
+    sheetTitle.textContent =
+
+        mode ===
+        "positive"
+
+        ? "💚 Commend Taylor"
+
+        : "🚨 Report Incident";
+
+
+    sheetSubtitle.textContent =
+
+        mode ===
+        "positive"
+
+        ? "Select qualifying boyfriend behavior."
+
+        : "Select the applicable violation.";
+
+
+    options.innerHTML =
+        "";
+
+
+    for (
+        var i = 0;
+
+        i <
+        list.length;
+
+        i++
+    ) {
+
+        addOptionButton(
+            list[i]
+        );
+    }
+
+
+    customText.value =
+        "";
+
+    customPoints.value =
+        3;
+
+
+    overlay
+        .classList
+        .add(
+            "show"
+        );
+}
+
+
+/* ---------------------------------
+   OPTION BUTTON
+--------------------------------- */
+
+function addOptionButton(
+    item
+) {
+
+    var button =
+        document.createElement(
+            "button"
+        );
+
+
+    button.className =
+        "option";
+
+
+    var sign =
+        item[1] > 0
+            ? "+"
+            : "";
+
+
+    button.innerHTML =
+
+        "<span>" +
+
+            escapeHTML(
+                item[0]
+            ) +
+
+        "</span>" +
+
+
+        "<strong>" +
+
+            sign +
+            item[1] +
+
+        "</strong>";
+
+
+    button.addEventListener(
+
+        "click",
+
+        function () {
+
+            addBehavior(
+                item[0],
+                item[1]
+            );
+        }
+    );
+
+
+    options.appendChild(
+        button
+    );
+}
+
+
+/* ---------------------------------
+   CUSTOM BEHAVIOR
+--------------------------------- */
+
+function addCustomBehavior() {
+
+    var name =
+        customText
+            .value
+            .trim();
+
+
+    if (!name) {
+        return;
+    }
+
+
+    var amount =
+        Number(
+            customPoints.value
+        );
+
+
+    if (
+        !Number.isFinite(
+            amount
+        )
+    ) {
+
+        amount = 3;
+    }
+
+
+    amount =
+        Math.max(
+            1,
+            Math.min(
+                25,
+                Math.abs(
+                    amount
+                )
+            )
+        );
+
+
+    var points =
+        currentMode ===
+        "positive"
+
+        ? amount
+
+        : -amount;
+
+
+    addBehavior(
+        name,
+        points
+    );
+}
+
+
+/* ---------------------------------
+   CLOSE SHEET
+--------------------------------- */
+
+function closeSheet() {
+
+    overlay
+        .classList
+        .remove(
+            "show"
+        );
+}
+
+
+/* ---------------------------------
+   START NEW DAY
+--------------------------------- */
+
+function startNewDay() {
+
+    var confirmed =
+        window.confirm(
+
+            "Archive today's performance and start a new Taylor log at 75?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+    }
+
+
+    history.push({
+
+        date:
+            dayStarted,
+
+        score:
+            score,
+
+        activities:
+            activity.slice()
+    });
+
+
+    score =
+        START_SCORE;
+
+
+    activity =
+        [];
+
+
+    dayStarted =
+        new Date()
+            .toISOString();
+
+
+    save();
+
+
+    renderEverything();
+
+
+    showPage(
+        "todayPage"
+    );
+}
+
+
+/* ---------------------------------
+   NAVIGATION
+--------------------------------- */
+
+function showPage(
+    pageID
+) {
+
+    var pages =
+        document
+            .querySelectorAll(
+                ".page"
+            );
+
+
+    for (
+        var i = 0;
+
+        i <
+        pages.length;
+
+        i++
+    ) {
+
+        pages[i]
+            .classList
+            .remove(
+                "active"
+            );
+    }
+
+
+    var page =
+        document.getElementById(
+            pageID
+        );
+
+
+    if (page) {
+
+        page
+            .classList
+            .add(
+                "active"
+            );
+    }
+
+
+    var navButtons =
+        document
+            .querySelectorAll(
+                ".navButton"
+            );
+
+
+    for (
+        var j = 0;
+
+        j <
+        navButtons.length;
+
+        j++
+    ) {
+
+        navButtons[j]
+            .classList
+            .remove(
+                "active"
+            );
+
+
+        if (
+
+            navButtons[j]
+                .getAttribute(
+                    "data-page"
+                )
+
+            ===
+
+            pageID
+
+        ) {
+
+            navButtons[j]
+                .classList
+                .add(
+                    "active"
+                );
+        }
+    }
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+
+    renderEverything();
+}
+
+
+/* ---------------------------------
+   EVENT LISTENERS
+--------------------------------- */
+
+document
+    .getElementById(
+        "commendButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        function () {
+
+            openSheet(
+                "positive"
+            );
+        }
+    );
+
+
+document
+    .getElementById(
+        "reportButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        function () {
+
+            openSheet(
+                "negative"
+            );
+        }
+    );
+
+
+document
+    .getElementById(
+        "newDayButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        startNewDay
+    );
+
+
+document
+    .getElementById(
+        "cancelButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        closeSheet
+    );
+
+
+document
+    .getElementById(
+        "customAdd"
+    )
+    .addEventListener(
+
+        "click",
+
+        addCustomBehavior
+    );
+
+
+overlay.addEventListener(
+
+    "click",
+
+    function (
+        event
+    ) {
+
+        if (
+            event.target ===
+            overlay
+        ) {
+
+            closeSheet();
+        }
+    }
+);
+
+
+var navButtons =
+    document
+        .querySelectorAll(
+            ".navButton"
+        );
+
+
+for (
+    var n = 0;
+
+    n <
+    navButtons.length;
+
+    n++
+) {
+
+    navButtons[n]
+        .addEventListener(
+
+            "click",
+
+            function () {
+
+                var page =
+                    this.getAttribute(
+                        "data-page"
+                    );
+
+
+                showPage(
+                    page
+                );
+            }
+        );
+}
+
+
+/* ---------------------------------
+   INITIAL RENDER
+--------------------------------- */
+
+renderEverything();
+
 
 })();
 </script>
