@@ -10,41 +10,267 @@
 <link rel="apple-touch-icon" href="TaylorGoodStanding.png">
 <title>Taylor Tracker</title>
 <style>
-:root{--bg:#f7f4ef;--card:#fff;--text:#171717;--muted:#6d6d72;--line:#e6e1da;--green:#2f9b62;--red:#c84444;--blue:#4979b8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{max-width:560px;margin:auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 92px)}
-h1{text-align:center;font-size:34px;line-height:1;margin:8px 0 6px;font-weight:900;letter-spacing:-1.2px}.sub{text-align:center;color:var(--muted);font-size:12px;margin-bottom:12px}.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:14px 16px 18px;text-align:center;box-shadow:0 14px 36px rgba(30,25,20,.09)}
-.character{height:280px;display:flex;align-items:flex-end;justify-content:center}.character img{max-height:270px;max-width:95%;object-fit:contain;transform-origin:center bottom}.jump{animation:jump .72s cubic-bezier(.2,.8,.2,1)}.slump{animation:slump 1.15s ease}@keyframes jump{0%{transform:translateY(0)}35%{transform:translateY(-55px) scale(1.06)}60%{transform:translateY(4px) scale(.98)}100%{transform:translateY(0)}}@keyframes slump{0%{transform:translateY(0) scale(1)}35%,80%{transform:translateY(24px) scale(.92)}100%{transform:translateY(0) scale(1)}}
-.score{font-size:64px;font-weight:900;line-height:.95}.label{font-size:11px;font-weight:800;letter-spacing:1.1px;color:var(--muted);margin-top:7px}.status{font-size:20px;font-weight:850;margin-top:8px}.msg{font-size:13px;color:var(--muted);font-style:italic;margin:7px 0 12px}.bar{height:10px;background:#ece8e1;border-radius:99px;overflow:hidden}.bar div{height:100%;background:var(--green);transition:width .3s}.btn{width:100%;border:0;border-radius:16px;padding:16px 12px;color:#fff;font-weight:850;font-size:16px;margin-top:10px}.green{background:var(--green)}.red{background:var(--red)}.gray{background:#6f747a}
-.section{font-size:14px;font-weight:900;margin:18px 3px 9px}.item{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px 14px;margin-bottom:8px}.item .t{flex:1}.name{font-size:14px;font-weight:700}.type{font-size:11px;color:var(--muted);margin-top:2px}.pts{font-size:18px;font-weight:900}.pos{color:var(--green)}.neg{color:var(--red)}.empty{text-align:center;color:var(--muted);font-size:13px;padding:18px}
-.overlay{position:fixed;inset:0;background:#0006;display:none;align-items:flex-end;justify-content:center;z-index:50}.overlay.show{display:flex}.sheet{width:min(100%,560px);max-height:84vh;background:#fbfaf8;border-radius:26px 26px 0 0;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}.head{display:flex;gap:10px;padding:18px;border-bottom:1px solid var(--line)}.headtext{flex:1}.stitle{font-size:21px;font-weight:900}.ssub{font-size:12px;color:var(--muted);margin-top:4px}.close{border:0;border-radius:50%;width:32px;height:32px;font-size:18px}.list{overflow:auto;padding:8px 12px 16px}.option{width:100%;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 14px;margin:7px 0;text-align:left}.option span:first-child{flex:1;font-size:14px;font-weight:650}.custom{width:100%;border:1px dashed #aaa;background:#f3f0eb;border-radius:14px;padding:14px;font-weight:850;margin-top:8px}.form{padding:14px 16px 20px}.form label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:8px 2px 6px}.form input{width:100%;border:1px solid var(--line);border-radius:13px;padding:13px 14px;font-size:16px;background:#fff}.submit{width:100%;border:0;border-radius:15px;padding:15px;color:#fff;font-weight:900;margin-top:16px}
-.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,560px);display:grid;grid-template-columns:repeat(3,1fr);background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);z-index:20}.tab{border:0;background:transparent;padding:8px 4px;color:var(--muted);font-size:12px;font-weight:750}.tab.active{color:#111}.tabIcon{display:block;font-size:20px;margin-bottom:2px}.view{display:none}.view.active{display:block}
-.statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.statValue{font-size:24px;font-weight:900}.statLabel{font-size:11px;color:var(--muted);margin-top:4px}.historyCard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px}.historyTop{display:flex;align-items:center;justify-content:space-between;gap:12px}.historyDate{font-weight:850}.historyScore{font-size:24px;font-weight:900}.historyMeta{font-size:12px;color:var(--muted);margin-top:4px}.miniBar{height:7px;background:#ece8e1;border-radius:99px;overflow:hidden;margin-top:10px}.miniBar div{height:100%;background:var(--blue)}.details{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}.smallItem{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:5px 0}.chartWrap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:10px}.chart{display:flex;align-items:flex-end;gap:8px;height:160px;margin-top:8px}.barCol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}.barStick{width:100%;max-width:28px;background:var(--blue);border-radius:8px 8px 3px 3px;min-height:3px}.barLabel{font-size:10px;color:var(--muted);margin-top:5px;white-space:nowrap}.dangerNote{font-size:11px;color:var(--muted);margin-top:8px}
+:root{
+  --bg:#f7f4ef;--card:#fff;--text:#171717;--muted:#6d6d72;--line:#e6e1da;
+  --green:#2f9b62;--red:#c84444;--blue:#4979b8
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{padding-bottom:90px}
+.app{max-width:560px;margin:auto;padding:calc(env(safe-area-inset-top) + 14px) 16px 24px}
+h1{text-align:center;font-size:34px;line-height:1;margin:8px 0 6px;font-weight:900;letter-spacing:-1.2px}
+.sub{text-align:center;color:var(--muted);font-size:12px;margin-bottom:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:14px 16px 18px;text-align:center;box-shadow:0 14px 36px rgba(30,25,20,.09)}
+.character{height:280px;display:flex;align-items:flex-end;justify-content:center}
+.character img{max-height:270px;max-width:95%;object-fit:contain;transform-origin:center bottom}
+.jump{animation:jump .72s cubic-bezier(.2,.8,.2,1)}.slump{animation:slump 1.15s ease}
+@keyframes jump{0%{transform:translateY(0)}35%{transform:translateY(-55px) scale(1.06)}60%{transform:translateY(4px) scale(.98)}100%{transform:translateY(0)}}
+@keyframes slump{0%{transform:translateY(0) scale(1)}35%,80%{transform:translateY(24px) scale(.92)}100%{transform:translateY(0) scale(1)}}
+.score{font-size:64px;font-weight:900;line-height:.95}
+.label{font-size:11px;font-weight:800;letter-spacing:1.1px;color:var(--muted);margin-top:7px}
+.status{font-size:20px;font-weight:850;margin-top:8px}
+.msg{font-size:13px;color:var(--muted);font-style:italic;margin:7px 0 12px}
+.bar{height:10px;background:#ece8e1;border-radius:99px;overflow:hidden}.bar div{height:100%;background:var(--green);transition:width .3s}
+.btn{width:100%;border:0;border-radius:16px;padding:16px 12px;color:#fff;font-weight:850;font-size:16px;margin-top:10px;-webkit-tap-highlight-color:transparent}
+.green{background:var(--green)}.red{background:var(--red)}.gray{background:#6f747a}
+.section{font-size:14px;font-weight:900;margin:18px 3px 9px}
+.item{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px 14px;margin-bottom:8px}
+.item .t{flex:1}.name{font-size:14px;font-weight:700}.type{font-size:11px;color:var(--muted);margin-top:2px}.pts{font-size:18px;font-weight:900}
+.pos{color:var(--green)}.neg{color:var(--red)}.empty{text-align:center;color:var(--muted);font-size:13px;padding:18px}
+.overlay{position:fixed;inset:0;background:#0006;display:none;align-items:flex-end;justify-content:center;z-index:200}.overlay.show{display:flex}
+.sheet{width:min(100%,560px);max-height:84vh;background:#fbfaf8;border-radius:26px 26px 0 0;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+.head{display:flex;gap:10px;padding:18px;border-bottom:1px solid var(--line)}.headtext{flex:1}.stitle{font-size:21px;font-weight:900}.ssub{font-size:12px;color:var(--muted);margin-top:4px}
+.close{border:0;border-radius:50%;width:32px;height:32px;font-size:18px}.list{overflow:auto;padding:8px 12px 16px}
+.option{width:100%;display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 14px;margin:7px 0;text-align:left}
+.option span:first-child{flex:1;font-size:14px;font-weight:650}.custom{width:100%;border:1px dashed #aaa;background:#f3f0eb;border-radius:14px;padding:14px;font-weight:850;margin-top:8px}
+.form{padding:14px 16px 20px}.form label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:8px 2px 6px}
+.form input{width:100%;border:1px solid var(--line);border-radius:13px;padding:13px 14px;font-size:16px;background:#fff}
+.submit{width:100%;border:0;border-radius:15px;padding:15px;color:#fff;font-weight:900;margin-top:16px}
+.tabs{
+  position:fixed;left:0;right:0;bottom:0;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:rgba(255,255,255,.97);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);
+  padding:8px 8px calc(env(safe-area-inset-bottom) + 8px);
+  z-index:150;
+  pointer-events:auto;
+}
+.tab{
+  border:0;background:transparent;padding:8px 4px;color:var(--muted);
+  font-size:12px;font-weight:750;min-height:52px;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+}
+.tab.active{color:#111}
+.tabIcon{display:block;font-size:20px;margin-bottom:2px}
+.view{display:none}.view.active{display:block}
+.statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+.statValue{font-size:24px;font-weight:900}.statLabel{font-size:11px;color:var(--muted);margin-top:4px}
+.historyCard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px}
+.historyTop{display:flex;align-items:center;justify-content:space-between;gap:12px}.historyDate{font-weight:850}.historyScore{font-size:24px;font-weight:900}
+.historyMeta{font-size:12px;color:var(--muted);margin-top:4px}.miniBar{height:7px;background:#ece8e1;border-radius:99px;overflow:hidden;margin-top:10px}.miniBar div{height:100%;background:var(--blue)}
+.details{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.smallItem{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:5px 0}
+.chartWrap{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:10px}
+.chart{display:flex;align-items:flex-end;gap:8px;height:160px;margin-top:8px}
+.barCol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.barStick{width:100%;max-width:28px;background:var(--blue);border-radius:8px 8px 3px 3px;min-height:3px}
+.barLabel{font-size:10px;color:var(--muted);margin-top:5px;white-space:nowrap}
+.dangerNote{font-size:11px;color:var(--muted);margin-top:8px}
 </style>
 </head>
 <body>
 <main class="app">
-<section id="todayView" class="view active"><h1>TAYLOR TRACKER</h1><div class="sub">Official Boyfriend Performance Management System</div><section class="card"><div class="character"><img id="taylor" src="TaylorGoodStanding.png" alt="Tiny Taylor"></div><div id="score" class="score">75</div><div class="label">BOYFRIEND RATING</div><div id="status" class="status"></div><div id="msg" class="msg"></div><div class="bar"><div id="fill"></div></div><button class="btn green" onclick="openPicker(true)">💚 COMMEND TAYLOR</button><button class="btn red" onclick="openPicker(false)">🚨 REPORT INCIDENT</button><button class="btn gray" onclick="confirmNewDay()">🌅 START NEW DAY</button><div class="dangerNote">Starting a new day archives today’s log and resets Taylor to 75.</div></section><div class="section">TODAY'S ACTIVITY</div><div id="activity"></div></section>
-<section id="historyView" class="view"><h1>HISTORY</h1><div class="sub">Longitudinal boyfriend performance analytics</div><div id="stats" class="statsGrid"></div><div class="chartWrap"><div class="section" style="margin-top:0">RECENT SCORE TREND</div><div id="chart" class="chart"></div></div><div class="section">ARCHIVED DAYS</div><div id="historyList"></div></section>
-<section id="logsView" class="view"><h1>LOGS</h1><div class="sub">Current and archived personnel records</div><div class="section">CURRENT DAY</div><div id="currentLog"></div><div class="section">PAST DAYS</div><div id="logsList"></div></section>
+<section id="todayView" class="view active">
+<h1>TAYLOR TRACKER</h1><div class="sub">Official Boyfriend Performance Management System</div>
+<section class="card">
+<div class="character"><img id="taylor" src="TaylorGoodStanding.png" alt="Tiny Taylor"></div>
+<div id="score" class="score">75</div><div class="label">BOYFRIEND RATING</div>
+<div id="status" class="status"></div><div id="msg" class="msg"></div>
+<div class="bar"><div id="fill"></div></div>
+<button class="btn green" id="commendBtn">💚 COMMEND TAYLOR</button>
+<button class="btn red" id="incidentBtn">🚨 REPORT INCIDENT</button>
+<button class="btn gray" id="newDayBtn">🌅 START NEW DAY</button>
+<div class="dangerNote">Starting a new day archives today’s log and resets Taylor to 75.</div>
+</section>
+<div class="section">TODAY'S ACTIVITY</div><div id="activity"></div>
+</section>
+
+<section id="historyView" class="view">
+<h1>HISTORY</h1><div class="sub">Longitudinal boyfriend performance analytics</div>
+<div id="stats" class="statsGrid"></div>
+<div class="chartWrap"><div class="section" style="margin-top:0">RECENT SCORE TREND</div><div id="chart" class="chart"></div></div>
+<div class="section">ARCHIVED DAYS</div><div id="historyList"></div>
+</section>
+
+<section id="logsView" class="view">
+<h1>LOGS</h1><div class="sub">Current and archived personnel records</div>
+<div class="section">CURRENT DAY</div><div id="currentLog"></div>
+<div class="section">PAST DAYS</div><div id="logsList"></div>
+</section>
 </main>
-<nav class="tabs"><button id="tabToday" class="tab active" onclick="showTab('today')"><span class="tabIcon">🏠</span>Today</button><button id="tabHistory" class="tab" onclick="showTab('history')"><span class="tabIcon">📊</span>History</button><button id="tabLogs" class="tab" onclick="showTab('logs')"><span class="tabIcon">📋</span>Logs</button></nav>
-<div id="overlay" class="overlay" onclick="if(event.target===this)closeSheet()"><div class="sheet"><div class="head"><div class="headtext"><div id="stitle" class="stitle"></div><div id="ssub" class="ssub"></div></div><button class="close" onclick="closeSheet()">×</button></div><div id="body" class="list"></div></div></div>
+
+<nav class="tabs">
+<button id="tabToday" class="tab active" type="button"><span class="tabIcon">🏠</span>Today</button>
+<button id="tabHistory" class="tab" type="button"><span class="tabIcon">📊</span>History</button>
+<button id="tabLogs" class="tab" type="button"><span class="tabIcon">📋</span>Logs</button>
+</nav>
+
+<div id="overlay" class="overlay">
+<div class="sheet">
+<div class="head">
+<div class="headtext"><div id="stitle" class="stitle"></div><div id="ssub" class="ssub"></div></div>
+<button class="close" id="closeSheetBtn" type="button">×</button>
+</div>
+<div id="body" class="list"></div>
+</div>
+</div>
+
 <script>
-const commendations=[["Forehead Kiss",3],['Random "I Love You"',3],["Brings Katelin Coffee",4],["Brings You Flowers",5],["Brings Home a Treat",5],["Cooks Dinner",8],["Brings You a Snack",5],["Unprompted Compliment",4],["Unprompted Cuddle",3],["Does a Chore Without Being Asked",7],["Remembers Something Katelin Mentioned",6],["Thoughtful Surprise",8],["Plans a Date Without Assistance",10],["Unprompted Foot Rub",10],["Excellent Emotional Support",8],["Takes a Good Picture of Katelin",5],["Takes Multiple Good Pictures Without Complaining",8],["Handles an Annoying Errand",6],["Admits Katelin Was Right",10],["Apologizes Without Being Prompted",8],["Makes Katelin Laugh When Annoyed",6],["Exceptional Boyfriend Behavior",15]];
-const incidents=[["Deez Nuts Joke",-3],['"That\\'s What She Said" Joke',-3],["Cheating Joke",-5],["Katelin Says Something and Taylor Simply Does Not Respond",-2],["Was Clearly Not Listening",-5],["Phone Crimes During Quality Time",-4],["Excessive Phone Scrolling",-3],["Steals the Blanket",-4],["Falls Asleep During Movie Katelin Picked",-3],["Says It'll Be an Early Night, Stays Out Late",-8],["Fails to Provide ETA",-4],["Unnecessary Devil's Advocate Behavior",-5],["Weaponized Incompetence",-7],["Leaves Mess for Future Taylor",-4],["Repeated Deez Nuts Offense",-7],["Makes Same Joke After Being Told It Wasn't Funny",-6],["Fake Apology / Sorry You Feel That Way",-10],["Disturbing the Peace",-5],["General Boyfriend Misconduct",-5],["Boyfriend Felony",-25]];
-const START_SCORE=75;let score=Number(localStorage.getItem("taylorScore")||START_SCORE);let activity=safeParse(localStorage.getItem("taylorActivity"),[]);let history=safeParse(localStorage.getItem("taylorHistory"),[]);let currentDayStarted=localStorage.getItem("taylorDayStarted")||new Date().toISOString();let customPositive=true;
-const scoreEl=document.getElementById("score"),statusEl=document.getElementById("status"),msgEl=document.getElementById("msg"),fill=document.getElementById("fill"),taylor=document.getElementById("taylor"),activityEl=document.getElementById("activity"),overlay=document.getElementById("overlay"),body=document.getElementById("body"),stitle=document.getElementById("stitle"),ssub=document.getElementById("ssub");
-function safeParse(v,f){try{return JSON.parse(v||"")}catch(e){return f}}function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}function tier(s=score){if(s>=90)return["👑 ELITE BOYFRIEND","Shareholders remain extremely pleased.","TaylorElite.png"];if(s>=75)return["💚 GOOD STANDING","No corrective action required.","TaylorGoodStanding.png"];if(s>=60)return["⚠️ UNDER REVIEW","Performance has declined this quarter.","TaylorUnderReview.png"];if(s>=40)return["📋 PROBATION","Management has identified several areas for improvement.","TaylorProbation.png"];return["🚔 BOYFRIEND JAIL","Privileges suspended pending forehead-kiss remediation.","TaylorJail.png"]}function fmtDate(iso){return new Date(iso).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})}function shortDate(iso){return new Date(iso).toLocaleDateString(undefined,{month:"numeric",day:"numeric"})}
-function persist(){localStorage.setItem("taylorScore",String(score));localStorage.setItem("taylorActivity",JSON.stringify(activity));localStorage.setItem("taylorHistory",JSON.stringify(history));localStorage.setItem("taylorDayStarted",currentDayStarted)}
-function renderToday(){const t=tier();scoreEl.textContent=score;statusEl.textContent=t[0];msgEl.textContent=t[1];fill.style.width=score+"%";taylor.src=t[2];activityEl.innerHTML=activity.length?activity.slice(0,12).map(x=>`<div class="item"><div class="t"><div class="name">${esc(x.name)}</div><div class="type">${x.points>0?"Commendation":"Incident Report"}</div></div><div class="pts ${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</div></div>`).join(""):'<div class="empty">No entries yet. Taylor’s personnel file is currently clean.</div>'}
-function renderHistory(){const completed=history,totalDays=completed.length,avg=totalDays?Math.round(completed.reduce((a,d)=>a+d.finalScore,0)/totalDays):0,best=totalDays?Math.max(...completed.map(d=>d.finalScore)):0,worst=totalDays?Math.min(...completed.map(d=>d.finalScore)):0;document.getElementById("stats").innerHTML=`<div class="stat"><div class="statValue">${totalDays}</div><div class="statLabel">Archived days</div></div><div class="stat"><div class="statValue">${totalDays?avg:"—"}</div><div class="statLabel">Average rating</div></div><div class="stat"><div class="statValue">${totalDays?best:"—"}</div><div class="statLabel">Best day</div></div><div class="stat"><div class="statValue">${totalDays?worst:"—"}</div><div class="statLabel">Worst day</div></div>`;const recent=completed.slice(0,7).reverse();document.getElementById("chart").innerHTML=recent.length?recent.map(d=>`<div class="barCol"><div class="barStick" style="height:${Math.max(3,d.finalScore)}%"></div><div class="barLabel">${shortDate(d.startedAt)}</div></div>`).join(""):'<div class="empty" style="width:100%">Archive a day to start the trend chart.</div>';document.getElementById("historyList").innerHTML=completed.length?completed.map(d=>{const positives=d.activity.filter(x=>x.points>0).reduce((a,x)=>a+x.points,0),negatives=Math.abs(d.activity.filter(x=>x.points<0).reduce((a,x)=>a+x.points,0));return `<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(d.startedAt)}</div><div class="historyMeta">+${positives} positive • -${negatives} negative • ${d.activity.length} events</div></div><div class="historyScore">${d.finalScore}</div></div><div class="miniBar"><div style="width:${d.finalScore}%"></div></div><div class="details">${d.activity.length?d.activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior.</div>'}</div></div>`}).join(""):'<div class="empty">No archived days yet.</div>'}
-function renderLogs(){document.getElementById("currentLog").innerHTML=`<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(currentDayStarted)}</div><div class="historyMeta">Current active log</div></div><div class="historyScore">${score}</div></div><div class="details">${activity.length?activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior yet.</div>'}</div></div>`;document.getElementById("logsList").innerHTML=history.length?history.map(d=>`<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(d.startedAt)}</div><div class="historyMeta">Archived daily log</div></div><div class="historyScore">${d.finalScore}</div></div><div class="details">${d.activity.length?d.activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior.</div>'}</div></div>`).join(""):'<div class="empty">No past logs yet.</div>'}
-function renderAll(){renderToday();renderHistory();renderLogs()}function showTab(tab){["today","history","logs"].forEach(x=>{document.getElementById(x+"View").classList.toggle("active",x===tab);document.getElementById("tab"+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle("active",x===tab)});if(tab==="history")renderHistory();if(tab==="logs")renderLogs()}
-function openPicker(isPos){customPositive=isPos;const data=isPos?commendations:incidents;stitle.textContent=isPos?"💚 Commend Taylor":"🚨 Report Incident";ssub.textContent=isPos?"Select qualifying boyfriend behavior.":"Select the applicable violation.";body.className="list";body.innerHTML=data.map(([n,p])=>`<button class="option" onclick='logAction(${JSON.stringify(n)},${p})'><span>${esc(n)}</span><b class="${p>0?"pos":"neg"}">${p>0?"+":""}${p}</b></button>`).join("")+`<button class="custom" onclick="openCustom(${isPos})">${isPos?"＋ Custom Commendation":"⚠️ Custom Incident"}</button>`;overlay.classList.add("show")}
-function openCustom(isPos){customPositive=isPos;stitle.textContent=isPos?"Custom Commendation":"Custom Incident";ssub.textContent=isPos?"Document previously unclassified excellence.":"Document previously unclassified misconduct.";body.className="form";body.innerHTML=`<label>${isPos?"WHAT DID TAYLOR DO?":"DESCRIBE THE OFFENSE"}</label><input id="cname" type="text" placeholder="${isPos?"Commendable behavior":"Incident description"}"><label>POINTS</label><input id="cpoints" type="number" min="1" max="25" value="1"><button class="submit" style="background:${isPos?"var(--green)":"var(--red)"}" onclick="submitCustom()">${isPos?"💚 COMMEND TAYLOR":"🚨 FILE INCIDENT REPORT"}</button>`}
-function submitCustom(){const n=document.getElementById("cname").value.trim();let p=Math.max(1,Math.min(25,Number(document.getElementById("cpoints").value||1)));if(n)logAction(n,customPositive?p:-p)}function logAction(n,p){score=Math.max(0,Math.min(100,score+p));activity.unshift({name:n,points:p,time:new Date().toISOString()});persist();closeSheet();renderAll();taylor.classList.remove("jump","slump");void taylor.offsetWidth;if(p>0){taylor.src=score>=90?"TaylorElite.png":"TaylorGoodStanding.png";taylor.classList.add("jump")}else{taylor.src=score<40?"TaylorJail.png":"TaylorProbation.png";taylor.classList.add("slump")}setTimeout(()=>{taylor.classList.remove("jump","slump");taylor.src=tier()[2]},p>0?760:1180)}function closeSheet(){overlay.classList.remove("show")}
-function confirmNewDay(){stitle.textContent="🌅 Start New Day";ssub.textContent="Archive today’s performance and reset Taylor to 75?";body.className="form";body.innerHTML=`<div style="font-size:14px;line-height:1.5">Today’s score of <b>${score}</b> and all ${activity.length} logged event${activity.length===1?"":"s"} will be saved to History.</div><button class="submit" style="background:var(--green)" onclick="startNewDay()">ARCHIVE & START AT 75</button><button class="custom" onclick="closeSheet()">Cancel</button>`;overlay.classList.add("show")}
-function startNewDay(){history.unshift({id:String(Date.now()),startedAt:currentDayStarted,endedAt:new Date().toISOString(),finalScore:score,activity:[...activity]});score=START_SCORE;activity=[];currentDayStarted=new Date().toISOString();persist();closeSheet();showTab("today");renderAll()}
+const commendations=[
+["Forehead Kiss",3],['Random "I Love You"',3],["Brings Katelin Coffee",4],["Brings You Flowers",5],["Brings Home a Treat",5],["Cooks Dinner",8],["Brings You a Snack",5],["Unprompted Compliment",4],["Unprompted Cuddle",3],["Does a Chore Without Being Asked",7],["Remembers Something Katelin Mentioned",6],["Thoughtful Surprise",8],["Plans a Date Without Assistance",10],["Unprompted Foot Rub",10],["Excellent Emotional Support",8],["Takes a Good Picture of Katelin",5],["Takes Multiple Good Pictures Without Complaining",8],["Handles an Annoying Errand",6],["Admits Katelin Was Right",10],["Apologizes Without Being Prompted",8],["Makes Katelin Laugh When Annoyed",6],["Exceptional Boyfriend Behavior",15]];
+const incidents=[
+["Deez Nuts Joke",-3],['"That\\'s What She Said" Joke',-3],["Cheating Joke",-5],["Katelin Says Something and Taylor Simply Does Not Respond",-2],["Was Clearly Not Listening",-5],["Phone Crimes During Quality Time",-4],["Excessive Phone Scrolling",-3],["Steals the Blanket",-4],["Falls Asleep During Movie Katelin Picked",-3],["Says It'll Be an Early Night, Stays Out Late",-8],["Fails to Provide ETA",-4],["Unnecessary Devil's Advocate Behavior",-5],["Weaponized Incompetence",-7],["Leaves Mess for Future Taylor",-4],["Repeated Deez Nuts Offense",-7],["Makes Same Joke After Being Told It Wasn't Funny",-6],["Fake Apology / Sorry You Feel That Way",-10],["Disturbing the Peace",-5],["General Boyfriend Misconduct",-5],["Boyfriend Felony",-25]];
+
+const START_SCORE=75;
+let score=Number(localStorage.getItem("taylorScore")||START_SCORE);
+let activity=safeParse(localStorage.getItem("taylorActivity"),[]);
+let history=safeParse(localStorage.getItem("taylorHistory"),[]);
+let currentDayStarted=localStorage.getItem("taylorDayStarted")||new Date().toISOString();
+let customPositive=true;
+
+const scoreEl=document.getElementById("score");
+const statusEl=document.getElementById("status");
+const msgEl=document.getElementById("msg");
+const fill=document.getElementById("fill");
+const taylor=document.getElementById("taylor");
+const activityEl=document.getElementById("activity");
+const overlay=document.getElementById("overlay");
+const body=document.getElementById("body");
+const stitle=document.getElementById("stitle");
+const ssub=document.getElementById("ssub");
+
+function safeParse(v,fallback){try{return JSON.parse(v||"")}catch(e){return fallback}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function tier(s=score){if(s>=90)return["👑 ELITE BOYFRIEND","Shareholders remain extremely pleased.","TaylorElite.png"];if(s>=75)return["💚 GOOD STANDING","No corrective action required.","TaylorGoodStanding.png"];if(s>=60)return["⚠️ UNDER REVIEW","Performance has declined this quarter.","TaylorUnderReview.png"];if(s>=40)return["📋 PROBATION","Management has identified several areas for improvement.","TaylorProbation.png"];return["🚔 BOYFRIEND JAIL","Privileges suspended pending forehead-kiss remediation.","TaylorJail.png"]}
+function fmtDate(iso){return new Date(iso).toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})}
+function shortDate(iso){return new Date(iso).toLocaleDateString(undefined,{month:"numeric",day:"numeric"})}
+
+function persist(){
+localStorage.setItem("taylorScore",String(score));
+localStorage.setItem("taylorActivity",JSON.stringify(activity));
+localStorage.setItem("taylorHistory",JSON.stringify(history));
+localStorage.setItem("taylorDayStarted",currentDayStarted);
+}
+
+function renderToday(){
+const t=tier();
+scoreEl.textContent=score;statusEl.textContent=t[0];msgEl.textContent=t[1];fill.style.width=score+"%";taylor.src=t[2];
+activityEl.innerHTML=activity.length?activity.slice(0,12).map(x=>`<div class="item"><div class="t"><div class="name">${esc(x.name)}</div><div class="type">${x.points>0?"Commendation":"Incident Report"}</div></div><div class="pts ${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</div></div>`).join(""):'<div class="empty">No entries yet. Taylor’s personnel file is currently clean.</div>';
+}
+
+function renderHistory(){
+const completed=history,totalDays=completed.length;
+const avg=totalDays?Math.round(completed.reduce((a,d)=>a+d.finalScore,0)/totalDays):0;
+const best=totalDays?Math.max(...completed.map(d=>d.finalScore)):0;
+const worst=totalDays?Math.min(...completed.map(d=>d.finalScore)):0;
+document.getElementById("stats").innerHTML=`
+<div class="stat"><div class="statValue">${totalDays}</div><div class="statLabel">Archived days</div></div>
+<div class="stat"><div class="statValue">${totalDays?avg:"—"}</div><div class="statLabel">Average rating</div></div>
+<div class="stat"><div class="statValue">${totalDays?best:"—"}</div><div class="statLabel">Best day</div></div>
+<div class="stat"><div class="statValue">${totalDays?worst:"—"}</div><div class="statLabel">Worst day</div></div>`;
+const recent=completed.slice(0,7).reverse();
+document.getElementById("chart").innerHTML=recent.length?recent.map(d=>`<div class="barCol"><div class="barStick" style="height:${Math.max(3,d.finalScore)}%"></div><div class="barLabel">${shortDate(d.startedAt)}</div></div>`).join(""):'<div class="empty" style="width:100%">Archive a day to start the trend chart.</div>';
+document.getElementById("historyList").innerHTML=completed.length?completed.map(d=>{
+const positives=d.activity.filter(x=>x.points>0).reduce((a,x)=>a+x.points,0);
+const negatives=Math.abs(d.activity.filter(x=>x.points<0).reduce((a,x)=>a+x.points,0));
+return `<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(d.startedAt)}</div><div class="historyMeta">+${positives} positive • -${negatives} negative • ${d.activity.length} events</div></div><div class="historyScore">${d.finalScore}</div></div><div class="miniBar"><div style="width:${d.finalScore}%"></div></div><div class="details">${d.activity.length?d.activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior.</div>'}</div></div>`;
+}).join(""):'<div class="empty">No archived days yet.</div>';
+}
+
+function renderLogs(){
+document.getElementById("currentLog").innerHTML=`<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(currentDayStarted)}</div><div class="historyMeta">Current active log</div></div><div class="historyScore">${score}</div></div><div class="details">${activity.length?activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior yet.</div>'}</div></div>`;
+document.getElementById("logsList").innerHTML=history.length?history.map(d=>`<div class="historyCard"><div class="historyTop"><div><div class="historyDate">${fmtDate(d.startedAt)}</div><div class="historyMeta">Archived daily log</div></div><div class="historyScore">${d.finalScore}</div></div><div class="details">${d.activity.length?d.activity.map(x=>`<div class="smallItem"><span>${esc(x.name)}</span><b class="${x.points>0?"pos":"neg"}">${x.points>0?"+":""}${x.points}</b></div>`).join(""):'<div class="empty">No logged behavior.</div>'}</div></div>`).join(""):'<div class="empty">No past logs yet.</div>';
+}
+
+function renderAll(){renderToday();renderHistory();renderLogs()}
+
+function showTab(tab){
+["today","history","logs"].forEach(x=>{
+document.getElementById(x+"View").classList.toggle("active",x===tab);
+document.getElementById("tab"+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle("active",x===tab);
+});
+if(tab==="history")renderHistory();
+if(tab==="logs")renderLogs();
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function openPicker(isPos){
+customPositive=isPos;const data=isPos?commendations:incidents;
+stitle.textContent=isPos?"💚 Commend Taylor":"🚨 Report Incident";
+ssub.textContent=isPos?"Select qualifying boyfriend behavior.":"Select the applicable violation.";
+body.className="list";
+body.innerHTML=data.map(([n,p])=>`<button class="option" type="button" data-name="${esc(n)}" data-points="${p}"><span>${esc(n)}</span><b class="${p>0?"pos":"neg"}">${p>0?"+":""}${p}</b></button>`).join("")+`<button class="custom" id="customActionBtn" type="button">${isPos?"＋ Custom Commendation":"⚠️ Custom Incident"}</button>`;
+body.querySelectorAll(".option").forEach(btn=>{
+btn.addEventListener("click",()=>logAction(btn.dataset.name,Number(btn.dataset.points)));
+});
+document.getElementById("customActionBtn").addEventListener("click",()=>openCustom(isPos));
+overlay.classList.add("show");
+}
+
+function openCustom(isPos){
+customPositive=isPos;stitle.textContent=isPos?"Custom Commendation":"Custom Incident";
+ssub.textContent=isPos?"Document previously unclassified excellence.":"Document previously unclassified misconduct.";
+body.className="form";
+body.innerHTML=`<label>${isPos?"WHAT DID TAYLOR DO?":"DESCRIBE THE OFFENSE"}</label><input id="cname" type="text" placeholder="${isPos?"Commendable behavior":"Incident description"}"><label>POINTS</label><input id="cpoints" type="number" min="1" max="25" value="1"><button class="submit" id="submitCustomBtn" type="button" style="background:${isPos?"var(--green)":"var(--red)"}">${isPos?"💚 COMMEND TAYLOR":"🚨 FILE INCIDENT REPORT"}</button>`;
+document.getElementById("submitCustomBtn").addEventListener("click",submitCustom);
+}
+
+function submitCustom(){
+const n=document.getElementById("cname").value.trim();
+let p=Math.max(1,Math.min(25,Number(document.getElementById("cpoints").value||1)));
+if(n)logAction(n,customPositive?p:-p);
+}
+
+function logAction(n,p){
+score=Math.max(0,Math.min(100,score+p));
+activity.unshift({name:n,points:p,time:new Date().toISOString()});
+persist();closeSheet();renderAll();
+taylor.classList.remove("jump","slump");void taylor.offsetWidth;
+if(p>0){taylor.src=score>=90?"TaylorElite.png":"TaylorGoodStanding.png";taylor.classList.add("jump")}
+else{taylor.src=score<40?"TaylorJail.png":"TaylorProbation.png";taylor.classList.add("slump")}
+setTimeout(()=>{taylor.classList.remove("jump","slump");taylor.src=tier()[2]},p>0?760:1180);
+}
+
+function closeSheet(){overlay.classList.remove("show")}
+
+function confirmNewDay(){
+stitle.textContent="🌅 Start New Day";
+ssub.textContent="Archive today’s performance and reset Taylor to 75?";
+body.className="form";
+body.innerHTML=`<div style="font-size:14px;line-height:1.5">Today’s score of <b>${score}</b> and all ${activity.length} logged event${activity.length===1?"":"s"} will be saved to History.</div><button class="submit" id="archiveBtn" type="button" style="background:var(--green)">ARCHIVE & START AT 75</button><button class="custom" id="cancelArchiveBtn" type="button">Cancel</button>`;
+document.getElementById("archiveBtn").addEventListener("click",startNewDay);
+document.getElementById("cancelArchiveBtn").addEventListener("click",closeSheet);
+overlay.classList.add("show");
+}
+
+function startNewDay(){
+history.unshift({id:String(Date.now()),startedAt:currentDayStarted,endedAt:new Date().toISOString(),finalScore:score,activity:[...activity]});
+score=START_SCORE;activity=[];currentDayStarted=new Date().toISOString();
+persist();closeSheet();showTab("today");renderAll();
+}
+
+// Explicit event listeners are more reliable in iOS standalone web-app mode.
+document.getElementById("tabToday").addEventListener("click",()=>showTab("today"));
+document.getElementById("tabHistory").addEventListener("click",()=>showTab("history"));
+document.getElementById("tabLogs").addEventListener("click",()=>showTab("logs"));
+document.getElementById("commendBtn").addEventListener("click",()=>openPicker(true));
+document.getElementById("incidentBtn").addEventListener("click",()=>openPicker(false));
+document.getElementById("newDayBtn").addEventListener("click",confirmNewDay);
+document.getElementById("closeSheetBtn").addEventListener("click",closeSheet);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeSheet()});
+
 renderAll();
 </script>
 </body>
