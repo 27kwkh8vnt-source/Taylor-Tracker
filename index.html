@@ -8,452 +8,83 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Taylor Tracker">
 <link rel="apple-touch-icon" href="TaylorGoodStanding.png">
-
 <title>Taylor Tracker</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body {
-    margin: 0;
-    background: #f7f4ef;
-    color: #171717;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-}
-
-body {
-    padding-bottom: 100px;
-}
-
-header {
-    text-align: center;
-    padding: 22px 16px 10px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 900;
-}
-
-header p {
-    margin: 6px 0 0;
-    color: #777;
-    font-size: 14px;
-}
-
-.page {
-    display: none;
-    padding: 0 16px 24px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.page.active {
-    display: block;
-}
-
-.card {
-    background: white;
-    border-radius: 22px;
-    padding: 20px;
-    margin: 12px 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,.07);
-}
-
-.center {
-    text-align: center;
-}
-
-.character {
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 8px;
-}
-
-.score {
-    font-size: 68px;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.label {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .8px;
-    margin-top: 10px;
-}
-
-.status {
-    font-size: 20px;
-    font-weight: 900;
-    margin-top: 10px;
-}
-
-.message {
-    color: #777;
-    font-size: 14px;
-    font-style: italic;
-    margin-top: 7px;
-}
-
-.progress {
-    height: 8px;
-    background: #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 16px;
-}
-
-.progressFill {
-    height: 100%;
-    background: #2f9b62;
-    border-radius: 10px;
-}
-
-button {
-    border: none;
-    border-radius: 15px;
-    padding: 17px 15px;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-    touch-action: manipulation;
-}
-
-.green {
-    background: #25c94a;
-    color: white;
-}
-
-.red {
-    background: #ff3934;
-    color: white;
-}
-
-.blue {
-    background: #4979bd;
-    color: white;
-}
-
-.gray {
-    background: #ececec;
-    color: #222;
-}
-
-.gap {
-    height: 10px;
-}
-
-.sectionTitle {
-    font-size: 20px;
-    font-weight: 900;
-    margin: 18px 2px 8px;
-}
-
-.empty {
-    color: #888;
-    text-align: center;
-    padding: 22px 8px;
-}
-
-.activity {
-    padding: 13px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.activity:last-child {
-    border-bottom: none;
-}
-
-.activityTop {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.activityName {
-    font-weight: 700;
-}
-
-.positive {
-    color: #168b49;
-    font-weight: 900;
-}
-
-.negative {
-    color: #d62e2e;
-    font-weight: 900;
-}
-
-.small {
-    color: #888;
-    font-size: 12px;
-    margin-top: 4px;
-}
-
-.statsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.statCard {
-    background: white;
-    border-radius: 18px;
-    padding: 16px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,.05);
-}
-
-.statNumber {
-    font-size: 27px;
-    font-weight: 900;
-}
-
-.statLabel {
-    color: #777;
-    font-size: 12px;
-    margin-top: 4px;
-}
-
-.historyRow {
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.historyRow:last-child {
-    border-bottom: none;
-}
-
-.historyTop {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-}
-
-.historyScore {
-    font-size: 24px;
-    font-weight: 900;
-}
-
-.historyDetails {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
-}
-
-.historyBehavior {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 13px;
-}
-
-/* CALENDAR */
-
-.calendarHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.calendarMonthTitle {
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.calendarArrow {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 50%;
-    background: #ececec;
-    color: #222;
-    font-size: 28px;
-}
-
-.calendarSummary {
-    color: #777;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 14px;
-}
-
-.calendarWeekdays,
-.calendarGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-}
-
-.calendarWeekdays {
-    margin-bottom: 5px;
-}
-
-.calendarWeekdays div {
-    text-align: center;
-    color: #888;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.calendarDay {
-    min-height: 62px;
-    border-radius: 12px;
-    background: #f4f4f4;
-    text-align: center;
-    padding: 6px 2px;
-    cursor: pointer;
-}
-
-.calendarBlank {
-    background: transparent;
-}
-
-.calendarDate {
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.calendarScore {
-    font-size: 13px;
-    font-weight: 900;
-    margin-top: 5px;
-}
-
-.calendarElite {
-    background: #fff3c4;
-}
-
-.calendarGood {
-    background: #e8f7ee;
-}
-
-.calendarReview {
-    background: #fff5d9;
-}
-
-.calendarProbation {
-    background: #ffe9e5;
-}
-
-.calendarJail {
-    background: #ececec;
-}
-
-.calendarToday {
-    outline: 2px solid #4979bd;
-}
-
-.calendarDetailTitle {
-    font-size: 19px;
-    font-weight: 900;
-    margin-bottom: 6px;
-}
-
-/* MODAL */
-
-.overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.42);
-    z-index: 1000;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.overlay.show {
-    display: flex;
-}
-
-.sheet {
-    width: 100%;
-    max-width: 600px;
-    background: white;
-    border-radius: 25px 25px 0 0;
-    padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
-    max-height: 82vh;
-    overflow-y: auto;
-}
-
-.option {
-    width: 100%;
-    background: #f4f4f4;
-    color: #171717;
-    margin: 6px 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    text-align: left;
-}
-
-.customInput {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 16px;
-    margin: 8px 0;
-}
-
-.customRow {
-    display: flex;
-    gap: 8px;
-}
-
-.customRow input {
-    width: 90px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 16px;
-}
-
-/* NAV */
-
-nav {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: calc(76px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: rgba(255,255,255,.98);
-    border-top: 1px solid #ddd;
-    display: flex;
-}
-
-.navButton {
-    flex: 1;
-    background: transparent;
-    color: #777;
-    border-radius: 0;
-    font-size: 10px;
-    padding: 8px 1px;
-}
-
-.navButton span {
-    display: block;
-    font-size: 21px;
-    margin-bottom: 2px;
-}
-
-.navButton.active {
-    color: #4979bd;
-}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:#f7f4ef;color:#171717;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+body{padding-bottom:100px}
+header{text-align:center;padding:22px 16px 10px}
+header h1{margin:0;font-size:30px;font-weight:900}
+header p{margin:6px 0 0;color:#777;font-size:14px}
+.page{display:none;padding:0 16px 24px;max-width:600px;margin:auto}
+.page.active{display:block}
+.card{background:#fff;border-radius:22px;padding:20px;margin:12px 0;box-shadow:0 5px 20px rgba(0,0,0,.07)}
+.center{text-align:center}
+.character{width:220px;height:220px;object-fit:contain;display:block;margin:0 auto 8px}
+.score{font-size:68px;font-weight:900;line-height:1}
+.label{font-size:12px;font-weight:800;letter-spacing:.8px;margin-top:10px}
+.status{font-size:20px;font-weight:900;margin-top:10px}
+.message{color:#777;font-size:14px;font-style:italic;margin-top:7px}
+.progress{height:8px;background:#eee;border-radius:10px;overflow:hidden;margin-top:16px}
+.progressFill{height:100%;background:#2f9b62;border-radius:10px}
+button{border:none;border-radius:15px;padding:17px 15px;width:100%;font-size:16px;font-weight:800;cursor:pointer;touch-action:manipulation}
+.green{background:#25c94a;color:#fff}
+.red{background:#ff3934;color:#fff}
+.blue{background:#4979bd;color:#fff}
+.gray{background:#ececec;color:#222}
+.gap{height:10px}
+.sectionTitle{font-size:20px;font-weight:900;margin:18px 2px 8px}
+.empty{color:#888;text-align:center;padding:22px 8px}
+.activity{padding:13px 0;border-bottom:1px solid #eee}
+.activity:last-child{border-bottom:none}
+.activityTop{display:flex;justify-content:space-between;gap:12px}
+.activityName{font-weight:700}
+.positive{color:#168b49;font-weight:900}
+.negative{color:#d62e2e;font-weight:900}
+.small{color:#888;font-size:12px;margin-top:4px}
+.statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.statCard{background:#fff;border-radius:18px;padding:16px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.05)}
+.statNumber{font-size:27px;font-weight:900}
+.statLabel{color:#777;font-size:12px;margin-top:4px}
+.historyRow{padding:15px 0;border-bottom:1px solid #eee}
+.historyRow:last-child{border-bottom:none}
+.historyTop{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.historyScore{font-size:24px;font-weight:900}
+.historyDetails{margin-top:12px;padding-top:10px;border-top:1px solid #eee}
+.historyBehavior{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:13px}
+
+.calendarHeader{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.calendarMonthTitle{font-size:20px;font-weight:900}
+.calendarArrow{width:44px;height:44px;padding:0;border-radius:50%;background:#ececec;color:#222;font-size:28px}
+.calendarSummary{color:#777;font-size:13px;text-align:center;margin-bottom:14px}
+.calendarWeekdays,.calendarGrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.calendarWeekdays{margin-bottom:5px}
+.calendarWeekdays div{text-align:center;color:#888;font-size:11px;font-weight:800}
+.calendarDay{min-height:62px;border-radius:12px;background:#f4f4f4;text-align:center;padding:6px 2px;cursor:pointer;touch-action:manipulation}
+.calendarBlank{background:transparent;cursor:default}
+.calendarDate{font-size:12px;font-weight:800}
+.calendarScore{font-size:13px;font-weight:900;margin-top:5px}
+.calendarElite{background:#fff3c4}
+.calendarGood{background:#e8f7ee}
+.calendarReview{background:#fff5d9}
+.calendarProbation{background:#ffe9e5}
+.calendarJail{background:#ececec}
+.calendarToday{outline:2px solid #4979bd}
+.calendarDetailTitle{font-size:19px;font-weight:900;margin-bottom:6px}
+
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:1000;align-items:flex-end;justify-content:center}
+.overlay.show{display:flex}
+.sheet{width:100%;max-width:600px;background:#fff;border-radius:25px 25px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));max-height:82vh;overflow-y:auto}
+.option{width:100%;background:#f4f4f4;color:#171717;margin:6px 0;display:flex;justify-content:space-between;gap:10px;text-align:left}
+.customInput{width:100%;border:1px solid #ddd;border-radius:12px;padding:14px;font-size:16px;margin:8px 0}
+.customRow{display:flex;gap:8px}
+.customRow input{width:90px;border:1px solid #ddd;border-radius:12px;padding:14px;font-size:16px}
+
+nav{position:fixed;z-index:999;bottom:0;left:0;right:0;height:calc(76px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:rgba(255,255,255,.98);border-top:1px solid #ddd;display:flex}
+.navButton{flex:1;background:transparent;color:#777;border-radius:0;font-size:10px;padding:8px 1px}
+.navButton span{display:block;font-size:21px;margin-bottom:2px}
+.navButton.active{color:#4979bd}
 </style>
 </head>
 
@@ -464,17 +95,11 @@ nav {
 <p>Official Boyfriend Performance Management System</p>
 </header>
 
-
 <section id="todayPage" class="page active">
 
 <div class="card center">
 
-<img
-id="taylorImage"
-class="character"
-src="TaylorGoodStanding.png"
-alt="Taylor"
->
+<img id="taylorImage" class="character" src="TaylorGoodStanding.png" alt="Taylor">
 
 <div id="score" class="score">75</div>
 
@@ -522,7 +147,6 @@ Today's Activity
 
 </section>
 
-
 <section id="calendarPage" class="page">
 
 <div class="sectionTitle">
@@ -563,12 +187,11 @@ Today's Activity
 
 <div id="calendarDetails" class="card">
 <div class="empty">
-Tap a recorded day to view its behavior log.
+Tap a day to view its behavior log.
 </div>
 </div>
 
 </section>
-
 
 <section id="historyPage" class="page">
 
@@ -588,7 +211,6 @@ Daily History
 
 </section>
 
-
 <section id="personnelPage" class="page">
 
 <div class="sectionTitle">
@@ -600,7 +222,6 @@ Daily History
 </div>
 
 </section>
-
 
 <div id="overlay" class="overlay">
 
@@ -645,36 +266,49 @@ Cancel
 </div>
 </div>
 
-
 <nav>
 
-<button id="todayTab" class="navButton active" onclick="showPage('todayPage','todayTab')">
+<button
+id="todayTab"
+class="navButton active"
+onclick="showPage('todayPage','todayTab')"
+>
 <span>🏠</span>
 Today
 </button>
 
-<button id="calendarTab" class="navButton" onclick="showPage('calendarPage','calendarTab')">
+<button
+id="calendarTab"
+class="navButton"
+onclick="showPage('calendarPage','calendarTab')"
+>
 <span>📅</span>
 Calendar
 </button>
 
-<button id="historyTab" class="navButton" onclick="showPage('historyPage','historyTab')">
+<button
+id="historyTab"
+class="navButton"
+onclick="showPage('historyPage','historyTab')"
+>
 <span>📊</span>
 History
 </button>
 
-<button id="personnelTab" class="navButton" onclick="showPage('personnelPage','personnelTab')">
+<button
+id="personnelTab"
+class="navButton"
+onclick="showPage('personnelPage','personnelTab')"
+>
 <span>🗂️</span>
 Personnel
 </button>
 
 </nav>
 
-
 <script>
 
 var START_SCORE = 75;
-
 
 var compliments = [
 ["Forehead Kiss",3],
@@ -719,7 +353,6 @@ var compliments = [
 ["Above and Beyond Boyfriend Service",12]
 ];
 
-
 var incidents = [
 ["Deez Nuts Joke",-3],
 ["That's What She Said Joke",-3],
@@ -763,9 +396,6 @@ var incidents = [
 ["Boyfriend Felony",-25]
 ];
 
-
-/* STORAGE */
-
 function loadJSON(key,fallback) {
 
     try {
@@ -773,14 +403,9 @@ function loadJSON(key,fallback) {
         var value =
             localStorage.getItem(key);
 
-        if(!value) {
-            return fallback;
-        }
-
-        var parsed =
-            JSON.parse(value);
-
-        return parsed;
+        return value
+            ? JSON.parse(value)
+            : fallback;
 
     } catch(error) {
 
@@ -788,18 +413,15 @@ function loadJSON(key,fallback) {
     }
 }
 
-
 var savedScore =
     parseFloat(
         localStorage.getItem("taylorScore")
     );
 
-
 var score =
     isNaN(savedScore)
     ? START_SCORE
     : savedScore;
-
 
 var activity =
     loadJSON(
@@ -807,11 +429,9 @@ var activity =
         []
     );
 
-
 if(!Array.isArray(activity)) {
     activity = [];
 }
-
 
 var history =
     loadJSON(
@@ -819,27 +439,24 @@ var history =
         []
     );
 
-
 if(!Array.isArray(history)) {
     history = [];
 }
-
 
 var savedBest =
     parseFloat(
         localStorage.getItem("taylorBestScore")
     );
 
-
 var bestScore =
     isNaN(savedBest)
     ? score
     : savedBest;
 
-
 var dayStarted =
-    localStorage.getItem("taylorDayStarted");
-
+    localStorage.getItem(
+        "taylorDayStarted"
+    );
 
 if(
     !dayStarted
@@ -853,14 +470,11 @@ if(
         new Date().toISOString();
 }
 
-
 var currentMode =
     "positive";
 
-
 var calendarMonth =
     new Date();
-
 
 calendarMonth =
     new Date(
@@ -870,23 +484,20 @@ calendarMonth =
     );
 
 
-/* NORMALIZE SAVED DATA */
-
 function cleanEvent(item) {
 
     if(!item) {
         return null;
     }
 
-
     var points =
-        parseFloat(item.points);
-
+        parseFloat(
+            item.points
+        );
 
     if(isNaN(points)) {
         points = 0;
     }
-
 
     var date =
         item.date
@@ -894,7 +505,6 @@ function cleanEvent(item) {
         item.time
         ||
         new Date().toISOString();
-
 
     if(
         isNaN(
@@ -906,8 +516,8 @@ function cleanEvent(item) {
             new Date().toISOString();
     }
 
-
     return {
+
         name:
             item.name
             ||
@@ -918,30 +528,28 @@ function cleanEvent(item) {
 
         date:
             date
+
     };
 }
 
 
 var cleanedActivity = [];
 
-
 for(
-    var a = 0;
-    a < activity.length;
-    a++
+    var ca = 0;
+    ca < activity.length;
+    ca++
 ) {
 
-    var cleaned =
+    var ce =
         cleanEvent(
-            activity[a]
+            activity[ca]
         );
 
-
-    if(cleaned) {
-        cleanedActivity.push(cleaned);
+    if(ce) {
+        cleanedActivity.push(ce);
     }
 }
-
 
 activity =
     cleanedActivity;
@@ -949,25 +557,21 @@ activity =
 
 var cleanedHistory = [];
 
-
 for(
-    var h = 0;
-    h < history.length;
-    h++
+    var ch = 0;
+    ch < history.length;
+    ch++
 ) {
 
     var oldDay =
-        history[h];
-
+        history[ch];
 
     if(!oldDay) {
         continue;
     }
 
-
     var rawScore =
         oldDay.score;
-
 
     if(
         rawScore === undefined
@@ -979,17 +583,16 @@ for(
             oldDay.finalScore;
     }
 
-
     var cleanedScore =
-        parseFloat(rawScore);
-
+        parseFloat(
+            rawScore
+        );
 
     if(isNaN(cleanedScore)) {
 
         cleanedScore =
             START_SCORE;
     }
-
 
     var cleanedDate =
         oldDay.date
@@ -999,7 +602,6 @@ for(
         oldDay.endedAt
         ||
         new Date().toISOString();
-
 
     if(
         isNaN(
@@ -1011,7 +613,6 @@ for(
             new Date().toISOString();
     }
 
-
     var oldEvents =
         oldDay.activities
         ||
@@ -1019,33 +620,31 @@ for(
         ||
         [];
 
-
     if(!Array.isArray(oldEvents)) {
 
-        oldEvents = [];
+        oldEvents =
+            [];
     }
 
-
-    var newEvents = [];
-
+    var newEvents =
+        [];
 
     for(
-        var e = 0;
-        e < oldEvents.length;
-        e++
+        var oe = 0;
+        oe < oldEvents.length;
+        oe++
     ) {
 
-        var clean =
+        var ne =
             cleanEvent(
-                oldEvents[e]
+                oldEvents[oe]
             );
 
+        if(ne) {
 
-        if(clean) {
-            newEvents.push(clean);
+            newEvents.push(ne);
         }
     }
-
 
     cleanedHistory.push({
 
@@ -1061,12 +660,9 @@ for(
     });
 }
 
-
 history =
     cleanedHistory;
 
-
-/* SAVE */
 
 function saveState() {
 
@@ -1097,8 +693,6 @@ function saveState() {
 }
 
 
-/* HELPERS */
-
 function getTier(value) {
 
     if(value >= 90) {
@@ -1110,7 +704,6 @@ function getTier(value) {
         };
     }
 
-
     if(value >= 75) {
 
         return {
@@ -1119,7 +712,6 @@ function getTier(value) {
             image:"TaylorGoodStanding.png"
         };
     }
-
 
     if(value >= 60) {
 
@@ -1130,7 +722,6 @@ function getTier(value) {
         };
     }
 
-
     if(value >= 40) {
 
         return {
@@ -1139,7 +730,6 @@ function getTier(value) {
             image:"TaylorProbation.png"
         };
     }
-
 
     return {
         title:"🚔 BOYFRIEND JAIL",
@@ -1151,75 +741,27 @@ function getTier(value) {
 
 function pad2(number) {
 
-    if(number < 10) {
-        return "0" + number;
-    }
-
-    return String(number);
-}
-
-
-function dateKeyFromParts(
-    year,
-    month,
-    day
-) {
-
-    return (
-        year
-        +
-        "-"
-        +
-        pad2(month)
-        +
-        "-"
-        +
-        pad2(day)
-    );
-}
-
-
-function safeDateKey(value) {
-
-    var date =
-        new Date(value);
-
-
-    if(
-        isNaN(
-            date.getTime()
-        )
-    ) {
-
-        return "";
-    }
-
-
-    return dateKeyFromParts(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        date.getDate()
-    );
+    return number < 10
+        ? "0" + number
+        : String(number);
 }
 
 
 function formatDate(value) {
 
-    var date =
+    var d =
         new Date(value);
-
 
     if(
         isNaN(
-            date.getTime()
+            d.getTime()
         )
     ) {
 
         return "Unknown Date";
     }
 
-
-    return date.toLocaleDateString(
+    return d.toLocaleDateString(
         undefined,
         {
             month:"short",
@@ -1232,21 +774,19 @@ function formatDate(value) {
 
 function formatTime(value) {
 
-    var date =
+    var d =
         new Date(value);
-
 
     if(
         isNaN(
-            date.getTime()
+            d.getTime()
         )
     ) {
 
         return "";
     }
 
-
-    return date.toLocaleTimeString(
+    return d.toLocaleTimeString(
         undefined,
         {
             hour:"numeric",
@@ -1259,7 +799,9 @@ function formatTime(value) {
 function escapeHTML(text) {
 
     var div =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     div.textContent =
         String(text);
@@ -1268,31 +810,46 @@ function escapeHTML(text) {
 }
 
 
-/* SCORE */
-
 function renderScore() {
 
     var tier =
-        getTier(score);
+        getTier(
+            score
+        );
 
-
-    document.getElementById("score").textContent =
+    document
+        .getElementById(
+            "score"
+        )
+        .textContent =
         score;
 
-
-    document.getElementById("status").textContent =
+    document
+        .getElementById(
+            "status"
+        )
+        .textContent =
         tier.title;
 
-
-    document.getElementById("message").textContent =
+    document
+        .getElementById(
+            "message"
+        )
+        .textContent =
         tier.message;
 
-
-    document.getElementById("taylorImage").src =
+    document
+        .getElementById(
+            "taylorImage"
+        )
+        .src =
         tier.image;
 
-
-    document.getElementById("progressFill").style.width =
+    document
+        .getElementById(
+            "progressFill"
+        )
+        .style.width =
         Math.min(
             100,
             Math.max(
@@ -1305,21 +862,21 @@ function renderScore() {
 }
 
 
-/* ACTIVITIES */
-
 function activityHTML(item) {
 
     var positive =
         item.points >= 0;
 
-
     return (
+
         '<div class="activity">' +
 
             '<div class="activityTop">' +
 
                 '<div class="activityName">' +
-                    escapeHTML(item.name) +
+                    escapeHTML(
+                        item.name
+                    ) +
                 '</div>' +
 
                 '<div class="' +
@@ -1344,15 +901,20 @@ function activityHTML(item) {
 
             '<div class="small">' +
 
-                formatDate(item.date) +
+                formatDate(
+                    item.date
+                ) +
 
                 " • " +
 
-                formatTime(item.date) +
+                formatTime(
+                    item.date
+                ) +
 
             '</div>' +
 
         '</div>'
+
     );
 }
 
@@ -1364,20 +926,20 @@ function renderToday() {
             "todayActivity"
         );
 
-
-    if(activity.length === 0) {
+    if(
+        activity.length === 0
+    ) {
 
         box.innerHTML =
             '<div class="empty">' +
-                'No behavior logged yet today.' +
+            'No behavior logged yet today.' +
             '</div>';
 
         return;
     }
 
-
-    var html = "";
-
+    var html =
+        "";
 
     for(
         var i =
@@ -1392,25 +954,24 @@ function renderToday() {
             );
     }
 
-
     box.innerHTML =
         html;
 }
 
-
-/* HISTORY */
 
 function historyBehaviorHTML(item) {
 
     var positive =
         item.points >= 0;
 
-
     return (
+
         '<div class="historyBehavior">' +
 
             '<span>' +
-                escapeHTML(item.name) +
+                escapeHTML(
+                    item.name
+                ) +
             '</span>' +
 
             '<strong class="' +
@@ -1432,6 +993,7 @@ function historyBehaviorHTML(item) {
             '</strong>' +
 
         '</div>'
+
     );
 }
 
@@ -1453,12 +1015,12 @@ function renderStats() {
     var incidentsCount =
         0;
 
-
-    if(history.length > 0) {
+    if(
+        history.length > 0
+    ) {
 
         lowest =
             history[0].score;
-
 
         for(
             var i = 0;
@@ -1468,7 +1030,6 @@ function renderStats() {
 
             total +=
                 history[i].score;
-
 
             if(
                 history[i].score
@@ -1481,14 +1042,12 @@ function renderStats() {
             }
         }
 
-
         average =
             Math.round(
                 total /
                 history.length
             );
     }
-
 
     for(
         var h = 0;
@@ -1515,7 +1074,6 @@ function renderStats() {
         }
     }
 
-
     for(
         var a = 0;
         a < activity.length;
@@ -1534,8 +1092,11 @@ function renderStats() {
         }
     }
 
-
-    document.getElementById("statsGrid").innerHTML =
+    document
+        .getElementById(
+            "statsGrid"
+        )
+        .innerHTML =
 
         '<div class="statCard">' +
             '<div class="statNumber">' +
@@ -1606,7 +1167,9 @@ function renderHistory() {
                     '<strong>TODAY</strong>' +
 
                     '<div class="small">' +
-                        getTier(score).title +
+                        getTier(
+                            score
+                        ).title +
                         ' • ACTIVE LOG' +
                     '</div>' +
 
@@ -1618,12 +1181,12 @@ function renderHistory() {
 
             '</div>';
 
-
-    if(activity.length > 0) {
+    if(
+        activity.length > 0
+    ) {
 
         html +=
             '<div class="historyDetails">';
-
 
         for(
             var a = 0;
@@ -1637,15 +1200,12 @@ function renderHistory() {
                 );
         }
 
-
         html +=
             '</div>';
     }
 
-
     html +=
         '</div>';
-
 
     for(
         var i =
@@ -1657,7 +1217,6 @@ function renderHistory() {
         var day =
             history[i];
 
-
         html +=
 
             '<div class="historyRow">' +
@@ -1667,11 +1226,15 @@ function renderHistory() {
                     '<div>' +
 
                         '<strong>' +
-                            formatDate(day.date) +
+                            formatDate(
+                                day.date
+                            ) +
                         '</strong>' +
 
                         '<div class="small">' +
-                            getTier(day.score).title +
+                            getTier(
+                                day.score
+                            ).title +
                         '</div>' +
 
                     '</div>' +
@@ -1682,12 +1245,12 @@ function renderHistory() {
 
                 '</div>';
 
-
-        if(day.activities.length > 0) {
+        if(
+            day.activities.length > 0
+        ) {
 
             html +=
                 '<div class="historyDetails">';
-
 
             for(
                 var e = 0;
@@ -1701,31 +1264,29 @@ function renderHistory() {
                     );
             }
 
-
             html +=
                 '</div>';
         }
-
 
         html +=
             '</div>';
     }
 
-
-    document.getElementById("historyList").innerHTML =
+    document
+        .getElementById(
+            "historyList"
+        )
+        .innerHTML =
         html;
-
 
     renderStats();
 }
 
 
-/* PERSONNEL */
-
 function renderPersonnel() {
 
-    var all = [];
-
+    var all =
+        [];
 
     for(
         var h = 0;
@@ -1745,7 +1306,6 @@ function renderPersonnel() {
         }
     }
 
-
     for(
         var a = 0;
         a < activity.length;
@@ -1757,32 +1317,39 @@ function renderPersonnel() {
         );
     }
 
-
     all.sort(
         function(x,y) {
 
             return (
-                new Date(y.date).getTime()
+                new Date(
+                    y.date
+                ).getTime()
                 -
-                new Date(x.date).getTime()
+                new Date(
+                    x.date
+                ).getTime()
             );
         }
     );
 
+    if(
+        all.length === 0
+    ) {
 
-    if(all.length === 0) {
-
-        document.getElementById("personnelList").innerHTML =
+        document
+            .getElementById(
+                "personnelList"
+            )
+            .innerHTML =
             '<div class="empty">' +
-                'Personnel file currently clean.' +
+            'Personnel file currently clean.' +
             '</div>';
 
         return;
     }
 
-
-    var html = "";
-
+    var html =
+        "";
 
     for(
         var i = 0;
@@ -1796,76 +1363,12 @@ function renderPersonnel() {
             );
     }
 
-
-    document.getElementById("personnelList").innerHTML =
+    document
+        .getElementById(
+            "personnelList"
+        )
+        .innerHTML =
         html;
-}
-
-
-/* CALENDAR */
-
-function getRecordForDate(key) {
-
-    for(
-        var i = 0;
-        i < history.length;
-        i++
-    ) {
-
-        var archivedKey =
-            safeDateKey(
-                history[i].date
-            );
-
-
-        if(
-            archivedKey === key
-        ) {
-
-            return {
-                score:
-                    history[i].score,
-
-                activities:
-                    history[i].activities,
-
-                current:
-                    false
-            };
-        }
-    }
-
-
-    var today =
-        new Date();
-
-
-    var todayKey =
-        dateKeyFromParts(
-            today.getFullYear(),
-            today.getMonth() + 1,
-            today.getDate()
-        );
-
-
-    if(
-        key === todayKey
-    ) {
-
-        return {
-            score:
-                score,
-
-            activities:
-                activity,
-
-            current:
-                true
-        };
-    }
-
-
-    return null;
 }
 
 
@@ -1913,6 +1416,81 @@ function calendarEmoji(value) {
 }
 
 
+function getRecordByParts(
+    year,
+    month,
+    day
+) {
+
+    for(
+        var i = 0;
+        i < history.length;
+        i++
+    ) {
+
+        var archivedDate =
+            new Date(
+                history[i].date
+            );
+
+        if(
+            !isNaN(
+                archivedDate.getTime()
+            )
+            &&
+            archivedDate.getFullYear() === year
+            &&
+            archivedDate.getMonth() === month
+            &&
+            archivedDate.getDate() === day
+        ) {
+
+            return {
+
+                score:
+                    history[i].score,
+
+                activities:
+                    history[i].activities
+                    ||
+                    [],
+
+                current:
+                    false
+
+            };
+        }
+    }
+
+    var today =
+        new Date();
+
+    if(
+        today.getFullYear() === year
+        &&
+        today.getMonth() === month
+        &&
+        today.getDate() === day
+    ) {
+
+        return {
+
+            score:
+                score,
+
+            activities:
+                activity,
+
+            current:
+                true
+
+        };
+    }
+
+    return null;
+}
+
+
 function renderCalendar() {
 
     var grid =
@@ -1920,38 +1498,21 @@ function renderCalendar() {
             "calendarGrid"
         );
 
-
     var title =
         document.getElementById(
             "calendarMonthTitle"
         );
-
 
     var summary =
         document.getElementById(
             "calendarSummary"
         );
 
-
-    if(
-        !grid
-        ||
-        !title
-        ||
-        !summary
-    ) {
-
-        return;
-    }
-
-
     var year =
         calendarMonth.getFullYear();
 
-
     var month =
         calendarMonth.getMonth();
-
 
     title.textContent =
         calendarMonth.toLocaleDateString(
@@ -1962,18 +1523,15 @@ function renderCalendar() {
             }
         );
 
-
     grid.innerHTML =
         "";
 
-
-    var firstWeekday =
+    var firstDay =
         new Date(
             year,
             month,
             1
         ).getDay();
-
 
     var daysInMonth =
         new Date(
@@ -1982,10 +1540,9 @@ function renderCalendar() {
             0
         ).getDate();
 
-
     for(
         var blank = 0;
-        blank < firstWeekday;
+        blank < firstDay;
         blank++
     ) {
 
@@ -1994,40 +1551,19 @@ function renderCalendar() {
                 "div"
             );
 
-
         blankCell.className =
             "calendarDay calendarBlank";
-
 
         grid.appendChild(
             blankCell
         );
     }
 
-
-    var monthlyTotal =
-        0;
-
-
-    var monthlyCount =
-        0;
-
-
-    var monthlyBest =
-        null;
-
-
-    var realToday =
+    var today =
         new Date();
 
-
-    var realTodayKey =
-        dateKeyFromParts(
-            realToday.getFullYear(),
-            realToday.getMonth() + 1,
-            realToday.getDate()
-        );
-
+    var monthScores =
+        [];
 
     for(
         var day = 1;
@@ -2035,79 +1571,70 @@ function renderCalendar() {
         day++
     ) {
 
-        var key =
-            dateKeyFromParts(
-                year,
-                month + 1,
-                day
-            );
-
-
         var cell =
             document.createElement(
                 "div"
             );
 
-
         cell.className =
             "calendarDay";
-
-
-        if(
-            key === realTodayKey
-        ) {
-
-            cell.className +=
-                " calendarToday";
-        }
-
 
         var number =
             document.createElement(
                 "div"
             );
 
-
         number.className =
             "calendarDate";
 
-
         number.textContent =
-            String(day);
-
+            day;
 
         cell.appendChild(
             number
         );
 
+        if(
+            year === today.getFullYear()
+            &&
+            month === today.getMonth()
+            &&
+            day === today.getDate()
+        ) {
+
+            cell.classList.add(
+                "calendarToday"
+            );
+        }
 
         var record =
-            getRecordForDate(
-                key
+            getRecordByParts(
+                year,
+                month,
+                day
             );
-
 
         if(record) {
 
-            cell.className +=
-                " "
-                +
+            monthScores.push(
+                record.score
+            );
+
+            cell.classList.add(
                 calendarClass(
                     record.score
-                );
+                )
+            );
 
-
-            var scoreText =
+            var scoreLine =
                 document.createElement(
                     "div"
                 );
 
-
-            scoreText.className =
+            scoreLine.className =
                 "calendarScore";
 
-
-            scoreText.textContent =
+            scoreLine.textContent =
                 calendarEmoji(
                     record.score
                 )
@@ -2116,119 +1643,157 @@ function renderCalendar() {
                 +
                 record.score;
 
-
             cell.appendChild(
-                scoreText
+                scoreLine
             );
-
-
-            monthlyTotal +=
-                record.score;
-
-
-            monthlyCount++;
-
-
-            if(
-                monthlyBest === null
-                ||
-                record.score > monthlyBest
-            ) {
-
-                monthlyBest =
-                    record.score;
-            }
-
-
-            cell.setAttribute(
-                "data-key",
-                key
-            );
-
-
-            cell.onclick =
-                function() {
-
-                    var selected =
-                        this.getAttribute(
-                            "data-key"
-                        );
-
-
-                    showCalendarDay(
-                        selected
-                    );
-                };
         }
 
+        cell.setAttribute(
+            "data-year",
+            String(year)
+        );
+
+        cell.setAttribute(
+            "data-month",
+            String(month)
+        );
+
+        cell.setAttribute(
+            "data-day",
+            String(day)
+        );
+
+        cell.addEventListener(
+            "click",
+            function() {
+
+                showAnyCalendarDay(
+
+                    parseInt(
+                        this.getAttribute(
+                            "data-year"
+                        ),
+                        10
+                    ),
+
+                    parseInt(
+                        this.getAttribute(
+                            "data-month"
+                        ),
+                        10
+                    ),
+
+                    parseInt(
+                        this.getAttribute(
+                            "data-day"
+                        ),
+                        10
+                    )
+
+                );
+            }
+        );
 
         grid.appendChild(
             cell
         );
     }
 
+    if(
+        monthScores.length
+    ) {
 
-    if(monthlyCount > 0) {
+        var total =
+            0;
+
+        for(
+            var s = 0;
+            s < monthScores.length;
+            s++
+        ) {
+
+            total +=
+                monthScores[s];
+        }
 
         summary.textContent =
             "Average: "
             +
             Math.round(
-                monthlyTotal /
-                monthlyCount
+                total /
+                monthScores.length
             )
             +
             " • Best: "
             +
-            monthlyBest;
+            Math.max.apply(
+                null,
+                monthScores
+            );
 
     } else {
 
         summary.textContent =
-            "No recorded scores this month.";
+            "No completed days yet this month.";
     }
 }
 
 
-function showCalendarDay(key) {
+function showAnyCalendarDay(
+    year,
+    month,
+    day
+) {
+
+    var box =
+        document.getElementById(
+            "calendarDetails"
+        );
+
+    var selectedDate =
+        new Date(
+            year,
+            month,
+            day
+        );
 
     var record =
-        getRecordForDate(
-            key
+        getRecordByParts(
+            year,
+            month,
+            day
         );
 
+    var heading =
+        selectedDate.toLocaleDateString(
+            undefined,
+            {
+                weekday:"long",
+                month:"long",
+                day:"numeric",
+                year:"numeric"
+            }
+        );
 
     if(!record) {
+
+        box.innerHTML =
+
+            '<div class="calendarDetailTitle">' +
+                heading +
+            '</div>' +
+
+            '<div class="empty">' +
+                'No Taylor performance record for this day.' +
+            '</div>';
+
         return;
     }
-
-
-    var parts =
-        key.split("-");
-
-
-    var date =
-        new Date(
-            parseInt(parts[0],10),
-            parseInt(parts[1],10) - 1,
-            parseInt(parts[2],10)
-        );
-
 
     var html =
 
         '<div class="calendarDetailTitle">' +
-
-            date.toLocaleDateString(
-                undefined,
-                {
-                    weekday:"long",
-                    month:"long",
-                    day:"numeric",
-                    year:"numeric"
-                }
-            ) +
-
+            heading +
         '</div>' +
 
         '<div class="historyScore">' +
@@ -2236,33 +1801,37 @@ function showCalendarDay(key) {
         '</div>' +
 
         '<div class="small">' +
-            getTier(record.score).title +
+
+            getTier(
+                record.score
+            ).title +
+
             (
                 record.current
                 ? " • ACTIVE LOG"
-                : ""
+                : " • FINAL SCORE"
             ) +
+
         '</div>';
 
-
-    if(record.activities.length > 0) {
+    if(
+        record.activities.length
+    ) {
 
         html +=
             '<div class="historyDetails">';
 
-
         for(
-            var i = 0;
-            i < record.activities.length;
-            i++
+            var a = 0;
+            a < record.activities.length;
+            a++
         ) {
 
             html +=
                 historyBehaviorHTML(
-                    record.activities[i]
+                    record.activities[a]
                 );
         }
-
 
         html +=
             '</div>';
@@ -2270,13 +1839,13 @@ function showCalendarDay(key) {
     } else {
 
         html +=
+
             '<div class="empty">' +
-                'No behaviors recorded.' +
+                'No behavior logged for this day.' +
             '</div>';
     }
 
-
-    document.getElementById("calendarDetails").innerHTML =
+    box.innerHTML =
         html;
 }
 
@@ -2290,28 +1859,25 @@ function changeMonth(amount) {
             1
         );
 
-
     renderCalendar();
 }
 
 
-/* BEHAVIOR MENU */
-
-function addBehavior(name,points) {
+function addBehavior(
+    name,
+    points
+) {
 
     score +=
         points;
-
 
     if(score < 0) {
         score = 0;
     }
 
-
     if(score > bestScore) {
         bestScore = score;
     }
-
 
     activity.push({
 
@@ -2326,7 +1892,6 @@ function addBehavior(name,points) {
 
     });
 
-
     saveState();
 
     closeBehaviorMenu();
@@ -2340,34 +1905,30 @@ function openBehaviorMenu(mode) {
     currentMode =
         mode;
 
-
     var list =
         mode === "positive"
         ? compliments
         : incidents;
 
-
-    var title =
-        document.getElementById(
+    document
+        .getElementById(
             "sheetTitle"
-        );
+        )
+        .textContent =
 
-
-    title.textContent =
         mode === "positive"
-        ? "💚 Commend Taylor"
-        : "🚨 Report Incident";
 
+        ? "💚 Commend Taylor"
+
+        : "🚨 Report Incident";
 
     var container =
         document.getElementById(
             "behaviorOptions"
         );
 
-
     container.innerHTML =
         "";
-
 
     for(
         var i = 0;
@@ -2382,33 +1943,28 @@ function openBehaviorMenu(mode) {
                     "button"
                 );
 
-
             button.className =
                 "option";
 
-
             button.innerHTML =
 
-                "<span>"
-                +
-                escapeHTML(
-                    item[0]
-                )
-                +
-                "</span>"
-                +
-                "<strong>"
-                +
-                (
-                    item[1] > 0
-                    ? "+"
-                    : ""
-                )
-                +
-                item[1]
-                +
-                "</strong>";
+                '<span>' +
+                    escapeHTML(
+                        item[0]
+                    ) +
+                '</span>' +
 
+                '<strong>' +
+
+                    (
+                        item[1] > 0
+                        ? "+"
+                        : ""
+                    ) +
+
+                    item[1] +
+
+                '</strong>';
 
             button.onclick =
                 function() {
@@ -2419,7 +1975,6 @@ function openBehaviorMenu(mode) {
                     );
                 };
 
-
             container.appendChild(
                 button
             );
@@ -2427,72 +1982,89 @@ function openBehaviorMenu(mode) {
         })(list[i]);
     }
 
-
-    document.getElementById("customName").value =
+    document
+        .getElementById(
+            "customName"
+        )
+        .value =
         "";
 
-
-    document.getElementById("customPoints").value =
+    document
+        .getElementById(
+            "customPoints"
+        )
+        .value =
         3;
 
-
-    document.getElementById("overlay").classList.add(
-        "show"
-    );
+    document
+        .getElementById(
+            "overlay"
+        )
+        .classList.add(
+            "show"
+        );
 }
 
 
 function closeBehaviorMenu() {
 
-    document.getElementById("overlay").classList.remove(
-        "show"
-    );
+    document
+        .getElementById(
+            "overlay"
+        )
+        .classList.remove(
+            "show"
+        );
 }
 
 
 function addCustomBehavior() {
 
     var name =
-        document.getElementById("customName")
+        document
+        .getElementById(
+            "customName"
+        )
         .value
         .trim();
-
 
     if(!name) {
         return;
     }
 
-
     var points =
         parseFloat(
-            document.getElementById("customPoints").value
+            document
+            .getElementById(
+                "customPoints"
+            )
+            .value
         );
-
 
     if(isNaN(points)) {
         points = 3;
     }
 
-
     points =
-        Math.abs(points);
-
+        Math.abs(
+            points
+        );
 
     if(points < 1) {
         points = 1;
     }
 
-
     if(points > 50) {
         points = 50;
     }
 
+    if(
+        currentMode === "negative"
+    ) {
 
-    if(currentMode === "negative") {
         points =
             -points;
     }
-
 
     addBehavior(
         name,
@@ -2500,8 +2072,6 @@ function addCustomBehavior() {
     );
 }
 
-
-/* NEW DAY */
 
 function startNewDay() {
 
@@ -2513,7 +2083,6 @@ function startNewDay() {
 
         return;
     }
-
 
     history.push({
 
@@ -2528,23 +2097,18 @@ function startNewDay() {
 
     });
 
-
     score =
         START_SCORE;
-
 
     activity =
         [];
 
-
     dayStarted =
         new Date().toISOString();
-
 
     saveState();
 
     renderEverything();
-
 
     showPage(
         "todayPage",
@@ -2553,15 +2117,15 @@ function startNewDay() {
 }
 
 
-/* NAV */
-
-function showPage(pageID,tabID) {
+function showPage(
+    pageID,
+    tabID
+) {
 
     var pages =
         document.querySelectorAll(
             ".page"
         );
-
 
     for(
         var i = 0;
@@ -2569,17 +2133,17 @@ function showPage(pageID,tabID) {
         i++
     ) {
 
-        pages[i].classList.remove(
-            "active"
-        );
+        pages[i]
+            .classList
+            .remove(
+                "active"
+            );
     }
-
 
     var tabs =
         document.querySelectorAll(
             ".navButton"
         );
-
 
     for(
         var j = 0;
@@ -2587,52 +2151,67 @@ function showPage(pageID,tabID) {
         j++
     ) {
 
-        tabs[j].classList.remove(
-            "active"
-        );
+        tabs[j]
+            .classList
+            .remove(
+                "active"
+            );
     }
 
+    document
+        .getElementById(
+            pageID
+        )
+        .classList
+        .add(
+            "active"
+        );
 
-    document.getElementById(pageID).classList.add(
-        "active"
-    );
-
-
-    document.getElementById(tabID).classList.add(
-        "active"
-    );
-
+    document
+        .getElementById(
+            tabID
+        )
+        .classList
+        .add(
+            "active"
+        );
 
     window.scrollTo(
         0,
         0
     );
 
-
     renderEverything();
 }
 
 
-/* MODAL BACKDROP */
+document
+    .getElementById(
+        "overlay"
+    )
+    .onclick =
+    function(event) {
 
-document.getElementById("overlay").onclick =
-function(clickEvent) {
+        if(
+            event.target
+            ===
+            document
+            .getElementById(
+                "overlay"
+            )
+        ) {
 
-    if(
-        clickEvent.target
-        ===
-        document.getElementById("overlay")
-    ) {
-
-        closeBehaviorMenu();
-    }
-};
+            closeBehaviorMenu();
+        }
+    };
 
 
-/* BEST SCORE */
+if(
+    score > bestScore
+) {
 
-if(score > bestScore) {
-    bestScore = score;
+    bestScore =
+        score;
 }
 
 
@@ -2652,165 +2231,17 @@ for(
 }
 
 
-/* RENDER */
-
 function renderEverything() {
 
-    /*
-    Each section is isolated so one bad section
-    cannot stop the rest of the app.
-    */
+    renderScore();
 
-    try {
-        renderScore();
-    } catch(error) {
-        console.log(
-            "Score render error",
-            error
-        );
-    }
+    renderToday();
 
+    renderCalendar();
 
-    try {
-        renderToday();
-    } catch(error) {
-        console.log(
-            "Today render error",
-            error
-        );
-    }
+    renderHistory();
 
-
-    try {
-        renderCalendar();
-    } catch(error) {
-
-        console.log(
-            "Calendar render error",
-            error
-        );
-
-
-        var grid =
-            document.getElementById(
-                "calendarGrid"
-            );
-
-
-        if(grid) {
-
-            /*
-            Absolute fallback:
-            if calendar rendering ever errors,
-            at least draw every date.
-            */
-
-            grid.innerHTML =
-                "";
-
-
-            var y =
-                calendarMonth.getFullYear();
-
-
-            var m =
-                calendarMonth.getMonth();
-
-
-            var first =
-                new Date(
-                    y,
-                    m,
-                    1
-                ).getDay();
-
-
-            var totalDays =
-                new Date(
-                    y,
-                    m + 1,
-                    0
-                ).getDate();
-
-
-            for(
-                var q = 0;
-                q < first;
-                q++
-            ) {
-
-                var blank =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                blank.className =
-                    "calendarDay calendarBlank";
-
-
-                grid.appendChild(
-                    blank
-                );
-            }
-
-
-            for(
-                var d = 1;
-                d <= totalDays;
-                d++
-            ) {
-
-                var fallbackCell =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                fallbackCell.className =
-                    "calendarDay";
-
-
-                fallbackCell.textContent =
-                    d;
-
-
-                grid.appendChild(
-                    fallbackCell
-                );
-            }
-        }
-    }
-
-
-    try {
-        renderHistory();
-    } catch(error) {
-
-        console.log(
-            "History render error",
-            error
-        );
-
-
-        document.getElementById("historyList").innerHTML =
-            '<div class="empty">History is temporarily unavailable.</div>';
-    }
-
-
-    try {
-        renderPersonnel();
-    } catch(error) {
-
-        console.log(
-            "Personnel render error",
-            error
-        );
-
-
-        document.getElementById("personnelList").innerHTML =
-            '<div class="empty">Personnel file is temporarily unavailable.</div>';
-    }
+    renderPersonnel();
 }
 
 
