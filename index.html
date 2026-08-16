@@ -43,10 +43,12 @@ button{border:none;border-radius:15px;padding:17px 15px;width:100%;font-size:16p
 .positive{color:#168b49;font-weight:900}
 .negative{color:#d62e2e;font-weight:900}
 .small{color:#888;font-size:12px;margin-top:4px}
+
 .statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .statCard{background:#fff;border-radius:18px;padding:16px;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.05)}
 .statNumber{font-size:27px;font-weight:900}
 .statLabel{color:#777;font-size:12px;margin-top:4px}
+
 .historyRow{padding:15px 0;border-bottom:1px solid #eee}
 .historyRow:last-child{border-bottom:none}
 .historyTop{display:flex;justify-content:space-between;gap:12px;align-items:center}
@@ -103,17 +105,11 @@ nav{position:fixed;z-index:999;bottom:0;left:0;right:0;height:calc(76px + env(sa
 
 <div id="score" class="score">75</div>
 
-<div class="label">
-BOYFRIEND RATING
-</div>
+<div class="label">BOYFRIEND RATING</div>
 
-<div id="status" class="status">
-💚 GOOD STANDING
-</div>
+<div id="status" class="status">💚 GOOD STANDING</div>
 
-<div id="message" class="message">
-No corrective action required.
-</div>
+<div id="message" class="message">No corrective action required.</div>
 
 <div class="progress">
 <div id="progressFill" class="progressFill"></div>
@@ -137,9 +133,7 @@ No corrective action required.
 🌅 START NEW DAY
 </button>
 
-<div class="sectionTitle">
-Today's Activity
-</div>
+<div class="sectionTitle">Today's Activity</div>
 
 <div class="card">
 <div id="todayActivity"></div>
@@ -147,25 +141,20 @@ Today's Activity
 
 </section>
 
+
 <section id="calendarPage" class="page">
 
-<div class="sectionTitle">
-📅 Performance Calendar
-</div>
+<div class="sectionTitle">📅 Performance Calendar</div>
 
 <div class="card">
 
 <div class="calendarHeader">
 
-<button class="calendarArrow" onclick="changeMonth(-1)">
-‹
-</button>
+<button class="calendarArrow" onclick="changeMonth(-1)">‹</button>
 
 <div id="calendarMonthTitle" class="calendarMonthTitle"></div>
 
-<button class="calendarArrow" onclick="changeMonth(1)">
-›
-</button>
+<button class="calendarArrow" onclick="changeMonth(1)">›</button>
 
 </div>
 
@@ -186,24 +175,19 @@ Today's Activity
 </div>
 
 <div id="calendarDetails" class="card">
-<div class="empty">
-Tap a day to view its behavior log.
-</div>
+<div class="empty">Tap a day to view its behavior log.</div>
 </div>
 
 </section>
 
+
 <section id="historyPage" class="page">
 
-<div class="sectionTitle">
-Performance Analytics
-</div>
+<div class="sectionTitle">Performance Analytics</div>
 
 <div id="statsGrid" class="statsGrid"></div>
 
-<div class="sectionTitle">
-Daily History
-</div>
+<div class="sectionTitle">Daily History</div>
 
 <div class="card">
 <div id="historyList"></div>
@@ -211,17 +195,17 @@ Daily History
 
 </section>
 
+
 <section id="personnelPage" class="page">
 
-<div class="sectionTitle">
-🗂️ Taylor's Permanent Personnel File
-</div>
+<div class="sectionTitle">🗂️ Taylor's Permanent Personnel File</div>
 
 <div class="card">
 <div id="personnelList"></div>
 </div>
 
 </section>
+
 
 <div id="overlay" class="overlay">
 
@@ -231,84 +215,56 @@ Daily History
 
 <div id="behaviorOptions"></div>
 
-<div class="sectionTitle">
-Custom Behavior
-</div>
+<div class="sectionTitle">Custom Behavior</div>
 
-<input
-id="customName"
-class="customInput"
-placeholder="What did Taylor do?"
->
+<input id="customName" class="customInput" placeholder="What did Taylor do?">
 
 <div class="customRow">
 
-<input
-id="customPoints"
-type="number"
-value="3"
-min="1"
-max="50"
->
+<input id="customPoints" type="number" value="3" min="1" max="50">
 
-<button class="blue" onclick="addCustomBehavior()">
-Add
-</button>
+<button class="blue" onclick="addCustomBehavior()">Add</button>
 
 </div>
 
 <div class="gap"></div>
 
-<button class="gray" onclick="closeBehaviorMenu()">
-Cancel
-</button>
+<button class="gray" onclick="closeBehaviorMenu()">Cancel</button>
 
 </div>
+
 </div>
+
 
 <nav>
 
-<button
-id="todayTab"
-class="navButton active"
-onclick="showPage('todayPage','todayTab')"
->
+<button id="todayTab" class="navButton active" onclick="showPage('todayPage','todayTab')">
 <span>🏠</span>
 Today
 </button>
 
-<button
-id="calendarTab"
-class="navButton"
-onclick="showPage('calendarPage','calendarTab')"
->
+<button id="calendarTab" class="navButton" onclick="showPage('calendarPage','calendarTab')">
 <span>📅</span>
 Calendar
 </button>
 
-<button
-id="historyTab"
-class="navButton"
-onclick="showPage('historyPage','historyTab')"
->
+<button id="historyTab" class="navButton" onclick="showPage('historyPage','historyTab')">
 <span>📊</span>
 History
 </button>
 
-<button
-id="personnelTab"
-class="navButton"
-onclick="showPage('personnelPage','personnelTab')"
->
+<button id="personnelTab" class="navButton" onclick="showPage('personnelPage','personnelTab')">
 <span>🗂️</span>
 Personnel
 </button>
 
 </nav>
 
+
 <script>
 
 var START_SCORE = 75;
+
 
 var compliments = [
 ["Forehead Kiss",3],
@@ -353,6 +309,7 @@ var compliments = [
 ["Above and Beyond Boyfriend Service",12]
 ];
 
+
 var incidents = [
 ["Deez Nuts Joke",-3],
 ["That's What She Said Joke",-3],
@@ -396,9 +353,10 @@ var incidents = [
 ["Boyfriend Felony",-25]
 ];
 
-function loadJSON(key,fallback) {
 
-    try {
+function loadJSON(key,fallback){
+
+    try{
 
         var value =
             localStorage.getItem(key);
@@ -407,21 +365,24 @@ function loadJSON(key,fallback) {
             ? JSON.parse(value)
             : fallback;
 
-    } catch(error) {
+    }catch(error){
 
         return fallback;
     }
 }
+
 
 var savedScore =
     parseFloat(
         localStorage.getItem("taylorScore")
     );
 
+
 var score =
     isNaN(savedScore)
     ? START_SCORE
     : savedScore;
+
 
 var activity =
     loadJSON(
@@ -429,52 +390,80 @@ var activity =
         []
     );
 
-if(!Array.isArray(activity)) {
+
+if(
+    !Array.isArray(activity)
+){
+
     activity = [];
 }
 
-var history =
+
+/*
+IMPORTANT:
+Do NOT call this variable "history".
+Safari already has window.history.
+*/
+
+var dayHistory =
     loadJSON(
         "taylorHistory",
         []
     );
 
-if(!Array.isArray(history)) {
-    history = [];
+
+if(
+    !Array.isArray(dayHistory)
+){
+
+    dayHistory = [];
 }
+
 
 var savedBest =
     parseFloat(
-        localStorage.getItem("taylorBestScore")
+        localStorage.getItem(
+            "taylorBestScore"
+        )
     );
+
 
 var bestScore =
     isNaN(savedBest)
     ? score
     : savedBest;
 
+
 var dayStarted =
     localStorage.getItem(
         "taylorDayStarted"
     );
 
+
 if(
     !dayStarted
     ||
     isNaN(
-        new Date(dayStarted).getTime()
+        new Date(
+            dayStarted
+        )
+        .getTime()
     )
-) {
+){
 
     dayStarted =
-        new Date().toISOString();
+        new Date()
+        .toISOString();
 }
+
 
 var currentMode =
     "positive";
 
+
 var calendarMonth =
     new Date();
+
 
 calendarMonth =
     new Date(
@@ -484,37 +473,52 @@ calendarMonth =
     );
 
 
-function cleanEvent(item) {
+/* CLEAN OLD SAVED DATA */
 
-    if(!item) {
+function cleanEvent(item){
+
+    if(!item){
         return null;
     }
+
 
     var points =
         parseFloat(
             item.points
         );
 
-    if(isNaN(points)) {
+
+    if(
+        isNaN(points)
+    ){
+
         points = 0;
     }
+
 
     var date =
         item.date
         ||
         item.time
         ||
-        new Date().toISOString();
+        new Date()
+        .toISOString();
+
 
     if(
         isNaN(
-            new Date(date).getTime()
+            new Date(
+                date
+            )
+            .getTime()
         )
-    ) {
+    ){
 
         date =
-            new Date().toISOString();
+            new Date()
+            .toISOString();
     }
+
 
     return {
 
@@ -533,66 +537,90 @@ function cleanEvent(item) {
 }
 
 
-var cleanedActivity = [];
+var cleanedActivity =
+    [];
+
 
 for(
     var ca = 0;
     ca < activity.length;
     ca++
-) {
+){
 
     var ce =
         cleanEvent(
             activity[ca]
         );
 
-    if(ce) {
-        cleanedActivity.push(ce);
+
+    if(ce){
+
+        cleanedActivity.push(
+            ce
+        );
     }
 }
+
 
 activity =
     cleanedActivity;
 
 
-var cleanedHistory = [];
+var cleanedDayHistory =
+    [];
+
 
 for(
     var ch = 0;
-    ch < history.length;
+    ch < dayHistory.length;
     ch++
-) {
+){
 
     var oldDay =
-        history[ch];
+        dayHistory[ch];
 
-    if(!oldDay) {
+
+    if(
+        !oldDay
+        ||
+        typeof oldDay !== "object"
+    ){
+
         continue;
     }
 
+
     var rawScore =
         oldDay.score;
+
 
     if(
         rawScore === undefined
         ||
         rawScore === null
-    ) {
+    ){
 
         rawScore =
             oldDay.finalScore;
     }
+
 
     var cleanedScore =
         parseFloat(
             rawScore
         );
 
-    if(isNaN(cleanedScore)) {
+
+    if(
+        isNaN(
+            cleanedScore
+        )
+    ){
 
         cleanedScore =
             START_SCORE;
     }
+
 
     var cleanedDate =
         oldDay.date
@@ -601,17 +629,24 @@ for(
         ||
         oldDay.endedAt
         ||
-        new Date().toISOString();
+        new Date()
+        .toISOString();
+
 
     if(
         isNaN(
-            new Date(cleanedDate).getTime()
+            new Date(
+                cleanedDate
+            )
+            .getTime()
         )
-    ) {
+    ){
 
         cleanedDate =
-            new Date().toISOString();
+            new Date()
+            .toISOString();
     }
+
 
     var oldEvents =
         oldDay.activities
@@ -620,33 +655,44 @@ for(
         ||
         [];
 
-    if(!Array.isArray(oldEvents)) {
+
+    if(
+        !Array.isArray(
+            oldEvents
+        )
+    ){
 
         oldEvents =
             [];
     }
 
+
     var newEvents =
         [];
+
 
     for(
         var oe = 0;
         oe < oldEvents.length;
         oe++
-    ) {
+    ){
 
         var ne =
             cleanEvent(
                 oldEvents[oe]
             );
 
-        if(ne) {
 
-            newEvents.push(ne);
+        if(ne){
+
+            newEvents.push(
+                ne
+            );
         }
     }
 
-    cleanedHistory.push({
+
+    cleanedDayHistory.push({
 
         date:
             cleanedDate,
@@ -660,31 +706,44 @@ for(
     });
 }
 
-history =
-    cleanedHistory;
+
+dayHistory =
+    cleanedDayHistory;
 
 
-function saveState() {
+/* SAVE */
+
+function saveState(){
 
     localStorage.setItem(
         "taylorScore",
         String(score)
     );
 
+
     localStorage.setItem(
         "taylorActivity",
-        JSON.stringify(activity)
+        JSON.stringify(
+            activity
+        )
     );
+
 
     localStorage.setItem(
         "taylorHistory",
-        JSON.stringify(history)
+        JSON.stringify(
+            dayHistory
+        )
     );
+
 
     localStorage.setItem(
         "taylorBestScore",
-        String(bestScore)
+        String(
+            bestScore
+        )
     );
+
 
     localStorage.setItem(
         "taylorDayStarted",
@@ -693,9 +752,13 @@ function saveState() {
 }
 
 
-function getTier(value) {
+/* TIERS */
 
-    if(value >= 90) {
+function getTier(value){
+
+    if(
+        value >= 90
+    ){
 
         return {
             title:"👑 ELITE BOYFRIEND",
@@ -704,7 +767,10 @@ function getTier(value) {
         };
     }
 
-    if(value >= 75) {
+
+    if(
+        value >= 75
+    ){
 
         return {
             title:"💚 GOOD STANDING",
@@ -713,7 +779,10 @@ function getTier(value) {
         };
     }
 
-    if(value >= 60) {
+
+    if(
+        value >= 60
+    ){
 
         return {
             title:"⚠️ UNDER REVIEW",
@@ -722,7 +791,10 @@ function getTier(value) {
         };
     }
 
-    if(value >= 40) {
+
+    if(
+        value >= 40
+    ){
 
         return {
             title:"📋 PROBATION",
@@ -730,6 +802,7 @@ function getTier(value) {
             image:"TaylorProbation.png"
         };
     }
+
 
     return {
         title:"🚔 BOYFRIEND JAIL",
@@ -739,27 +812,23 @@ function getTier(value) {
 }
 
 
-function pad2(number) {
+/* DATES */
 
-    return number < 10
-        ? "0" + number
-        : String(number);
-}
-
-
-function formatDate(value) {
+function formatDate(value){
 
     var d =
         new Date(value);
+
 
     if(
         isNaN(
             d.getTime()
         )
-    ) {
+    ){
 
         return "Unknown Date";
     }
+
 
     return d.toLocaleDateString(
         undefined,
@@ -772,19 +841,21 @@ function formatDate(value) {
 }
 
 
-function formatTime(value) {
+function formatTime(value){
 
     var d =
         new Date(value);
+
 
     if(
         isNaN(
             d.getTime()
         )
-    ) {
+    ){
 
         return "";
     }
+
 
     return d.toLocaleTimeString(
         undefined,
@@ -796,26 +867,31 @@ function formatTime(value) {
 }
 
 
-function escapeHTML(text) {
+function escapeHTML(text){
 
     var div =
         document.createElement(
             "div"
         );
 
+
     div.textContent =
         String(text);
+
 
     return div.innerHTML;
 }
 
 
-function renderScore() {
+/* SCORE */
+
+function renderScore(){
 
     var tier =
         getTier(
             score
         );
+
 
     document
         .getElementById(
@@ -824,12 +900,14 @@ function renderScore() {
         .textContent =
         score;
 
+
     document
         .getElementById(
             "status"
         )
         .textContent =
         tier.title;
+
 
     document
         .getElementById(
@@ -838,12 +916,14 @@ function renderScore() {
         .textContent =
         tier.message;
 
+
     document
         .getElementById(
             "taylorImage"
         )
         .src =
         tier.image;
+
 
     document
         .getElementById(
@@ -862,10 +942,13 @@ function renderScore() {
 }
 
 
-function activityHTML(item) {
+/* ACTIVITY */
+
+function activityHTML(item){
 
     var positive =
         item.points >= 0;
+
 
     return (
 
@@ -919,16 +1002,17 @@ function activityHTML(item) {
 }
 
 
-function renderToday() {
+function renderToday(){
 
     var box =
         document.getElementById(
             "todayActivity"
         );
 
+
     if(
         activity.length === 0
-    ) {
+    ){
 
         box.innerHTML =
             '<div class="empty">' +
@@ -938,15 +1022,17 @@ function renderToday() {
         return;
     }
 
+
     var html =
         "";
+
 
     for(
         var i =
             activity.length - 1;
         i >= 0;
         i--
-    ) {
+    ){
 
         html +=
             activityHTML(
@@ -954,15 +1040,19 @@ function renderToday() {
             );
     }
 
+
     box.innerHTML =
         html;
 }
 
 
-function historyBehaviorHTML(item) {
+/* HISTORY */
+
+function historyBehaviorHTML(item){
 
     var positive =
         item.points >= 0;
+
 
     return (
 
@@ -998,10 +1088,9 @@ function historyBehaviorHTML(item) {
 }
 
 
-function renderStats() {
+function renderStats(){
 
-    var total =
-        0;
+    var total = 0;
 
     var average =
         "—";
@@ -1015,82 +1104,89 @@ function renderStats() {
     var incidentsCount =
         0;
 
+
     if(
-        history.length > 0
-    ) {
+        dayHistory.length > 0
+    ){
 
         lowest =
-            history[0].score;
+            dayHistory[0].score;
+
 
         for(
             var i = 0;
-            i < history.length;
+            i < dayHistory.length;
             i++
-        ) {
+        ){
 
             total +=
-                history[i].score;
+                dayHistory[i].score;
+
 
             if(
-                history[i].score
+                dayHistory[i].score
                 <
                 lowest
-            ) {
+            ){
 
                 lowest =
-                    history[i].score;
+                    dayHistory[i].score;
             }
         }
+
 
         average =
             Math.round(
                 total /
-                history.length
+                dayHistory.length
             );
     }
 
+
     for(
         var h = 0;
-        h < history.length;
+        h < dayHistory.length;
         h++
-    ) {
+    ){
 
         for(
             var e = 0;
-            e < history[h].activities.length;
+            e < dayHistory[h].activities.length;
             e++
-        ) {
+        ){
 
             if(
-                history[h].activities[e].points >= 0
-            ) {
+                dayHistory[h].activities[e].points >= 0
+            ){
 
                 commendations++;
 
-            } else {
+            }else{
 
                 incidentsCount++;
             }
         }
     }
 
+
     for(
         var a = 0;
         a < activity.length;
         a++
-    ) {
+    ){
 
         if(
             activity[a].points >= 0
-        ) {
+        ){
 
             commendations++;
 
-        } else {
+        }else{
 
             incidentsCount++;
         }
     }
+
 
     document
         .getElementById(
@@ -1136,7 +1232,7 @@ function renderStats() {
 
         '<div class="statCard">' +
             '<div class="statNumber">' +
-                history.length +
+                dayHistory.length +
             '</div>' +
             '<div class="statLabel">' +
                 '📅 Archived Days' +
@@ -1154,7 +1250,7 @@ function renderStats() {
 }
 
 
-function renderHistory() {
+function renderHistory(){
 
     var html =
 
@@ -1181,18 +1277,20 @@ function renderHistory() {
 
             '</div>';
 
+
     if(
         activity.length > 0
-    ) {
+    ){
 
         html +=
             '<div class="historyDetails">';
+
 
         for(
             var a = 0;
             a < activity.length;
             a++
-        ) {
+        ){
 
             html +=
                 historyBehaviorHTML(
@@ -1200,22 +1298,26 @@ function renderHistory() {
                 );
         }
 
+
         html +=
             '</div>';
     }
 
+
     html +=
         '</div>';
 
+
     for(
         var i =
-            history.length - 1;
+            dayHistory.length - 1;
         i >= 0;
         i--
-    ) {
+    ){
 
         var day =
-            history[i];
+            dayHistory[i];
+
 
         html +=
 
@@ -1245,18 +1347,20 @@ function renderHistory() {
 
                 '</div>';
 
+
         if(
             day.activities.length > 0
-        ) {
+        ){
 
             html +=
                 '<div class="historyDetails">';
+
 
             for(
                 var e = 0;
                 e < day.activities.length;
                 e++
-            ) {
+            ){
 
                 html +=
                     historyBehaviorHTML(
@@ -1264,13 +1368,16 @@ function renderHistory() {
                     );
             }
 
+
             html +=
                 '</div>';
         }
 
+
         html +=
             '</div>';
     }
+
 
     document
         .getElementById(
@@ -1279,62 +1386,71 @@ function renderHistory() {
         .innerHTML =
         html;
 
+
     renderStats();
 }
 
 
-function renderPersonnel() {
+/* PERSONNEL */
+
+function renderPersonnel(){
 
     var all =
         [];
 
+
     for(
         var h = 0;
-        h < history.length;
+        h < dayHistory.length;
         h++
-    ) {
+    ){
 
         for(
             var e = 0;
-            e < history[h].activities.length;
+            e < dayHistory[h].activities.length;
             e++
-        ) {
+        ){
 
             all.push(
-                history[h].activities[e]
+                dayHistory[h].activities[e]
             );
         }
     }
+
 
     for(
         var a = 0;
         a < activity.length;
         a++
-    ) {
+    ){
 
         all.push(
             activity[a]
         );
     }
 
+
     all.sort(
-        function(x,y) {
+        function(x,y){
 
             return (
                 new Date(
                     y.date
-                ).getTime()
+                )
+                .getTime()
                 -
                 new Date(
                     x.date
-                ).getTime()
+                )
+                .getTime()
             );
         }
     );
 
+
     if(
         all.length === 0
-    ) {
+    ){
 
         document
             .getElementById(
@@ -1348,20 +1464,23 @@ function renderPersonnel() {
         return;
     }
 
+
     var html =
         "";
+
 
     for(
         var i = 0;
         i < all.length;
         i++
-    ) {
+    ){
 
         html +=
             activityHTML(
                 all[i]
             );
     }
+
 
     document
         .getElementById(
@@ -1372,45 +1491,79 @@ function renderPersonnel() {
 }
 
 
-function calendarClass(value) {
+/* CALENDAR */
 
-    if(value >= 90) {
+function calendarClass(value){
+
+    if(
+        value >= 90
+    ){
+
         return "calendarElite";
     }
 
-    if(value >= 75) {
+
+    if(
+        value >= 75
+    ){
+
         return "calendarGood";
     }
 
-    if(value >= 60) {
+
+    if(
+        value >= 60
+    ){
+
         return "calendarReview";
     }
 
-    if(value >= 40) {
+
+    if(
+        value >= 40
+    ){
+
         return "calendarProbation";
     }
+
 
     return "calendarJail";
 }
 
 
-function calendarEmoji(value) {
+function calendarEmoji(value){
 
-    if(value >= 90) {
+    if(
+        value >= 90
+    ){
+
         return "👑";
     }
 
-    if(value >= 75) {
+
+    if(
+        value >= 75
+    ){
+
         return "💚";
     }
 
-    if(value >= 60) {
+
+    if(
+        value >= 60
+    ){
+
         return "⚠️";
     }
 
-    if(value >= 40) {
+
+    if(
+        value >= 40
+    ){
+
         return "📋";
     }
+
 
     return "🚔";
 }
@@ -1420,18 +1573,19 @@ function getRecordByParts(
     year,
     month,
     day
-) {
+){
 
     for(
         var i = 0;
-        i < history.length;
+        i < dayHistory.length;
         i++
-    ) {
+    ){
 
         var archivedDate =
             new Date(
-                history[i].date
+                dayHistory[i].date
             );
+
 
         if(
             !isNaN(
@@ -1443,15 +1597,15 @@ function getRecordByParts(
             archivedDate.getMonth() === month
             &&
             archivedDate.getDate() === day
-        ) {
+        ){
 
             return {
 
                 score:
-                    history[i].score,
+                    dayHistory[i].score,
 
                 activities:
-                    history[i].activities
+                    dayHistory[i].activities
                     ||
                     [],
 
@@ -1462,8 +1616,10 @@ function getRecordByParts(
         }
     }
 
+
     var today =
         new Date();
+
 
     if(
         today.getFullYear() === year
@@ -1471,7 +1627,7 @@ function getRecordByParts(
         today.getMonth() === month
         &&
         today.getDate() === day
-    ) {
+    ){
 
         return {
 
@@ -1487,35 +1643,44 @@ function getRecordByParts(
         };
     }
 
+
     return null;
 }
 
 
-function renderCalendar() {
+function renderCalendar(){
 
     var grid =
         document.getElementById(
             "calendarGrid"
         );
 
+
     var title =
         document.getElementById(
             "calendarMonthTitle"
         );
+
 
     var summary =
         document.getElementById(
             "calendarSummary"
         );
 
+
     var year =
-        calendarMonth.getFullYear();
+        calendarMonth
+        .getFullYear();
+
 
     var month =
-        calendarMonth.getMonth();
+        calendarMonth
+        .getMonth();
+
 
     title.textContent =
-        calendarMonth.toLocaleDateString(
+        calendarMonth
+        .toLocaleDateString(
             undefined,
             {
                 month:"long",
@@ -1523,76 +1688,93 @@ function renderCalendar() {
             }
         );
 
+
     grid.innerHTML =
         "";
+
 
     var firstDay =
         new Date(
             year,
             month,
             1
-        ).getDay();
+        )
+        .getDay();
+
 
     var daysInMonth =
         new Date(
             year,
             month + 1,
             0
-        ).getDate();
+        )
+        .getDate();
+
 
     for(
         var blank = 0;
         blank < firstDay;
         blank++
-    ) {
+    ){
 
         var blankCell =
             document.createElement(
                 "div"
             );
 
+
         blankCell.className =
             "calendarDay calendarBlank";
+
 
         grid.appendChild(
             blankCell
         );
     }
 
+
     var today =
         new Date();
 
+
     var monthScores =
         [];
+
 
     for(
         var day = 1;
         day <= daysInMonth;
         day++
-    ) {
+    ){
 
         var cell =
             document.createElement(
                 "div"
             );
 
+
         cell.className =
             "calendarDay";
+
 
         var number =
             document.createElement(
                 "div"
             );
 
+
         number.className =
             "calendarDate";
+
 
         number.textContent =
             day;
 
+
         cell.appendChild(
             number
         );
+
 
         if(
             year === today.getFullYear()
@@ -1600,12 +1782,15 @@ function renderCalendar() {
             month === today.getMonth()
             &&
             day === today.getDate()
-        ) {
+        ){
 
-            cell.classList.add(
+            cell
+            .classList
+            .add(
                 "calendarToday"
             );
         }
+
 
         var record =
             getRecordByParts(
@@ -1614,25 +1799,32 @@ function renderCalendar() {
                 day
             );
 
-        if(record) {
+
+        if(record){
 
             monthScores.push(
                 record.score
             );
 
-            cell.classList.add(
+
+            cell
+            .classList
+            .add(
                 calendarClass(
                     record.score
                 )
             );
+
 
             var scoreLine =
                 document.createElement(
                     "div"
                 );
 
+
             scoreLine.className =
                 "calendarScore";
+
 
             scoreLine.textContent =
                 calendarEmoji(
@@ -1643,29 +1835,33 @@ function renderCalendar() {
                 +
                 record.score;
 
+
             cell.appendChild(
                 scoreLine
             );
         }
+
 
         cell.setAttribute(
             "data-year",
             String(year)
         );
 
+
         cell.setAttribute(
             "data-month",
             String(month)
         );
+
 
         cell.setAttribute(
             "data-day",
             String(day)
         );
 
-        cell.addEventListener(
-            "click",
-            function() {
+
+        cell.onclick =
+            function(){
 
                 showAnyCalendarDay(
 
@@ -1691,30 +1887,33 @@ function renderCalendar() {
                     )
 
                 );
-            }
-        );
+            };
+
 
         grid.appendChild(
             cell
         );
     }
 
+
     if(
         monthScores.length
-    ) {
+    ){
 
         var total =
             0;
+
 
         for(
             var s = 0;
             s < monthScores.length;
             s++
-        ) {
+        ){
 
             total +=
                 monthScores[s];
         }
+
 
         summary.textContent =
             "Average: "
@@ -1731,7 +1930,7 @@ function renderCalendar() {
                 monthScores
             );
 
-    } else {
+    }else{
 
         summary.textContent =
             "No completed days yet this month.";
@@ -1743,12 +1942,13 @@ function showAnyCalendarDay(
     year,
     month,
     day
-) {
+){
 
     var box =
         document.getElementById(
             "calendarDetails"
         );
+
 
     var selectedDate =
         new Date(
@@ -1757,6 +1957,7 @@ function showAnyCalendarDay(
             day
         );
 
+
     var record =
         getRecordByParts(
             year,
@@ -1764,8 +1965,10 @@ function showAnyCalendarDay(
             day
         );
 
+
     var heading =
-        selectedDate.toLocaleDateString(
+        selectedDate
+        .toLocaleDateString(
             undefined,
             {
                 weekday:"long",
@@ -1775,7 +1978,8 @@ function showAnyCalendarDay(
             }
         );
 
-    if(!record) {
+
+    if(!record){
 
         box.innerHTML =
 
@@ -1787,8 +1991,10 @@ function showAnyCalendarDay(
                 'No Taylor performance record for this day.' +
             '</div>';
 
+
         return;
     }
+
 
     var html =
 
@@ -1814,18 +2020,20 @@ function showAnyCalendarDay(
 
         '</div>';
 
+
     if(
         record.activities.length
-    ) {
+    ){
 
         html +=
             '<div class="historyDetails">';
+
 
         for(
             var a = 0;
             a < record.activities.length;
             a++
-        ) {
+        ){
 
             html +=
                 historyBehaviorHTML(
@@ -1833,10 +2041,11 @@ function showAnyCalendarDay(
                 );
         }
 
+
         html +=
             '</div>';
 
-    } else {
+    }else{
 
         html +=
 
@@ -1845,39 +2054,59 @@ function showAnyCalendarDay(
             '</div>';
     }
 
+
     box.innerHTML =
         html;
 }
 
 
-function changeMonth(amount) {
+function changeMonth(amount){
 
     calendarMonth =
         new Date(
+
             calendarMonth.getFullYear(),
-            calendarMonth.getMonth() + amount,
+
+            calendarMonth.getMonth()
+            +
+            amount,
+
             1
+
         );
+
 
     renderCalendar();
 }
 
 
+/* ADD BEHAVIOR */
+
 function addBehavior(
     name,
     points
-) {
+){
 
     score +=
         points;
 
-    if(score < 0) {
+
+    if(
+        score < 0
+    ){
+
         score = 0;
     }
 
-    if(score > bestScore) {
-        bestScore = score;
+
+    if(
+        score > bestScore
+    ){
+
+        bestScore =
+            score;
     }
+
 
     activity.push({
 
@@ -1888,9 +2117,11 @@ function addBehavior(
             points,
 
         date:
-            new Date().toISOString()
+            new Date()
+            .toISOString()
 
     });
+
 
     saveState();
 
@@ -1900,51 +2131,57 @@ function addBehavior(
 }
 
 
-function openBehaviorMenu(mode) {
+/* MENUS */
+
+function openBehaviorMenu(mode){
 
     currentMode =
         mode;
+
 
     var list =
         mode === "positive"
         ? compliments
         : incidents;
 
+
     document
         .getElementById(
             "sheetTitle"
         )
         .textContent =
-
         mode === "positive"
-
         ? "💚 Commend Taylor"
-
         : "🚨 Report Incident";
+
 
     var container =
         document.getElementById(
             "behaviorOptions"
         );
 
+
     container.innerHTML =
         "";
+
 
     for(
         var i = 0;
         i < list.length;
         i++
-    ) {
+    ){
 
-        (function(item) {
+        (function(item){
 
             var button =
                 document.createElement(
                     "button"
                 );
 
+
             button.className =
                 "option";
+
 
             button.innerHTML =
 
@@ -1966,14 +2203,16 @@ function openBehaviorMenu(mode) {
 
                 '</strong>';
 
+
             button.onclick =
-                function() {
+                function(){
 
                     addBehavior(
                         item[0],
                         item[1]
                     );
                 };
+
 
             container.appendChild(
                 button
@@ -1982,12 +2221,14 @@ function openBehaviorMenu(mode) {
         })(list[i]);
     }
 
+
     document
         .getElementById(
             "customName"
         )
         .value =
         "";
+
 
     document
         .getElementById(
@@ -1996,29 +2237,32 @@ function openBehaviorMenu(mode) {
         .value =
         3;
 
-    document
-        .getElementById(
-            "overlay"
-        )
-        .classList.add(
-            "show"
-        );
-}
-
-
-function closeBehaviorMenu() {
 
     document
         .getElementById(
             "overlay"
         )
-        .classList.remove(
+        .classList
+        .add(
             "show"
         );
 }
 
 
-function addCustomBehavior() {
+function closeBehaviorMenu(){
+
+    document
+        .getElementById(
+            "overlay"
+        )
+        .classList
+        .remove(
+            "show"
+        );
+}
+
+
+function addCustomBehavior(){
 
     var name =
         document
@@ -2028,43 +2272,63 @@ function addCustomBehavior() {
         .value
         .trim();
 
-    if(!name) {
+
+    if(!name){
+
         return;
     }
 
+
     var points =
         parseFloat(
+
             document
             .getElementById(
                 "customPoints"
             )
             .value
+
         );
 
-    if(isNaN(points)) {
+
+    if(
+        isNaN(points)
+    ){
+
         points = 3;
     }
+
 
     points =
         Math.abs(
             points
         );
 
-    if(points < 1) {
+
+    if(
+        points < 1
+    ){
+
         points = 1;
     }
 
-    if(points > 50) {
+
+    if(
+        points > 50
+    ){
+
         points = 50;
     }
 
+
     if(
         currentMode === "negative"
-    ) {
+    ){
 
         points =
             -points;
     }
+
 
     addBehavior(
         name,
@@ -2073,21 +2337,24 @@ function addCustomBehavior() {
 }
 
 
-function startNewDay() {
+/* NEW DAY */
+
+function startNewDay(){
 
     if(
         !window.confirm(
             "Archive today's score and start a new day at 75?"
         )
-    ) {
+    ){
 
         return;
     }
 
-    history.push({
+
+    dayHistory.push({
 
         date:
-            new Date().toISOString(),
+            dayStarted,
 
         score:
             score,
@@ -2097,18 +2364,24 @@ function startNewDay() {
 
     });
 
+
     score =
         START_SCORE;
+
 
     activity =
         [];
 
+
     dayStarted =
-        new Date().toISOString();
+        new Date()
+        .toISOString();
+
 
     saveState();
 
     renderEverything();
+
 
     showPage(
         "todayPage",
@@ -2117,46 +2390,52 @@ function startNewDay() {
 }
 
 
+/* NAV */
+
 function showPage(
     pageID,
     tabID
-) {
+){
 
     var pages =
         document.querySelectorAll(
             ".page"
         );
 
+
     for(
         var i = 0;
         i < pages.length;
         i++
-    ) {
+    ){
 
         pages[i]
-            .classList
-            .remove(
-                "active"
-            );
+        .classList
+        .remove(
+            "active"
+        );
     }
+
 
     var tabs =
         document.querySelectorAll(
             ".navButton"
         );
 
+
     for(
         var j = 0;
         j < tabs.length;
         j++
-    ) {
+    ){
 
         tabs[j]
-            .classList
-            .remove(
-                "active"
-            );
+        .classList
+        .remove(
+            "active"
+        );
     }
+
 
     document
         .getElementById(
@@ -2167,6 +2446,7 @@ function showPage(
             "active"
         );
 
+
     document
         .getElementById(
             tabID
@@ -2176,10 +2456,12 @@ function showPage(
             "active"
         );
 
+
     window.scrollTo(
         0,
         0
     );
+
 
     renderEverything();
 }
@@ -2190,7 +2472,7 @@ document
         "overlay"
     )
     .onclick =
-    function(event) {
+    function(event){
 
         if(
             event.target
@@ -2199,16 +2481,18 @@ document
             .getElementById(
                 "overlay"
             )
-        ) {
+        ){
 
             closeBehaviorMenu();
         }
     };
 
 
+/* BEST SCORE */
+
 if(
     score > bestScore
-) {
+){
 
     bestScore =
         score;
@@ -2217,31 +2501,105 @@ if(
 
 for(
     var b = 0;
-    b < history.length;
+    b < dayHistory.length;
     b++
-) {
+){
 
     if(
-        history[b].score > bestScore
-    ) {
+        dayHistory[b].score
+        >
+        bestScore
+    ){
 
         bestScore =
-            history[b].score;
+            dayHistory[b].score;
     }
 }
 
 
-function renderEverything() {
+/* RENDER */
 
-    renderScore();
+function renderEverything(){
 
-    renderToday();
+    try{
 
-    renderCalendar();
+        renderScore();
 
-    renderHistory();
+    }catch(error){
 
-    renderPersonnel();
+        console.log(
+            "score",
+            error
+        );
+    }
+
+
+    try{
+
+        renderToday();
+
+    }catch(error){
+
+        console.log(
+            "today",
+            error
+        );
+    }
+
+
+    try{
+
+        renderCalendar();
+
+    }catch(error){
+
+        console.log(
+            "calendar",
+            error
+        );
+    }
+
+
+    try{
+
+        renderHistory();
+
+    }catch(error){
+
+        console.log(
+            "history",
+            error
+        );
+
+
+        document
+            .getElementById(
+                "historyList"
+            )
+            .innerHTML =
+            '<div class="empty">History could not load.</div>';
+    }
+
+
+    try{
+
+        renderPersonnel();
+
+    }catch(error){
+
+        console.log(
+            "personnel",
+            error
+        );
+
+
+        document
+            .getElementById(
+                "personnelList"
+            )
+            .innerHTML =
+            '<div class="empty">Personnel file could not load.</div>';
+    }
 }
 
 
