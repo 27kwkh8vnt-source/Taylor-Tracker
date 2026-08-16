@@ -2,27 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
 <meta name="theme-color" content="#f7f4ef">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Taylor Tracker">
-<link rel="apple-touch-icon" href="TaylorGoodStanding.png">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+>
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+>
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="Taylor Tracker"
+>
+
+<link
+    rel="apple-touch-icon"
+    href="TaylorGoodStanding.png"
+>
 
 <title>Taylor Tracker</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    background: #f7f4ef;
 }
 
 body {
     margin: 0;
     background: #f7f4ef;
     color: #171717;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    padding-bottom: 100px;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    padding-bottom: 105px;
 }
 
 header {
@@ -42,6 +76,9 @@ header p {
     font-size: 14px;
 }
 
+
+/* PAGES */
+
 .page {
     display: none;
     padding: 0 16px 24px;
@@ -53,25 +90,108 @@ header p {
     display: block;
 }
 
+
+/* CARDS */
+
 .card {
     background: white;
     border-radius: 22px;
     padding: 20px;
     margin: 12px 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.07);
 }
 
 .center {
     text-align: center;
 }
 
+
+/* TAYLOR */
+
 .character {
     width: 220px;
     height: 220px;
+
     object-fit: contain;
+
     display: block;
-    margin: 0 auto 8px;
+
+    margin:
+        0 auto 8px;
+
+    transform-origin:
+        center bottom;
 }
+
+.jump {
+    animation:
+        jumpTaylor .72s ease;
+}
+
+.slump {
+    animation:
+        slumpTaylor 1.05s ease;
+}
+
+@keyframes jumpTaylor {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    40% {
+        transform:
+            translateY(-50px)
+            scale(1.06);
+    }
+
+    70% {
+        transform:
+            translateY(4px)
+            scale(.98);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes slumpTaylor {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    40% {
+        transform:
+            translateY(22px)
+            scale(.92);
+    }
+
+    80% {
+        transform:
+            translateY(22px)
+            scale(.92);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* SCORE */
 
 .score {
     font-size: 68px;
@@ -99,12 +219,20 @@ header p {
     margin-top: 7px;
 }
 
+
+/* BANNERS */
+
 .banner {
     display: none;
+
     margin-top: 12px;
+
     border-radius: 14px;
-    padding: 11px;
+
+    padding: 11px 12px;
+
     font-size: 14px;
+
     font-weight: 900;
 }
 
@@ -136,6 +264,9 @@ header p {
     color: #24673d;
 }
 
+
+/* PROGRESS */
+
 .progress {
     height: 8px;
     background: #eee;
@@ -146,20 +277,33 @@ header p {
 
 #progressFill {
     height: 100%;
+    width: 75%;
     background: #2f9b62;
     border-radius: 10px;
     transition: width .25s;
 }
 
+
+/* BUTTONS */
+
 button {
     border: none;
+
     border-radius: 15px;
-    padding: 17px 15px;
+
+    padding:
+        17px 15px;
+
     width: 100%;
+
     font-size: 16px;
+
     font-weight: 800;
+
     cursor: pointer;
-    touch-action: manipulation;
+
+    touch-action:
+        manipulation;
 }
 
 .green {
@@ -191,15 +335,26 @@ button {
     height: 10px;
 }
 
+
+/* SECTIONS */
+
 .sectionTitle {
     font-size: 20px;
     font-weight: 900;
-    margin: 18px 2px 8px;
+
+    margin:
+        18px 2px 8px;
 }
 
+
+/* ACTIVITY */
+
 .activity {
-    padding: 13px 0;
-    border-bottom: 1px solid #eee;
+    padding:
+        13px 0;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 .activity:last-child {
@@ -208,7 +363,10 @@ button {
 
 .activityTop {
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
     gap: 12px;
 }
 
@@ -238,20 +396,32 @@ button {
     padding: 24px 8px;
 }
 
+
+/* STATS */
+
 .statsGrid,
 .badgeGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 10px;
 }
 
 .statCard,
 .badge {
     background: white;
+
     border-radius: 18px;
+
     padding: 15px;
+
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.05);
 }
 
 .statNumber {
@@ -286,9 +456,15 @@ button {
     margin-top: 3px;
 }
 
+
+/* HISTORY */
+
 .historyRow {
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+    padding:
+        15px 0;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 .historyRow:last-child {
@@ -297,12 +473,41 @@ button {
 
 .historyTop {
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
+    gap: 12px;
+
+    align-items: center;
 }
 
 .historyScore {
     font-size: 24px;
     font-weight: 900;
+}
+
+.historyDetails {
+    margin-top: 12px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid #eee;
+}
+
+.historyBehavior {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    padding:
+        6px 0;
+
+    font-size: 13px;
 }
 
 .reviewGrade {
@@ -313,22 +518,201 @@ button {
 
 .pill {
     display: inline-block;
+
     background: #f1eee9;
+
     border-radius: 999px;
-    padding: 6px 9px;
+
+    padding:
+        6px 9px;
+
     margin: 3px;
+
     font-size: 12px;
+
     font-weight: 800;
 }
 
+
+/* CALENDAR */
+
+.calendarHeader {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.calendarMonthTitle {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.calendarArrow {
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: #ececec;
+
+    color: #222;
+
+    font-size: 28px;
+}
+
+.calendarSummary {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+}
+
+.calendarWeekdays,
+.calendarGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+}
+
+.calendarWeekdays {
+    margin-bottom: 5px;
+}
+
+.calendarWeekdays div {
+    text-align: center;
+
+    color: #888;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.calendarDay {
+    min-height: 64px;
+
+    padding:
+        6px 3px;
+
+    border-radius: 12px;
+
+    background: #f4f4f4;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+.calendarDay.emptyDay {
+    background: transparent;
+    cursor: default;
+}
+
+.calendarDate {
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.calendarScore {
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.calendarElite {
+    background: #fff4c7;
+}
+
+.calendarGood {
+    background: #e8f7ee;
+}
+
+.calendarReview {
+    background: #fff5d9;
+}
+
+.calendarProbation {
+    background: #ffe9e5;
+}
+
+.calendarJail {
+    background: #ececec;
+}
+
+.calendarToday {
+    outline:
+        2px solid #4979bd;
+}
+
+.calendarDayTitle {
+    font-size: 19px;
+
+    font-weight: 900;
+
+    margin-bottom: 5px;
+}
+
+.calendarDayStatus {
+    color: #777;
+
+    margin-bottom: 12px;
+}
+
+.calendarBehavior {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    padding:
+        8px 0;
+
+    border-bottom:
+        1px solid #eee;
+}
+
+.calendarBehavior:last-child {
+    border-bottom: none;
+}
+
+
+/* MODAL */
+
 .overlay {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,.42);
-    z-index: 100;
-    align-items: flex-end;
-    justify-content: center;
+
+    background:
+        rgba(0,0,0,.42);
+
+    z-index: 1000;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
 }
 
 .overlay.show {
@@ -337,30 +721,57 @@ button {
 
 .sheet {
     background: white;
+
     width: 100%;
+
     max-width: 600px;
+
     max-height: 82vh;
+
     overflow-y: auto;
-    border-radius: 25px 25px 0 0;
-    padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
+
+    border-radius:
+        25px 25px 0 0;
+
+    padding:
+        20px 16px
+        calc(
+            20px +
+            env(safe-area-inset-bottom)
+        );
 }
 
 .option {
     background: #f4f4f4;
+
     color: #171717;
+
     margin: 6px 0;
+
     display: flex;
-    justify-content: space-between;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
     text-align: left;
 }
 
 .customInput {
     width: 100%;
-    border: 1px solid #ddd;
+
+    border:
+        1px solid #ddd;
+
     border-radius: 12px;
+
     padding: 14px;
+
     font-size: 16px;
-    margin: 8px 0;
+
+    margin:
+        8px 0;
 }
 
 .customRow {
@@ -370,189 +781,424 @@ button {
 
 .customRow input {
     width: 90px;
-    border: 1px solid #ddd;
+
+    border:
+        1px solid #ddd;
+
     border-radius: 12px;
+
     padding: 14px;
+
     font-size: 16px;
 }
 
+
+/* NAV */
+
 nav {
     position: fixed;
+
     z-index: 999;
+
     bottom: 0;
     left: 0;
     right: 0;
-    height: calc(72px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: rgba(255,255,255,.98);
-    border-top: 1px solid #ddd;
+
+    height:
+        calc(
+            76px +
+            env(safe-area-inset-bottom)
+        );
+
+    padding-bottom:
+        env(safe-area-inset-bottom);
+
+    background:
+        rgba(255,255,255,.98);
+
+    border-top:
+        1px solid #ddd;
+
     display: flex;
 }
 
 .navButton {
     flex: 1;
-    background: transparent;
+
+    background:
+        transparent;
+
     color: #777;
+
     border-radius: 0;
-    font-size: 11px;
-    padding: 8px 2px;
+
+    font-size: 10px;
+
+    padding:
+        8px 1px;
 }
 
 .navButton span {
     display: block;
-    font-size: 22px;
+
+    font-size: 21px;
+
     margin-bottom: 2px;
 }
 
 .navButton.active {
     color: #4979bd;
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
-<h1>Taylor Tracker</h1>
-<p>Official Boyfriend Performance Management System</p>
+
+<h1>
+Taylor Tracker
+</h1>
+
+<p>
+Official Boyfriend Performance Management System
+</p>
+
 </header>
 
-<section id="todayPage" class="page active">
+
+<!-- TODAY -->
+
+<section
+id="todayPage"
+class="page active"
+>
 
 <div class="card center">
 
-<img id="taylorImage" class="character"
-src="TaylorGoodStanding.png">
+<img
+id="taylorImage"
+class="character"
+src="TaylorGoodStanding.png"
+alt="Tiny Taylor"
+>
 
-<div id="score" class="score">75</div>
-<div class="label">BOYFRIEND RATING</div>
+<div
+id="score"
+class="score"
+>
+75
+</div>
 
-<div id="status" class="status">
+<div class="label">
+BOYFRIEND RATING
+</div>
+
+<div
+id="status"
+class="status"
+>
 💚 GOOD STANDING
 </div>
 
-<div id="message" class="message">
+<div
+id="message"
+class="message"
+>
 No corrective action required.
 </div>
 
-<div id="recordBanner" class="banner"></div>
-<div id="newsBanner" class="banner"></div>
-<div id="pipBanner" class="banner"></div>
-<div id="streakBanner" class="banner"></div>
+<div
+id="recordBanner"
+class="banner"
+></div>
+
+<div
+id="newsBanner"
+class="banner"
+></div>
+
+<div
+id="pipBanner"
+class="banner"
+></div>
+
+<div
+id="streakBanner"
+class="banner"
+></div>
 
 <div class="progress">
-<div id="progressFill"></div>
-</div>
+
+<div
+id="progressFill"
+></div>
 
 </div>
 
-<button class="green"
-onclick="openSheet('positive')">
+</div>
+
+
+<button
+class="green"
+onclick="openSheet('positive')"
+>
 💚 COMMEND TAYLOR
 </button>
 
 <div class="gap"></div>
 
-<button class="red"
-onclick="openSheet('negative')">
+
+<button
+class="red"
+onclick="openSheet('negative')"
+>
 🚨 REPORT INCIDENT
 </button>
 
 <div class="gap"></div>
 
-<button class="gold"
-onclick="conductAudit()">
+
+<button
+class="gold"
+onclick="conductAudit()"
+>
 🎲 RANDOM BOYFRIEND AUDIT
 </button>
 
 <div class="gap"></div>
 
-<button class="gray"
-onclick="appealLastIncident()">
+
+<button
+class="gray"
+onclick="appealLastIncident()"
+>
 ⚖️ APPEAL LAST INCIDENT
 </button>
 
 <div class="gap"></div>
 
-<button class="blue"
-onclick="startNewDay()">
+
+<button
+class="blue"
+onclick="startNewDay()"
+>
 🌅 START NEW DAY
 </button>
+
 
 <div class="sectionTitle">
 Today's Activity
 </div>
 
+
 <div class="card">
-<div id="todayActivity"></div>
+
+<div
+id="todayActivity"
+></div>
+
 </div>
 
 </section>
 
 
-<section id="historyPage" class="page">
+<!-- CALENDAR -->
+
+<section
+id="calendarPage"
+class="page"
+>
+
+<div class="sectionTitle">
+📅 Performance Calendar
+</div>
+
+
+<div class="card">
+
+<div class="calendarHeader">
+
+<button
+class="calendarArrow"
+onclick="changeCalendarMonth(-1)"
+>
+‹
+</button>
+
+<div
+id="calendarMonthTitle"
+class="calendarMonthTitle"
+></div>
+
+<button
+class="calendarArrow"
+onclick="changeCalendarMonth(1)"
+>
+›
+</button>
+
+</div>
+
+
+<div
+id="calendarSummary"
+class="calendarSummary"
+></div>
+
+
+<div class="calendarWeekdays">
+
+<div>Sun</div>
+<div>Mon</div>
+<div>Tue</div>
+<div>Wed</div>
+<div>Thu</div>
+<div>Fri</div>
+<div>Sat</div>
+
+</div>
+
+
+<div
+id="calendarGrid"
+class="calendarGrid"
+></div>
+
+</div>
+
+
+<div
+id="calendarDayDetails"
+class="card"
+>
+
+<div class="empty">
+Tap a day to view Taylor's performance record.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HISTORY -->
+
+<section
+id="historyPage"
+class="page"
+>
 
 <div class="sectionTitle">
 Performance Analytics
 </div>
 
-<div id="statsGrid" class="statsGrid"></div>
+
+<div
+id="statsGrid"
+class="statsGrid"
+></div>
+
 
 <div class="sectionTitle">
 🏆 Achievements
 </div>
 
-<div id="badgeGrid" class="badgeGrid"></div>
+
+<div
+id="badgeGrid"
+class="badgeGrid"
+></div>
+
 
 <div class="sectionTitle">
 📋 Performance Review
 </div>
 
-<div id="performanceReview" class="card"></div>
+
+<div
+id="performanceReview"
+class="card"
+></div>
+
 
 <div class="sectionTitle">
 Daily History
 </div>
 
+
 <div class="card">
-<div id="historyList"></div>
+
+<div
+id="historyList"
+></div>
+
 </div>
 
 </section>
 
 
-<section id="logsPage" class="page">
+<!-- PERSONNEL FILE -->
+
+<section
+id="logsPage"
+class="page"
+>
 
 <div class="sectionTitle">
 🗂️ Taylor's Permanent Personnel File
 </div>
 
+
 <div class="card">
-<div id="allLogs"></div>
+
+<div
+id="allLogs"
+></div>
+
 </div>
 
 </section>
 
 
-<div id="overlay" class="overlay">
+<!-- MODAL -->
+
+<div
+id="overlay"
+class="overlay"
+>
 
 <div class="sheet">
 
-<h2 id="sheetTitle"></h2>
+<h2
+id="sheetTitle"
+></h2>
 
-<div id="sheetSubtitle" class="small"></div>
 
-<div id="options"></div>
+<div
+id="sheetSubtitle"
+class="small"
+></div>
+
+
+<div
+id="options"
+></div>
+
 
 <div class="sectionTitle">
 Custom Behavior
 </div>
+
 
 <input
 id="customText"
 class="customInput"
 placeholder="What did Taylor do?"
 >
+
 
 <div class="customRow">
 
@@ -564,17 +1210,24 @@ min="1"
 max="50"
 >
 
-<button class="blue"
-onclick="addCustomBehavior()">
+
+<button
+class="blue"
+onclick="addCustomBehavior()"
+>
 Add
 </button>
 
 </div>
 
+
 <div class="gap"></div>
 
-<button class="gray"
-onclick="closeSheet()">
+
+<button
+class="gray"
+onclick="closeSheet()"
+>
 Cancel
 </button>
 
@@ -582,30 +1235,59 @@ Cancel
 </div>
 
 
+<!-- NAV -->
+
 <nav>
 
 <button
 id="todayTab"
 class="navButton active"
-onclick="showPage('todayPage','todayTab')">
+onclick="showPage('todayPage','todayTab')"
+>
+
 <span>🏠</span>
+
 Today
+
 </button>
+
+
+<button
+id="calendarTab"
+class="navButton"
+onclick="showPage('calendarPage','calendarTab')"
+>
+
+<span>📅</span>
+
+Calendar
+
+</button>
+
 
 <button
 id="historyTab"
 class="navButton"
-onclick="showPage('historyPage','historyTab')">
+onclick="showPage('historyPage','historyTab')"
+>
+
 <span>📊</span>
+
 History
+
 </button>
+
 
 <button
 id="logsTab"
 class="navButton"
-onclick="showPage('logsPage','logsTab')">
+onclick="showPage('logsPage','logsTab')"
+>
+
 <span>🗂️</span>
-Personnel File
+
+Personnel
+
 </button>
 
 </nav>
@@ -613,1606 +1295,4329 @@ Personnel File
 
 <script>
 
+/* ---------------------------------
+   SETTINGS
+--------------------------------- */
+
 var START_SCORE = 75;
 
+
+/* ---------------------------------
+   COMMENDATIONS
+--------------------------------- */
+
 var compliments = [
+
 ["Forehead Kiss",3],
+
 ["Random I Love You",3],
+
 ["Brings Katelin Coffee",4],
+
 ["Brings You Flowers",5],
+
 ["Brings Home a Treat",5],
+
 ["Cooks Dinner",8],
+
 ["Brings You a Snack",5],
+
 ["Unprompted Compliment",4],
+
 ["Unprompted Cuddle",3],
-["Does a Chore Without Being Asked",7],
-["Remembers Something Katelin Mentioned",6],
+
+[
+"Does a Chore Without Being Asked",
+7
+],
+
+[
+"Remembers Something Katelin Mentioned",
+6
+],
+
 ["Thoughtful Surprise",8],
-["Plans a Date Without Assistance",10],
+
+[
+"Plans a Date Without Assistance",
+10
+],
+
 ["Unprompted Foot Rub",10],
-["Excellent Emotional Support",8],
-["Takes a Good Picture of Katelin",5],
-["Takes Multiple Good Pictures Without Complaining",8],
-["Handles an Annoying Errand",6],
-["Admits Katelin Was Right",10],
-["Apologizes Without Being Prompted",8],
-["Makes Katelin Laugh When Annoyed",6],
-["Exceptional Boyfriend Behavior",15],
-["Puts Phone Away Without Being Asked",5],
+
+[
+"Excellent Emotional Support",
+8
+],
+
+[
+"Takes a Good Picture of Katelin",
+5
+],
+
+[
+"Takes Multiple Good Pictures Without Complaining",
+8
+],
+
+[
+"Handles an Annoying Errand",
+6
+],
+
+[
+"Admits Katelin Was Right",
+10
+],
+
+[
+"Apologizes Without Being Prompted",
+8
+],
+
+[
+"Makes Katelin Laugh When Annoyed",
+6
+],
+
+[
+"Exceptional Boyfriend Behavior",
+15
+],
+
+[
+"Puts Phone Away Without Being Asked",
+5
+],
+
 ["Makes the Bed",4],
-["Cleans Up After Himself Immediately",5],
-["Takes Out the Trash Without Being Asked",4],
-["Offers to Carry Something Heavy",3],
-["Brings Katelin Water Without Being Asked",4],
-["Gives Katelin the Better Bite",4],
-["Lets Katelin Pick the Movie Without Complaining",3],
-["Actually Watches the Movie Katelin Picked",4],
-["Remembers an Important Date",8],
-["Makes Plans Without Making Katelin Organize Everything",6],
-["Excellent Airport Boyfriend Performance",10],
-["Excellent Travel Boyfriend Performance",10],
-["Handles Spider or Bug Emergency",5],
-["Checks That Katelin Got Home Safe",4],
-["Offers Jacket When Katelin Is Cold",4],
-["Orders Food Katelin Likes Without Asking",5],
-["Voluntarily Runs to the Store",5],
-["Charges Katelin's Phone",4],
-["Makes Reservation Without Assistance",7],
-["Remembers Katelin's Order",6],
-["Notices Something Is Wrong Without Being Told",8],
-["Provides Snack at Critical Moment",6],
-["Excellent Public Boyfriend Performance",7],
-["Defends Katelin Correctly",8],
-["Survives Target Trip Without Complaining",5],
-["Gives Katelin the Comfier Spot",4],
-["Gets Up to Get Something So Katelin Doesn't Have To",4],
-["Sends Cute Text for No Reason",4],
-["Makes Genuine Effort With Katelin's Friends",6],
-["Makes Genuine Effort With Katelin's Family",6],
-["Remembers Tiny Detail From Previous Conversation",7],
-["Immediately Agrees to Take a Picture",4],
-["Takes Initiative",8],
-["Handles a Problem Before Katelin Has to Ask",9],
-["Above and Beyond Boyfriend Service",12]
+
+[
+"Cleans Up After Himself Immediately",
+5
+],
+
+[
+"Takes Out the Trash Without Being Asked",
+4
+],
+
+[
+"Offers to Carry Something Heavy",
+3
+],
+
+[
+"Brings Katelin Water Without Being Asked",
+4
+],
+
+[
+"Gives Katelin the Better Bite",
+4
+],
+
+[
+"Lets Katelin Pick the Movie Without Complaining",
+3
+],
+
+[
+"Actually Watches the Movie Katelin Picked",
+4
+],
+
+[
+"Remembers an Important Date",
+8
+],
+
+[
+"Makes Plans Without Making Katelin Organize Everything",
+6
+],
+
+[
+"Excellent Airport Boyfriend Performance",
+10
+],
+
+[
+"Excellent Travel Boyfriend Performance",
+10
+],
+
+[
+"Handles Spider or Bug Emergency",
+5
+],
+
+[
+"Checks That Katelin Got Home Safe",
+4
+],
+
+[
+"Offers Jacket When Katelin Is Cold",
+4
+],
+
+[
+"Orders Food Katelin Likes Without Asking",
+5
+],
+
+[
+"Voluntarily Runs to the Store",
+5
+],
+
+[
+"Charges Katelin's Phone",
+4
+],
+
+[
+"Makes Reservation Without Assistance",
+7
+],
+
+[
+"Remembers Katelin's Order",
+6
+],
+
+[
+"Notices Something Is Wrong Without Being Told",
+8
+],
+
+[
+"Provides Snack at Critical Moment",
+6
+],
+
+[
+"Excellent Public Boyfriend Performance",
+7
+],
+
+[
+"Defends Katelin Correctly",
+8
+],
+
+[
+"Survives Target Trip Without Complaining",
+5
+],
+
+[
+"Gives Katelin the Comfier Spot",
+4
+],
+
+[
+"Gets Up to Get Something So Katelin Doesn't Have To",
+4
+],
+
+[
+"Sends Cute Text for No Reason",
+4
+],
+
+[
+"Makes Genuine Effort With Katelin's Friends",
+6
+],
+
+[
+"Makes Genuine Effort With Katelin's Family",
+6
+],
+
+[
+"Remembers Tiny Detail From Previous Conversation",
+7
+],
+
+[
+"Immediately Agrees to Take a Picture",
+4
+],
+
+[
+"Takes Initiative",
+8
+],
+
+[
+"Handles a Problem Before Katelin Has to Ask",
+9
+],
+
+[
+"Above and Beyond Boyfriend Service",
+12
+]
+
 ];
+
+
+/* ---------------------------------
+   INCIDENTS
+--------------------------------- */
 
 var incidents = [
+
 ["Deez Nuts Joke",-3],
-["That's What She Said Joke",-3],
+
+[
+"That's What She Said Joke",
+-3
+],
+
 ["Cheating Joke",-5],
-["Katelin Says Something and Taylor Simply Does Not Respond",-2],
-["Was Clearly Not Listening",-5],
-["Phone Crimes During Quality Time",-4],
-["Excessive Phone Scrolling",-3],
-["Steals the Blanket",-4],
-["Falls Asleep During Movie Katelin Picked",-3],
-["Says It'll Be an Early Night, Stays Out Late",-8],
-["Fails to Provide ETA",-4],
-["Unnecessary Devil's Advocate Behavior",-5],
-["Weaponized Incompetence",-7],
-["Leaves Mess for Future Taylor",-4],
-["Makes Same Joke After Being Told It Wasn't Funny",-6],
-["Fake Apology / Sorry You Feel That Way",-10],
-["Disturbing the Peace",-5],
-["General Boyfriend Misconduct",-5],
-["Leaves Cabinet Door Open",-2],
-["Leaves Drawer Open",-2],
-["Leaves Clothes on Floor",-3],
-["Creates Additional Chore",-5],
-["Asks Where Something Is Before Looking",-3],
-["Selective Hearing",-4],
-["Forgets What Katelin Just Said",-4],
-["Questionable Tone",-4],
-["Unnecessary Mansplaining",-6],
-["Argues About Something Easily Googleable",-4],
-["Says We'll See Instead of Making a Decision",-3],
-["Takes Forever in the Bathroom",-3],
-["Does Not Replace Toilet Paper Roll",-4],
-["Leaves Empty Container in Fridge",-4],
-["Puts Empty Box Back in Cabinet",-4],
-["Doesn't Know What He Wants to Eat but Rejects Suggestions",-5],
-["Asks What Katelin Wants to Do Then Rejects It",-5],
-["Forgets to Text Back",-3],
-["Unexplained Disappearance From Text Conversation",-4],
-["Fails to Notice Obvious Hair or Outfit Change",-4],
-["Complains During Photo Taking",-5],
-["Takes One Bad Picture and Says It's Fine",-6],
-["Refuses Reasonable Retake Request",-5],
-["Falls Asleep at Critical Plot Point",-4],
+
+[
+"Katelin Says Something and Taylor Simply Does Not Respond",
+-2
+],
+
+[
+"Was Clearly Not Listening",
+-5
+],
+
+[
+"Phone Crimes During Quality Time",
+-4
+],
+
+[
+"Excessive Phone Scrolling",
+-3
+],
+
+[
+"Steals the Blanket",
+-4
+],
+
+[
+"Falls Asleep During Movie Katelin Picked",
+-3
+],
+
+[
+"Says It'll Be an Early Night, Stays Out Late",
+-8
+],
+
+[
+"Fails to Provide ETA",
+-4
+],
+
+[
+"Unnecessary Devil's Advocate Behavior",
+-5
+],
+
+[
+"Weaponized Incompetence",
+-7
+],
+
+[
+"Leaves Mess for Future Taylor",
+-4
+],
+
+[
+"Makes Same Joke After Being Told It Wasn't Funny",
+-6
+],
+
+[
+"Fake Apology / Sorry You Feel That Way",
+-10
+],
+
+[
+"Disturbing the Peace",
+-5
+],
+
+[
+"General Boyfriend Misconduct",
+-5
+],
+
+[
+"Leaves Cabinet Door Open",
+-2
+],
+
+[
+"Leaves Drawer Open",
+-2
+],
+
+[
+"Leaves Clothes on Floor",
+-3
+],
+
+[
+"Creates Additional Chore",
+-5
+],
+
+[
+"Asks Where Something Is Before Looking",
+-3
+],
+
+[
+"Selective Hearing",
+-4
+],
+
+[
+"Forgets What Katelin Just Said",
+-4
+],
+
+[
+"Questionable Tone",
+-4
+],
+
+[
+"Unnecessary Mansplaining",
+-6
+],
+
+[
+"Argues About Something Easily Googleable",
+-4
+],
+
+[
+"Says We'll See Instead of Making a Decision",
+-3
+],
+
+[
+"Takes Forever in the Bathroom",
+-3
+],
+
+[
+"Does Not Replace Toilet Paper Roll",
+-4
+],
+
+[
+"Leaves Empty Container in Fridge",
+-4
+],
+
+[
+"Puts Empty Box Back in Cabinet",
+-4
+],
+
+[
+"Doesn't Know What He Wants to Eat but Rejects Suggestions",
+-5
+],
+
+[
+"Asks What Katelin Wants to Do Then Rejects It",
+-5
+],
+
+[
+"Forgets to Text Back",
+-3
+],
+
+[
+"Unexplained Disappearance From Text Conversation",
+-4
+],
+
+[
+"Fails to Notice Obvious Hair or Outfit Change",
+-4
+],
+
+[
+"Complains During Photo Taking",
+-5
+],
+
+[
+"Takes One Bad Picture and Says It's Fine",
+-6
+],
+
+[
+"Refuses Reasonable Retake Request",
+-5
+],
+
+[
+"Falls Asleep at Critical Plot Point",
+-4
+],
+
 ["Spoils Something",-8],
-["Hogs the Good Pillow",-3],
-["Hogs the Bed",-4],
-["Temperature Control Misconduct",-4],
-["Unnecessary Alarm Snoozing",-5],
-["Leaves Wet Towel Somewhere Unacceptable",-4],
-["Fails to Refill Water",-3],
-["Finishes Snack Without Warning Katelin",-6],
-["Eats Katelin's Food After Saying He Didn't Want Any",-7],
-["Fails to Bring Home Promised Treat",-6],
-["Makes Katelin Choose Every Single Plan",-6],
-["Needs Excessive Reminding",-5],
-["Says In a Minute and Does Not Do It",-5],
-["Boyfriend Misdemeanor",-8],
-["Boyfriend Felony",-25]
+
+[
+"Hogs the Good Pillow",
+-3
+],
+
+[
+"Hogs the Bed",
+-4
+],
+
+[
+"Temperature Control Misconduct",
+-4
+],
+
+[
+"Unnecessary Alarm Snoozing",
+-5
+],
+
+[
+"Leaves Wet Towel Somewhere Unacceptable",
+-4
+],
+
+[
+"Fails to Refill Water",
+-3
+],
+
+[
+"Finishes Snack Without Warning Katelin",
+-6
+],
+
+[
+"Eats Katelin's Food After Saying He Didn't Want Any",
+-7
+],
+
+[
+"Fails to Bring Home Promised Treat",
+-6
+],
+
+[
+"Makes Katelin Choose Every Single Plan",
+-6
+],
+
+[
+"Needs Excessive Reminding",
+-5
+],
+
+[
+"Says In a Minute and Does Not Do It",
+-5
+],
+
+[
+"Boyfriend Misdemeanor",
+-8
+],
+
+[
+"Boyfriend Felony",
+-25
+]
+
 ];
 
 
-function readJSON(key,fallback) {
-    try {
-        var value = localStorage.getItem(key);
-        return value ? JSON.parse(value) : fallback;
-    } catch(e) {
-        return fallback;
-    }
+/* ---------------------------------
+   SAFE STORAGE
+--------------------------------- */
+
+function readJSON(
+key,
+fallback
+) {
+
+try {
+
+var value =
+localStorage.getItem(
+key
+);
+
+return value
+? JSON.parse(value)
+: fallback;
+
+} catch(error) {
+
+return fallback;
+}
 }
 
-var savedScore = Number(localStorage.getItem("taylorScore"));
+
+/* ---------------------------------
+   STATE
+--------------------------------- */
+
+var savedScore =
+Number(
+localStorage.getItem(
+"taylorScore"
+)
+);
+
 
 var score =
-    Number.isFinite(savedScore)
-    ? savedScore
-    : START_SCORE;
+Number.isFinite(
+savedScore
+)
+? savedScore
+: START_SCORE;
+
 
 var activity =
-    readJSON("taylorActivity",[]);
+readJSON(
+"taylorActivity",
+[]
+);
+
 
 var history =
-    readJSON("taylorHistory",[]);
+readJSON(
+"taylorHistory",
+[]
+);
+
+
+var savedBestScore =
+Number(
+localStorage.getItem(
+"taylorBestScore"
+)
+);
+
 
 var bestScore =
-    Number(localStorage.getItem("taylorBestScore"));
+Number.isFinite(
+savedBestScore
+)
+? savedBestScore
+: score;
 
-if (!Number.isFinite(bestScore)) {
-    bestScore = score;
-}
 
 var dayStarted =
-    localStorage.getItem("taylorDayStarted")
-    || new Date().toISOString();
+localStorage.getItem(
+"taylorDayStarted"
+)
+||
+new Date()
+.toISOString();
 
-var currentMode = "positive";
 
+var currentMode =
+"positive";
+
+
+var calendarDate =
+new Date();
+
+
+calendarDate =
+new Date(
+calendarDate.getFullYear(),
+calendarDate.getMonth(),
+1
+);
+
+
+/* ---------------------------------
+   SAVE
+--------------------------------- */
 
 function save() {
 
-    localStorage.setItem(
-        "taylorScore",
-        String(score)
-    );
+localStorage.setItem(
+"taylorScore",
+String(score)
+);
 
-    localStorage.setItem(
-        "taylorActivity",
-        JSON.stringify(activity)
-    );
+localStorage.setItem(
+"taylorActivity",
+JSON.stringify(
+activity
+)
+);
 
-    localStorage.setItem(
-        "taylorHistory",
-        JSON.stringify(history)
-    );
+localStorage.setItem(
+"taylorHistory",
+JSON.stringify(
+history
+)
+);
 
-    localStorage.setItem(
-        "taylorBestScore",
-        String(bestScore)
-    );
+localStorage.setItem(
+"taylorBestScore",
+String(bestScore)
+);
 
-    localStorage.setItem(
-        "taylorDayStarted",
-        dayStarted
-    );
+localStorage.setItem(
+"taylorDayStarted",
+dayStarted
+);
 }
 
 
-function getTier(value) {
+/* ---------------------------------
+   TIERS
+--------------------------------- */
 
-    if (value >= 90) {
-        return {
-            title:"👑 ELITE BOYFRIEND",
-            message:"Shareholders remain extremely pleased.",
-            image:"TaylorElite.png"
-        };
-    }
+function getTier(
+value
+) {
 
-    if (value >= 75) {
-        return {
-            title:"💚 GOOD STANDING",
-            message:"No corrective action required.",
-            image:"TaylorGoodStanding.png"
-        };
-    }
+if (
+value >= 90
+) {
 
-    if (value >= 60) {
-        return {
-            title:"⚠️ UNDER REVIEW",
-            message:"Performance has declined this quarter.",
-            image:"TaylorUnderReview.png"
-        };
-    }
+return {
 
-    if (value >= 40) {
-        return {
-            title:"📋 PROBATION",
-            message:"Management has identified several areas for improvement.",
-            image:"TaylorProbation.png"
-        };
-    }
+title:
+"👑 ELITE BOYFRIEND",
 
-    return {
-        title:"🚔 BOYFRIEND JAIL",
-        message:"Privileges suspended pending remediation.",
-        image:"TaylorJail.png"
-    };
+message:
+"Shareholders remain extremely pleased.",
+
+image:
+"TaylorElite.png"
+
+};
 }
 
 
-function escapeHTML(text) {
+if (
+value >= 75
+) {
 
-    var div =
-        document.createElement("div");
+return {
 
-    div.textContent =
-        String(text);
+title:
+"💚 GOOD STANDING",
 
-    return div.innerHTML;
+message:
+"No corrective action required.",
+
+image:
+"TaylorGoodStanding.png"
+
+};
 }
 
 
-function formatDate(date) {
+if (
+value >= 60
+) {
 
-    return new Date(date)
-        .toLocaleDateString(
-            undefined,
-            {
-                month:"short",
-                day:"numeric",
-                year:"numeric"
-            }
-        );
+return {
+
+title:
+"⚠️ UNDER REVIEW",
+
+message:
+"Performance has declined this quarter.",
+
+image:
+"TaylorUnderReview.png"
+
+};
 }
 
 
-function formatTime(date) {
+if (
+value >= 40
+) {
 
-    return new Date(date)
-        .toLocaleTimeString(
-            undefined,
-            {
-                hour:"numeric",
-                minute:"2-digit"
-            }
-        );
+return {
+
+title:
+"📋 PROBATION",
+
+message:
+"Management has identified several areas for improvement.",
+
+image:
+"TaylorProbation.png"
+
+};
 }
 
+
+return {
+
+title:
+"🚔 BOYFRIEND JAIL",
+
+message:
+"Privileges suspended pending remediation.",
+
+image:
+"TaylorJail.png"
+
+};
+}
+
+
+/* ---------------------------------
+   HTML ESCAPE
+--------------------------------- */
+
+function escapeHTML(
+text
+) {
+
+var div =
+document.createElement(
+"div"
+);
+
+div.textContent =
+String(text);
+
+return div.innerHTML;
+}
+
+
+/* ---------------------------------
+   DATE FORMAT
+--------------------------------- */
+
+function formatDate(
+date
+) {
+
+return new Date(
+date
+)
+.toLocaleDateString(
+undefined,
+{
+month:"short",
+day:"numeric",
+year:"numeric"
+}
+);
+}
+
+
+function formatTime(
+date
+) {
+
+return new Date(
+date
+)
+.toLocaleTimeString(
+undefined,
+{
+hour:"numeric",
+minute:"2-digit"
+}
+);
+}
+
+
+/* ---------------------------------
+   ALL EVENTS
+--------------------------------- */
 
 function allEvents() {
 
-    var events = [];
+var events = [];
 
-    history.forEach(function(day) {
 
-        (day.activities || [])
-            .forEach(function(event) {
-                events.push(event);
-            });
-    });
+history.forEach(
+function(day) {
 
-    activity.forEach(function(event) {
-        events.push(event);
-    });
+(day.activities || [])
+.forEach(
+function(event) {
 
-    return events;
+events.push(
+event
+);
+
+}
+);
+
+}
+);
+
+
+activity.forEach(
+function(event) {
+
+events.push(
+event
+);
+
+}
+);
+
+
+return events;
 }
 
+
+/* ---------------------------------
+   SCORE
+--------------------------------- */
 
 function renderScore() {
 
-    var tier = getTier(score);
-
-    document.getElementById("score")
-        .textContent = score;
-
-    document.getElementById("status")
-        .textContent = tier.title;
-
-    document.getElementById("message")
-        .textContent = tier.message;
-
-    document.getElementById("taylorImage")
-        .src = tier.image;
-
-    document.getElementById("progressFill")
-        .style.width =
-        Math.min(100,score) + "%";
+var tier =
+getTier(
+score
+);
 
 
-    var pip =
-        document.getElementById("pipBanner");
-
-    if (score < 60) {
-
-        var needed =
-            Math.max(
-                1,
-                Math.ceil(
-                    (75 - score) / 5
-                )
-            );
-
-        pip.textContent =
-            "📋 PERFORMANCE IMPROVEMENT PLAN ACTIVE — approximately "
-            + needed
-            + " commendable acts required for reinstatement.";
-
-        pip.classList.add("show");
-
-    } else {
-
-        pip.classList.remove("show");
-    }
+document
+.getElementById(
+"score"
+)
+.textContent =
+score;
 
 
-    var news =
-        document.getElementById("newsBanner");
-
-    if (score >= 105) {
-
-        news.textContent =
-            "📰 BREAKING: Taylor Posts Record-Setting Performance";
-
-        news.classList.add("show");
-
-    } else if (score < 40) {
-
-        news.textContent =
-            "📰 BREAKING: Markets React to Taylor Performance Crisis";
-
-        news.classList.add("show");
-
-    } else {
-
-        news.classList.remove("show");
-    }
+document
+.getElementById(
+"status"
+)
+.textContent =
+tier.title;
 
 
-    renderStreak();
+document
+.getElementById(
+"message"
+)
+.textContent =
+tier.message;
+
+
+document
+.getElementById(
+"taylorImage"
+)
+.src =
+tier.image;
+
+
+document
+.getElementById(
+"progressFill"
+)
+.style.width =
+Math.min(
+100,
+Math.max(
+0,
+score
+)
+)
++
+"%";
+
+
+var pip =
+document.getElementById(
+"pipBanner"
+);
+
+
+if (
+score < 60
+) {
+
+var needed =
+Math.max(
+1,
+Math.ceil(
+(75 - score)
+/
+5
+)
+);
+
+
+pip.textContent =
+"📋 PERFORMANCE IMPROVEMENT PLAN ACTIVE — approximately "
++
+needed
++
+" commendable acts required for reinstatement.";
+
+
+pip.classList.add(
+"show"
+);
+
+} else {
+
+pip.classList.remove(
+"show"
+);
 }
 
 
-function activityHTML(item) {
+var news =
+document.getElementById(
+"newsBanner"
+);
 
-    var positive =
-        item.points > 0;
 
-    return (
-        '<div class="activity">' +
+if (
+score >= 105
+) {
 
-        '<div class="activityTop">' +
+news.textContent =
+"📰 BREAKING: Taylor Posts Record-Setting Performance";
 
-        '<div class="activityName">' +
-        escapeHTML(item.name) +
-        '</div>' +
 
-        '<div class="' +
-        (positive ? "positive" : "negative") +
-        '">' +
+news.classList.add(
+"show"
+);
 
-        (positive ? "+" : "") +
-        item.points +
+} else if (
+score < 40
+) {
 
-        '</div>' +
+news.textContent =
+"📰 BREAKING: Markets React to Taylor Performance Crisis";
 
-        '</div>' +
 
-        '<div class="small">' +
-        formatDate(item.date) +
-        " • " +
-        formatTime(item.date) +
-        '</div>' +
+news.classList.add(
+"show"
+);
 
-        '</div>'
-    );
+} else {
+
+news.classList.remove(
+"show"
+);
 }
 
+
+renderStreak();
+}
+
+
+/* ---------------------------------
+   ACTIVITY HTML
+--------------------------------- */
+
+function activityHTML(
+item
+) {
+
+var positive =
+item.points > 0;
+
+
+return (
+
+'<div class="activity">'
++
+
+'<div class="activityTop">'
++
+
+'<div class="activityName">'
++
+escapeHTML(
+item.name
+)
++
+'</div>'
++
+
+'<div class="'
++
+(
+positive
+? "positive"
+: "negative"
+)
++
+'">'
++
+
+(
+positive
+? "+"
+: ""
+)
++
+item.points
++
+
+'</div>'
++
+
+'</div>'
++
+
+'<div class="small">'
++
+formatDate(
+item.date
+)
++
+" • "
++
+formatTime(
+item.date
+)
++
+'</div>'
++
+
+'</div>'
+
+);
+}
+
+
+/* ---------------------------------
+   TODAY
+--------------------------------- */
 
 function renderToday() {
 
-    var box =
-        document.getElementById(
-            "todayActivity"
-        );
+var box =
+document.getElementById(
+"todayActivity"
+);
 
-    if (!activity.length) {
 
-        box.innerHTML =
-            '<div class="empty">' +
-            'No behavior logged yet today.' +
-            '</div>';
+if (
+!activity.length
+) {
 
-        return;
-    }
+box.innerHTML =
+'<div class="empty">'
++
+'No behavior logged yet today.'
++
+'</div>';
 
-    box.innerHTML =
-        activity
-        .slice()
-        .reverse()
-        .map(activityHTML)
-        .join("");
+return;
 }
 
+
+box.innerHTML =
+activity
+.slice()
+.reverse()
+.map(
+activityHTML
+)
+.join("");
+}
+
+
+/* ---------------------------------
+   INCIDENT DAYS
+--------------------------------- */
 
 function daysSinceIncident() {
 
-    var events =
-        allEvents()
-        .filter(function(event) {
-            return event.points < 0;
-        });
+var events =
+allEvents()
+.filter(
+function(event) {
 
-    if (!events.length) {
-        return null;
-    }
+return (
+event.points < 0
+);
 
-    var latest =
-        new Date(
-            events[events.length - 1].date
-        );
+}
+);
 
-    var now =
-        new Date();
 
-    return Math.max(
-        0,
-        Math.floor(
-            (now - latest) /
-            86400000
-        )
-    );
+if (
+!events.length
+) {
+
+return null;
 }
 
+
+events.sort(
+function(a,b) {
+
+return (
+new Date(
+a.date
+)
+-
+new Date(
+b.date
+)
+);
+
+}
+);
+
+
+var latest =
+new Date(
+events[
+events.length - 1
+].date
+);
+
+
+var now =
+new Date();
+
+
+return Math.max(
+0,
+Math.floor(
+(now - latest)
+/
+86400000
+)
+);
+}
+
+
+/* ---------------------------------
+   ELITE STREAK
+--------------------------------- */
 
 function eliteStreak() {
 
-    var streak = 0;
+var streak = 0;
 
-    for (
-        var i = history.length - 1;
-        i >= 0;
-        i--
-    ) {
 
-        if (history[i].score >= 90) {
-            streak++;
-        } else {
-            break;
-        }
-    }
+for (
+var i =
+history.length - 1;
 
-    if (score >= 90) {
-        streak++;
-    }
+i >= 0;
 
-    return streak;
+i--
+) {
+
+if (
+history[i].score >= 90
+) {
+
+streak++;
+
+} else {
+
+break;
+}
 }
 
+
+if (
+score >= 90
+) {
+
+streak++;
+}
+
+
+return streak;
+}
+
+
+/* ---------------------------------
+   STREAK BANNER
+--------------------------------- */
 
 function renderStreak() {
 
-    var banner =
-        document.getElementById(
-            "streakBanner"
-        );
+var banner =
+document.getElementById(
+"streakBanner"
+);
 
-    var days =
-        daysSinceIncident();
 
-    var elite =
-        eliteStreak();
+var days =
+daysSinceIncident();
 
-    var messages = [];
 
-    if (days !== null) {
+var elite =
+eliteStreak();
 
-        messages.push(
-            "🦺 " +
-            days +
-            " DAY" +
-            (days === 1 ? "" : "S") +
-            " SINCE LAST INCIDENT"
-        );
-    }
 
-    if (elite >= 2) {
+var messages = [];
 
-        messages.push(
-            "🔥 " +
-            elite +
-            "-DAY ELITE BOYFRIEND STREAK"
-        );
-    }
 
-    if (messages.length) {
+if (
+days !== null
+) {
 
-        banner.textContent =
-            messages.join(" • ");
+messages.push(
 
-        banner.classList.add("show");
+"🦺 "
++
+days
++
+" DAY"
++
+(
+days === 1
+? ""
+: "S"
+)
++
+" SINCE LAST INCIDENT"
 
-    } else {
-
-        banner.classList.remove("show");
-    }
+);
 }
 
 
-function biggestEvent(positive) {
+if (
+elite >= 2
+) {
 
-    var events =
-        allEvents()
-        .filter(function(event) {
-            return positive
-                ? event.points > 0
-                : event.points < 0;
-        });
+messages.push(
 
-    if (!events.length) {
-        return null;
-    }
+"🔥 "
++
+elite
++
+"-DAY ELITE BOYFRIEND STREAK"
 
-    events.sort(function(a,b) {
-
-        return positive
-            ? b.points - a.points
-            : a.points - b.points;
-    });
-
-    return events[0];
+);
 }
 
+
+if (
+messages.length
+) {
+
+banner.textContent =
+messages.join(
+" • "
+);
+
+
+banner.classList.add(
+"show"
+);
+
+} else {
+
+banner.classList.remove(
+"show"
+);
+}
+}
+
+
+/* ---------------------------------
+   BIGGEST EVENT
+--------------------------------- */
+
+function biggestEvent(
+positive
+) {
+
+var events =
+allEvents()
+.filter(
+function(event) {
+
+return positive
+? event.points > 0
+: event.points < 0;
+
+}
+);
+
+
+if (
+!events.length
+) {
+
+return null;
+}
+
+
+events.sort(
+function(a,b) {
+
+return positive
+? b.points - a.points
+: a.points - b.points;
+
+}
+);
+
+
+return events[0];
+}
+
+
+/* ---------------------------------
+   STATS
+--------------------------------- */
 
 function renderStats() {
 
-    var totalPositive = 0;
-    var totalNegative = 0;
-    var positiveCount = 0;
-    var negativeCount = 0;
+var totalPositive = 0;
 
-    allEvents()
-    .forEach(function(event) {
+var totalNegative = 0;
 
-        if (event.points > 0) {
-            positiveCount++;
-            totalPositive += event.points;
-        }
+var positiveCount = 0;
 
-        if (event.points < 0) {
-            negativeCount++;
-            totalNegative += Math.abs(event.points);
-        }
-    });
+var negativeCount = 0;
 
-    var average = "—";
-    var worst = "—";
 
-    if (history.length) {
+allEvents()
+.forEach(
+function(event) {
 
-        var scores =
-            history.map(function(day) {
-                return day.score;
-            });
+if (
+event.points > 0
+) {
 
-        average =
-            Math.round(
-                scores.reduce(function(a,b) {
-                    return a+b;
-                },0) /
-                scores.length
-            );
+positiveCount++;
 
-        worst =
-            Math.min.apply(
-                null,
-                scores
-            );
-    }
-
-    var ratio =
-        negativeCount
-        ? (positiveCount / negativeCount)
-            .toFixed(1)
-        : positiveCount
-            ? "∞"
-            : "—";
-
-    var bonus =
-        Math.max(
-            0,
-            score - 100
-        );
-
-    var bestCommend =
-        biggestEvent(true);
-
-    var worstIncident =
-        biggestEvent(false);
-
-    var cards = [
-        ["🏆",bestScore,"Best Score Ever"],
-        ["📊",average,"Average Rating"],
-        ["📈",positiveCount,"Lifetime Commendations"],
-        ["🚨",negativeCount,"Lifetime Incidents"],
-        ["➕",totalPositive,"Points Earned"],
-        ["➖",totalNegative,"Points Lost"],
-        ["⚖️",ratio,"Commendation / Incident Ratio"],
-        ["💰",bonus,"Current Performance Bonus"],
-        ["🔥",eliteStreak(),"Elite Streak"],
-        ["📅",history.length,"Archived Days"]
-    ];
-
-    document.getElementById("statsGrid")
-    .innerHTML =
-        cards.map(function(card) {
-
-            return (
-                '<div class="statCard">' +
-                '<div class="statNumber">' +
-                card[0] + " " + card[1] +
-                '</div>' +
-                '<div class="statLabel">' +
-                card[2] +
-                '</div>' +
-                '</div>'
-            );
-        }).join("") +
-
-        '<div class="statCard">' +
-        '<div class="statNumber">💚</div>' +
-        '<div class="statLabel">' +
-        (
-            bestCommend
-            ? "Biggest Commendation: " +
-              escapeHTML(bestCommend.name) +
-              " (+" +
-              bestCommend.points +
-              ")"
-            : "No commendations yet"
-        ) +
-        '</div></div>' +
-
-        '<div class="statCard">' +
-        '<div class="statNumber">🚨</div>' +
-        '<div class="statLabel">' +
-        (
-            worstIncident
-            ? "Biggest Offense: " +
-              escapeHTML(worstIncident.name) +
-              " (" +
-              worstIncident.points +
-              ")"
-            : "No incidents yet"
-        ) +
-        '</div></div>';
+totalPositive +=
+event.points;
 }
 
 
-function countName(name) {
+if (
+event.points < 0
+) {
 
-    return allEvents()
-        .filter(function(event) {
-            return event.name === name;
-        }).length;
+negativeCount++;
+
+totalNegative +=
+Math.abs(
+event.points
+);
+}
+
+}
+);
+
+
+var average =
+"—";
+
+
+var worst =
+"—";
+
+
+if (
+history.length
+) {
+
+var scores =
+history.map(
+function(day) {
+
+return day.score;
+
+}
+);
+
+
+average =
+Math.round(
+
+scores.reduce(
+function(a,b) {
+
+return a + b;
+
+},
+0
+)
+
+/
+
+scores.length
+
+);
+
+
+worst =
+Math.min.apply(
+null,
+scores
+);
 }
 
 
-function renderAchievements() {
+var ratio =
+negativeCount
 
-    var badges = [
+? (
+positiveCount /
+negativeCount
+).toFixed(1)
 
-        [
-            "💯",
-            "Century Club",
-            "Reach 100",
-            bestScore >= 100
-        ],
+: positiveCount
 
-        [
-            "🏆",
-            "Record Breaker",
-            "Reach 110",
-            bestScore >= 110
-        ],
+? "∞"
 
-        [
-            "👑",
-            "Elite Employee",
-            "Finish 5 Elite days",
-            history.filter(function(day) {
-                return day.score >= 90;
-            }).length >= 5
-        ],
-
-        [
-            "🦶",
-            "Foot Rub Excellence",
-            "3 foot rubs",
-            countName(
-                "Unprompted Foot Rub"
-            ) >= 3
-        ],
-
-        [
-            "💐",
-            "Floral Initiative",
-            "3 flower commendations",
-            countName(
-                "Brings You Flowers"
-            ) >= 3
-        ],
-
-        [
-            "📸",
-            "Photography Certified",
-            "5 photo commendations",
-            (
-                countName(
-                    "Takes a Good Picture of Katelin"
-                ) +
-                countName(
-                    "Takes Multiple Good Pictures Without Complaining"
-                )
-            ) >= 5
-        ],
-
-        [
-            "🧹",
-            "Domestic Excellence",
-            "5 unprompted chores",
-            countName(
-                "Does a Chore Without Being Asked"
-            ) >= 5
-        ],
-
-        [
-            "💚",
-            "Employee of the Month",
-            "Archive a 100+ day",
-            history.some(function(day) {
-                return day.score >= 100;
-            })
-        ],
-
-        [
-            "🔥",
-            "Elite Streak",
-            "3 Elite days in a row",
-            eliteStreak() >= 3
-        ],
-
-        [
-            "📋",
-            "Successful Remediation",
-            "Recover from Probation to Elite",
-            comebackAchievement()
-        ]
-    ];
+: "—";
 
 
-    document.getElementById(
-        "badgeGrid"
-    ).innerHTML =
+var bonus =
+Math.max(
+0,
+score - 100
+);
 
-        badges.map(function(badge) {
 
-            return (
-                '<div class="badge ' +
-                (badge[3] ? "" : "locked") +
-                '">' +
+var bestCommend =
+biggestEvent(
+true
+);
 
-                '<div class="badgeIcon">' +
-                badge[0] +
-                '</div>' +
 
-                '<div class="badgeName">' +
-                badge[1] +
-                '</div>' +
+var worstIncident =
+biggestEvent(
+false
+);
 
-                '<div class="badgeNote">' +
-                (
-                    badge[3]
-                    ? "Unlocked • "
-                    : "Locked • "
-                ) +
-                badge[2] +
-                '</div>' +
 
-                '</div>'
-            );
-        }).join("");
+var cards = [
+
+["🏆",bestScore,"Best Score Ever"],
+
+["📊",average,"Average Rating"],
+
+["📈",positiveCount,"Lifetime Commendations"],
+
+["🚨",negativeCount,"Lifetime Incidents"],
+
+["➕",totalPositive,"Points Earned"],
+
+["➖",totalNegative,"Points Lost"],
+
+["⚖️",ratio,"Commendation / Incident Ratio"],
+
+["💰",bonus,"Current Performance Bonus"],
+
+["🔥",eliteStreak(),"Elite Streak"],
+
+["📅",history.length,"Archived Days"]
+
+];
+
+
+document
+.getElementById(
+"statsGrid"
+)
+.innerHTML =
+
+cards.map(
+function(card) {
+
+return (
+
+'<div class="statCard">'
++
+
+'<div class="statNumber">'
++
+card[0]
++
+" "
++
+card[1]
++
+'</div>'
++
+
+'<div class="statLabel">'
++
+card[2]
++
+'</div>'
++
+
+'</div>'
+
+);
+
+}
+)
+.join("")
+
++
+
+'<div class="statCard">'
++
+'<div class="statNumber">💚</div>'
++
+'<div class="statLabel">'
++
+(
+bestCommend
+
+? "Biggest Commendation: "
++
+escapeHTML(
+bestCommend.name
+)
++
+" (+"
++
+bestCommend.points
++
+")"
+
+: "No commendations yet"
+)
++
+'</div>'
++
+'</div>'
+
++
+
+'<div class="statCard">'
++
+'<div class="statNumber">🚨</div>'
++
+'<div class="statLabel">'
++
+(
+worstIncident
+
+? "Biggest Offense: "
++
+escapeHTML(
+worstIncident.name
+)
++
+" ("
++
+worstIncident.points
++
+")"
+
+: "No incidents yet"
+)
++
+'</div>'
++
+'</div>';
+
 }
 
+
+/* ---------------------------------
+   COUNT EVENT
+--------------------------------- */
+
+function countName(
+name
+) {
+
+return allEvents()
+.filter(
+function(event) {
+
+return (
+event.name === name
+);
+
+}
+)
+.length;
+}
+
+
+/* ---------------------------------
+   COMEBACK
+--------------------------------- */
 
 function comebackAchievement() {
 
-    for (
-        var i = 1;
-        i < history.length;
-        i++
-    ) {
+for (
+var i = 1;
 
-        if (
-            history[i-1].score < 60 &&
-            history[i].score >= 90
-        ) {
-            return true;
-        }
-    }
+i < history.length;
 
-    return false;
+i++
+) {
+
+if (
+
+history[i - 1].score < 60
+
+&&
+
+history[i].score >= 90
+
+) {
+
+return true;
+}
 }
 
+
+return false;
+}
+
+
+/* ---------------------------------
+   ACHIEVEMENTS
+--------------------------------- */
+
+function renderAchievements() {
+
+var badges = [
+
+[
+"💯",
+"Century Club",
+"Reach 100",
+bestScore >= 100
+],
+
+[
+"🏆",
+"Record Breaker",
+"Reach 110",
+bestScore >= 110
+],
+
+[
+"👑",
+"Elite Employee",
+"Finish 5 Elite days",
+history.filter(
+function(day) {
+
+return (
+day.score >= 90
+);
+
+}
+).length >= 5
+],
+
+[
+"🦶",
+"Foot Rub Excellence",
+"3 foot rubs",
+countName(
+"Unprompted Foot Rub"
+) >= 3
+],
+
+[
+"💐",
+"Floral Initiative",
+"3 flower commendations",
+countName(
+"Brings You Flowers"
+) >= 3
+],
+
+[
+"📸",
+"Photography Certified",
+"5 photo commendations",
+(
+countName(
+"Takes a Good Picture of Katelin"
+)
++
+countName(
+"Takes Multiple Good Pictures Without Complaining"
+)
+)
+>=
+5
+],
+
+[
+"🧹",
+"Domestic Excellence",
+"5 unprompted chores",
+countName(
+"Does a Chore Without Being Asked"
+) >= 5
+],
+
+[
+"💚",
+"Employee of the Month",
+"Archive a 100+ day",
+history.some(
+function(day) {
+
+return (
+day.score >= 100
+);
+
+}
+)
+],
+
+[
+"🔥",
+"Elite Streak",
+"3 Elite days in a row",
+eliteStreak() >= 3
+],
+
+[
+"📋",
+"Successful Remediation",
+"Recover from Probation to Elite",
+comebackAchievement()
+]
+
+];
+
+
+document
+.getElementById(
+"badgeGrid"
+)
+.innerHTML =
+
+badges.map(
+function(badge) {
+
+return (
+
+'<div class="badge '
++
+(
+badge[3]
+? ""
+: "locked"
+)
++
+'">'
++
+
+'<div class="badgeIcon">'
++
+badge[0]
++
+'</div>'
++
+
+'<div class="badgeName">'
++
+badge[1]
++
+'</div>'
++
+
+'<div class="badgeNote">'
++
+(
+badge[3]
+? "Unlocked • "
+: "Locked • "
+)
++
+badge[2]
++
+'</div>'
++
+
+'</div>'
+
+);
+
+}
+)
+.join("");
+}
+
+
+/* ---------------------------------
+   PERFORMANCE REVIEW
+--------------------------------- */
 
 function renderPerformanceReview() {
 
-    var box =
-        document.getElementById(
-            "performanceReview"
-        );
-
-    if (history.length < 7) {
-
-        box.innerHTML =
-            '<strong>Quarterly Review Pending</strong>' +
-            '<div class="small">' +
-            'Archive ' +
-            (7-history.length) +
-            ' more day(s) to unlock Taylor’s formal performance review.' +
-            '</div>';
-
-        return;
-    }
+var box =
+document.getElementById(
+"performanceReview"
+);
 
 
-    var total =
-        history.reduce(
-            function(sum,day) {
-                return sum + day.score;
-            },
-            0
-        );
+if (
+history.length < 7
+) {
 
-    var average =
-        Math.round(
-            total /
-            history.length
-        );
+box.innerHTML =
 
-    var grade;
+'<strong>'
++
+'Quarterly Review Pending'
++
+'</strong>'
 
-    if (average >= 90) {
-        grade =
-            "Exceeds Expectations";
-    } else if (average >= 75) {
-        grade =
-            "Meets Expectations";
-    } else if (average >= 60) {
-        grade =
-            "Needs Improvement";
-    } else {
-        grade =
-            "Termination Recommended";
-    }
++
 
+'<div class="small">'
++
+'Archive '
++
+(7 - history.length)
++
+' more day(s) to unlock Taylor’s formal performance review.'
++
+'</div>';
 
-    var positives = {};
-    var negatives = {};
-
-    allEvents()
-    .forEach(function(event) {
-
-        var target =
-            event.points > 0
-            ? positives
-            : negatives;
-
-        target[event.name] =
-            (target[event.name] || 0) + 1;
-    });
-
-
-    function topThree(object) {
-
-        return Object.keys(object)
-            .sort(function(a,b) {
-                return object[b] -
-                       object[a];
-            })
-            .slice(0,3);
-    }
-
-
-    var strengths =
-        topThree(positives);
-
-    var growth =
-        topThree(negatives);
-
-
-    box.innerHTML =
-
-        '<strong>Formal Boyfriend Performance Review</strong>' +
-
-        '<div class="reviewGrade">' +
-        grade +
-        '</div>' +
-
-        '<strong>Demonstrated Strengths</strong><br>' +
-
-        (
-            strengths.length
-            ? strengths.map(function(x) {
-                return '<span class="pill">' +
-                       escapeHTML(x) +
-                       '</span>';
-              }).join("")
-            : "Insufficient data."
-        ) +
-
-        '<div style="margin-top:12px">' +
-        '<strong>Opportunities for Growth</strong><br>' +
-
-        (
-            growth.length
-            ? growth.map(function(x) {
-                return '<span class="pill">' +
-                       escapeHTML(x) +
-                       '</span>';
-              }).join("")
-            : "No material deficiencies identified."
-        ) +
-
-        '</div>';
+return;
 }
 
+
+var total =
+history.reduce(
+function(sum,day) {
+
+return (
+sum + day.score
+);
+
+},
+0
+);
+
+
+var average =
+Math.round(
+total /
+history.length
+);
+
+
+var grade;
+
+
+if (
+average >= 90
+) {
+
+grade =
+"Exceeds Expectations";
+
+} else if (
+average >= 75
+) {
+
+grade =
+"Meets Expectations";
+
+} else if (
+average >= 60
+) {
+
+grade =
+"Needs Improvement";
+
+} else {
+
+grade =
+"Termination Recommended";
+}
+
+
+var positives = {};
+
+var negatives = {};
+
+
+allEvents()
+.forEach(
+function(event) {
+
+var target =
+event.points > 0
+? positives
+: negatives;
+
+
+target[event.name] =
+(target[event.name] || 0)
++
+1;
+
+}
+);
+
+
+function topThree(
+object
+) {
+
+return Object
+.keys(
+object
+)
+.sort(
+function(a,b) {
+
+return (
+object[b]
+-
+object[a]
+);
+
+}
+)
+.slice(
+0,
+3
+);
+}
+
+
+var strengths =
+topThree(
+positives
+);
+
+
+var growth =
+topThree(
+negatives
+);
+
+
+box.innerHTML =
+
+'<strong>'
++
+'Formal Boyfriend Performance Review'
++
+'</strong>'
+
++
+
+'<div class="reviewGrade">'
++
+grade
++
+'</div>'
+
++
+
+'<strong>'
++
+'Demonstrated Strengths'
++
+'</strong><br>'
+
++
+
+(
+strengths.length
+
+? strengths.map(
+function(x) {
+
+return (
+'<span class="pill">'
++
+escapeHTML(
+x
+)
++
+'</span>'
+);
+
+}
+)
+.join("")
+
+: "Insufficient data."
+)
+
++
+
+'<div style="margin-top:12px">'
++
+
+'<strong>'
++
+'Opportunities for Growth'
++
+'</strong><br>'
+
++
+
+(
+growth.length
+
+? growth.map(
+function(x) {
+
+return (
+'<span class="pill">'
++
+escapeHTML(
+x
+)
++
+'</span>'
+);
+
+}
+)
+.join("")
+
+: "No material deficiencies identified."
+)
+
++
+
+'</div>';
+}
+
+
+/* ---------------------------------
+   HISTORY
+--------------------------------- */
 
 function renderHistory() {
 
-    var box =
-        document.getElementById(
-            "historyList"
-        );
+var box =
+document.getElementById(
+"historyList"
+);
 
-    if (!history.length) {
 
-        box.innerHTML =
-            '<div class="empty">' +
-            'No completed days yet.' +
-            '</div>';
+var html = "";
 
-    } else {
 
-        var highest =
-            Math.max.apply(
-                null,
-                history.map(function(day) {
-                    return day.score;
-                })
-            );
+/* CURRENT DAY */
 
-        box.innerHTML =
-            history
-            .slice()
-            .reverse()
-            .map(function(day) {
+html +=
 
-                var employee =
-                    day.score === highest
-                    ? " 🏆 EMPLOYEE OF THE MONTH"
-                    : "";
+'<div class="historyRow">'
++
 
-                return (
-                    '<div class="historyRow">' +
+'<div class="historyTop">'
++
 
-                    '<div class="historyTop">' +
+'<div>'
++
 
-                    '<div>' +
-                    '<strong>' +
-                    formatDate(day.date) +
-                    '</strong>' +
+'<strong>'
++
+'TODAY — '
++
+formatDate(
+dayStarted
+)
++
+'</strong>'
++
 
-                    '<div class="small">' +
-                    getTier(day.score).title +
-                    employee +
-                    '</div>' +
-                    '</div>' +
+'<div class="small">'
++
+getTier(
+score
+).title
++
+' • ACTIVE LOG'
++
+'</div>'
++
 
-                    '<div class="historyScore">' +
-                    day.score +
-                    '</div>' +
+'</div>'
++
 
-                    '</div>' +
+'<div class="historyScore">'
++
+score
++
+'</div>'
++
 
-                    '</div>'
-                );
-            }).join("");
-    }
+'</div>';
 
-    renderStats();
-    renderAchievements();
-    renderPerformanceReview();
+
+if (
+activity.length
+) {
+
+html +=
+'<div class="historyDetails">';
+
+
+activity.forEach(
+function(event) {
+
+html +=
+
+'<div class="historyBehavior">'
++
+
+'<span>'
++
+escapeHTML(
+event.name
+)
++
+'</span>'
++
+
+'<strong class="'
++
+(
+event.points > 0
+? "positive"
+: "negative"
+)
++
+'">'
++
+
+(
+event.points > 0
+? "+"
+: ""
+)
++
+event.points
++
+
+'</strong>'
++
+
+'</div>';
+
+}
+);
+
+
+html +=
+'</div>';
+
+} else {
+
+html +=
+
+'<div class="small" style="margin-top:10px">'
++
+'No behavior logged yet today.'
++
+'</div>';
 }
 
+
+html +=
+'</div>';
+
+
+/* ARCHIVED DAYS */
+
+if (
+history.length
+) {
+
+var highest =
+Math.max.apply(
+
+null,
+
+history.map(
+function(day) {
+
+return day.score;
+
+}
+)
+
+);
+
+
+history
+.slice()
+.reverse()
+.forEach(
+function(day) {
+
+var bestLabel =
+day.score === highest
+
+? " 🏆 BEST ARCHIVED DAY"
+
+: "";
+
+
+html +=
+
+'<div class="historyRow">'
++
+
+'<div class="historyTop">'
++
+
+'<div>'
++
+
+'<strong>'
++
+formatDate(
+day.date
+)
++
+'</strong>'
++
+
+'<div class="small">'
++
+getTier(
+day.score
+).title
++
+bestLabel
++
+'</div>'
++
+
+'</div>'
++
+
+'<div class="historyScore">'
++
+day.score
++
+'</div>'
++
+
+'</div>';
+
+
+var dayActivities =
+day.activities || [];
+
+
+if (
+dayActivities.length
+) {
+
+html +=
+'<div class="historyDetails">';
+
+
+dayActivities.forEach(
+function(event) {
+
+html +=
+
+'<div class="historyBehavior">'
++
+
+'<span>'
++
+escapeHTML(
+event.name
+)
++
+'</span>'
++
+
+'<strong class="'
++
+(
+event.points > 0
+? "positive"
+: "negative"
+)
++
+'">'
++
+
+(
+event.points > 0
+? "+"
+: ""
+)
++
+event.points
++
+
+'</strong>'
++
+
+'</div>';
+
+}
+);
+
+
+html +=
+'</div>';
+}
+
+
+html +=
+'</div>';
+
+}
+);
+
+} else {
+
+html +=
+
+'<div class="empty">'
++
+'No archived days yet. Today’s live log appears above.'
++
+'</div>';
+}
+
+
+box.innerHTML =
+html;
+
+
+renderStats();
+
+renderAchievements();
+
+renderPerformanceReview();
+}
+
+
+/* ---------------------------------
+   LOGS
+--------------------------------- */
 
 function renderLogs() {
 
-    var events =
-        allEvents()
-        .slice()
-        .sort(function(a,b) {
-            return new Date(b.date) -
-                   new Date(a.date);
-        });
+var events =
+allEvents()
+.slice()
+.sort(
+function(a,b) {
 
-    document.getElementById(
-        "allLogs"
-    ).innerHTML =
+return (
 
-        events.length
-        ? events.map(activityHTML).join("")
-        : '<div class="empty">Personnel file currently clean.</div>';
+new Date(
+b.date
+)
+
+-
+
+new Date(
+a.date
+)
+
+);
+
+}
+);
+
+
+document
+.getElementById(
+"allLogs"
+)
+.innerHTML =
+
+events.length
+
+? events
+.map(
+activityHTML
+)
+.join("")
+
+: '<div class="empty">'
++
+'Personnel file currently clean.'
++
+'</div>';
 }
 
+
+/* ---------------------------------
+   CALENDAR KEY
+--------------------------------- */
+
+function calendarKey(
+date
+) {
+
+var d =
+new Date(
+date
+);
+
+
+var year =
+d.getFullYear();
+
+
+var month =
+String(
+d.getMonth() + 1
+)
+.padStart(
+2,
+"0"
+);
+
+
+var day =
+String(
+d.getDate()
+)
+.padStart(
+2,
+"0"
+);
+
+
+return (
+
+year
++
+"-"
++
+month
++
+"-"
++
+day
+
+);
+}
+
+
+/* ---------------------------------
+   CALENDAR RECORDS
+--------------------------------- */
+
+function getCalendarRecords() {
+
+var records = {};
+
+
+history.forEach(
+function(day) {
+
+records[
+calendarKey(
+day.date
+)
+] = {
+
+score:
+day.score,
+
+activities:
+day.activities || [],
+
+current:
+false
+
+};
+
+}
+);
+
+
+records[
+calendarKey(
+dayStarted
+)
+] = {
+
+score:
+score,
+
+activities:
+activity,
+
+current:
+true
+
+};
+
+
+return records;
+}
+
+
+/* ---------------------------------
+   CALENDAR STYLE
+--------------------------------- */
+
+function calendarClass(
+scoreValue
+) {
+
+if (
+scoreValue >= 90
+) {
+
+return "calendarElite";
+}
+
+
+if (
+scoreValue >= 75
+) {
+
+return "calendarGood";
+}
+
+
+if (
+scoreValue >= 60
+) {
+
+return "calendarReview";
+}
+
+
+if (
+scoreValue >= 40
+) {
+
+return "calendarProbation";
+}
+
+
+return "calendarJail";
+}
+
+
+/* ---------------------------------
+   CALENDAR EMOJI
+--------------------------------- */
+
+function calendarEmoji(
+scoreValue
+) {
+
+if (
+scoreValue >= 90
+) {
+
+return "👑";
+}
+
+
+if (
+scoreValue >= 75
+) {
+
+return "💚";
+}
+
+
+if (
+scoreValue >= 60
+) {
+
+return "⚠️";
+}
+
+
+if (
+scoreValue >= 40
+) {
+
+return "📋";
+}
+
+
+return "🚔";
+}
+
+
+/* ---------------------------------
+   CHANGE MONTH
+--------------------------------- */
+
+function changeCalendarMonth(
+amount
+) {
+
+calendarDate =
+
+new Date(
+
+calendarDate.getFullYear(),
+
+calendarDate.getMonth()
++
+amount,
+
+1
+
+);
+
+
+renderCalendar();
+}
+
+
+/* ---------------------------------
+   RENDER CALENDAR
+--------------------------------- */
+
+function renderCalendar() {
+
+var grid =
+document.getElementById(
+"calendarGrid"
+);
+
+
+if (
+!grid
+) {
+
+return;
+}
+
+
+var records =
+getCalendarRecords();
+
+
+var year =
+calendarDate
+.getFullYear();
+
+
+var month =
+calendarDate
+.getMonth();
+
+
+document
+.getElementById(
+"calendarMonthTitle"
+)
+.textContent =
+
+calendarDate
+.toLocaleDateString(
+undefined,
+{
+month:"long",
+year:"numeric"
+}
+);
+
+
+var firstDay =
+new Date(
+year,
+month,
+1
+);
+
+
+var lastDay =
+new Date(
+year,
+month + 1,
+0
+);
+
+
+var startingWeekday =
+firstDay.getDay();
+
+
+var daysInMonth =
+lastDay.getDate();
+
+
+var html = "";
+
+
+for (
+var blank = 0;
+
+blank <
+startingWeekday;
+
+blank++
+) {
+
+html +=
+
+'<div class="calendarDay emptyDay">'
++
+'</div>';
+}
+
+
+var monthlyScores = [];
+
+var monthlyIncidents = 0;
+
+
+for (
+var day = 1;
+
+day <= daysInMonth;
+
+day++
+) {
+
+var date =
+new Date(
+year,
+month,
+day
+);
+
+
+var key =
+calendarKey(
+date
+);
+
+
+var record =
+records[key];
+
+
+var today =
+calendarKey(
+new Date()
+)
+===
+key;
+
+
+if (
+record
+) {
+
+monthlyScores.push(
+record.score
+);
+
+
+record.activities
+.forEach(
+function(event) {
+
+if (
+event.points < 0
+) {
+
+monthlyIncidents++;
+}
+
+}
+);
+
+
+html +=
+
+'<div class="calendarDay '
++
+calendarClass(
+record.score
+)
++
+(
+today
+? " calendarToday"
+: ""
+)
++
+'" onclick="showCalendarDay(\''
++
+key
++
+'\')">'
++
+
+'<div class="calendarDate">'
++
+day
++
+'</div>'
++
+
+'<div class="calendarScore">'
++
+calendarEmoji(
+record.score
+)
++
+" "
++
+record.score
++
+'</div>'
++
+
+'</div>';
+
+} else {
+
+html +=
+
+'<div class="calendarDay '
++
+(
+today
+? "calendarToday"
+: ""
+)
++
+'">'
++
+
+'<div class="calendarDate">'
++
+day
++
+'</div>'
++
+
+'</div>';
+}
+}
+
+
+grid.innerHTML =
+html;
+
+
+var summary =
+document.getElementById(
+"calendarSummary"
+);
+
+
+if (
+monthlyScores.length
+) {
+
+var average =
+Math.round(
+
+monthlyScores.reduce(
+function(a,b) {
+
+return a+b;
+
+},
+0
+)
+
+/
+
+monthlyScores.length
+
+);
+
+
+var best =
+Math.max.apply(
+null,
+monthlyScores
+);
+
+
+summary.textContent =
+
+"Average: "
++
+average
++
+" • Best: "
++
+best
++
+" • Incidents: "
++
+monthlyIncidents;
+
+} else {
+
+summary.textContent =
+"No performance records for this month.";
+}
+}
+
+
+/* ---------------------------------
+   CALENDAR DAY
+--------------------------------- */
+
+function showCalendarDay(
+key
+) {
+
+var record =
+getCalendarRecords()[
+key
+];
+
+
+if (
+!record
+) {
+
+return;
+}
+
+
+var pieces =
+key.split(
+"-"
+);
+
+
+var date =
+new Date(
+
+Number(
+pieces[0]
+),
+
+Number(
+pieces[1]
+)
+-
+1,
+
+Number(
+pieces[2]
+)
+
+);
+
+
+var box =
+document.getElementById(
+"calendarDayDetails"
+);
+
+
+var html =
+
+'<div class="calendarDayTitle">'
++
+
+date.toLocaleDateString(
+undefined,
+{
+weekday:"long",
+month:"long",
+day:"numeric",
+year:"numeric"
+}
+)
+
++
+'</div>'
+
++
+
+'<div class="historyScore">'
++
+record.score
++
+'</div>'
+
++
+
+'<div class="calendarDayStatus">'
++
+
+getTier(
+record.score
+).title
+
++
+
+(
+record.current
+? " • ACTIVE LOG"
+: ""
+)
+
++
+
+'</div>';
+
+
+if (
+record.activities.length
+) {
+
+record.activities
+.forEach(
+function(event) {
+
+html +=
+
+'<div class="calendarBehavior">'
++
+
+'<span>'
++
+escapeHTML(
+event.name
+)
++
+'</span>'
++
+
+'<strong class="'
++
+(
+event.points > 0
+? "positive"
+: "negative"
+)
++
+'">'
++
+
+(
+event.points > 0
+? "+"
+: ""
+)
++
+event.points
++
+
+'</strong>'
++
+
+'</div>';
+
+}
+);
+
+} else {
+
+html +=
+
+'<div class="empty">'
++
+'No behavior recorded for this day.'
++
+'</div>';
+}
+
+
+box.innerHTML =
+html;
+}
+
+
+/* ---------------------------------
+   RENDER EVERYTHING
+--------------------------------- */
 
 function renderEverything() {
-    renderScore();
-    renderToday();
-    renderHistory();
-    renderLogs();
+
+renderScore();
+
+renderToday();
+
+renderCalendar();
+
+renderHistory();
+
+renderLogs();
 }
 
+
+/* ---------------------------------
+   TEMPORARY BANNER
+--------------------------------- */
 
 function showTemporary(
-    element,
-    text
+element,
+text
 ) {
 
-    element.textContent = text;
-    element.classList.add("show");
+element.textContent =
+text;
 
-    setTimeout(function() {
-        element.classList.remove("show");
-    },2500);
+
+element.classList.add(
+"show"
+);
+
+
+setTimeout(
+function() {
+
+element.classList.remove(
+"show"
+);
+
+},
+2500
+);
 }
 
+
+/* ---------------------------------
+   REPEAT OFFENDER
+--------------------------------- */
 
 function repeatPenalty(
-    name,
-    points
+name,
+points
 ) {
 
-    if (points >= 0) {
-        return points;
-    }
+if (
+points >= 0
+) {
 
-    var previous =
-        allEvents()
-        .filter(function(event) {
-            return event.name === name;
-        }).length;
-
-    if (previous === 0) {
-        return points;
-    }
-
-    if (previous === 1) {
-        return Math.round(
-            points * 1.5
-        );
-    }
-
-    if (previous === 2) {
-        return points * 2;
-    }
-
-    return Math.round(
-        points * 2.5
-    );
+return points;
 }
 
 
-function trainingMessage(name) {
+var previous =
+allEvents()
+.filter(
+function(event) {
 
-    if (
-        name.indexOf("Listen") >= 0 ||
-        name.indexOf("Hearing") >= 0 ||
-        name.indexOf("respond") >= 0
-    ) {
-        return "🎓 Mandatory Listening Training assigned.";
-    }
+return (
+event.name === name
+);
 
-    if (
-        name.indexOf("Picture") >= 0 ||
-        name.indexOf("Photo") >= 0
-    ) {
-        return "📸 Remedial Girlfriend Photography Seminar assigned.";
-    }
+}
+)
+.length;
 
-    if (
-        name.indexOf("Phone") >= 0 ||
-        name.indexOf("Text") >= 0
-    ) {
-        return "📱 Digital Presence & Responsiveness Training assigned.";
-    }
 
-    if (
-        name.indexOf("Deez Nuts") >= 0 ||
-        name.indexOf("That's What She Said") >= 0
-    ) {
-        return "🎤 Mandatory Joke Quality Control Workshop assigned.";
-    }
+if (
+previous === 0
+) {
 
-    return null;
+return points;
 }
 
+
+if (
+previous === 1
+) {
+
+return Math.round(
+points * 1.5
+);
+}
+
+
+if (
+previous === 2
+) {
+
+return (
+points * 2
+);
+}
+
+
+return Math.round(
+points * 2.5
+);
+}
+
+
+/* ---------------------------------
+   TRAINING
+--------------------------------- */
+
+function trainingMessage(
+name
+) {
+
+var lower =
+name.toLowerCase();
+
+
+if (
+
+lower.indexOf(
+"listen"
+)
+>=
+0
+
+||
+
+lower.indexOf(
+"hearing"
+)
+>=
+0
+
+||
+
+lower.indexOf(
+"respond"
+)
+>=
+0
+
+) {
+
+return (
+"🎓 Mandatory Listening Training assigned."
+);
+}
+
+
+if (
+
+lower.indexOf(
+"picture"
+)
+>=
+0
+
+||
+
+lower.indexOf(
+"photo"
+)
+>=
+0
+
+) {
+
+return (
+"📸 Remedial Girlfriend Photography Seminar assigned."
+);
+}
+
+
+if (
+
+lower.indexOf(
+"phone"
+)
+>=
+0
+
+||
+
+lower.indexOf(
+"text"
+)
+>=
+0
+
+) {
+
+return (
+"📱 Digital Presence & Responsiveness Training assigned."
+);
+}
+
+
+if (
+
+lower.indexOf(
+"deez nuts"
+)
+>=
+0
+
+||
+
+lower.indexOf(
+"that's what she said"
+)
+>=
+0
+
+) {
+
+return (
+"🎤 Mandatory Joke Quality Control Workshop assigned."
+);
+}
+
+
+return null;
+}
+
+
+/* ---------------------------------
+   TAYLOR ANIMATION
+--------------------------------- */
+
+function animateTaylor(
+points
+) {
+
+var image =
+document.getElementById(
+"taylorImage"
+);
+
+
+image.classList.remove(
+"jump"
+);
+
+
+image.classList.remove(
+"slump"
+);
+
+
+void image.offsetWidth;
+
+
+if (
+points > 0
+) {
+
+image.src =
+score >= 90
+
+? "TaylorElite.png"
+
+: "TaylorGoodStanding.png";
+
+
+image.classList.add(
+"jump"
+);
+
+} else {
+
+image.src =
+score < 40
+
+? "TaylorJail.png"
+
+: "TaylorProbation.png";
+
+
+image.classList.add(
+"slump"
+);
+}
+
+
+setTimeout(
+function() {
+
+image.classList.remove(
+"jump"
+);
+
+
+image.classList.remove(
+"slump"
+);
+
+
+image.src =
+getTier(
+score
+).image;
+
+},
+1100
+);
+}
+
+
+/* ---------------------------------
+   ADD BEHAVIOR
+--------------------------------- */
 
 function addBehavior(
-    name,
-    points
+name,
+points
 ) {
 
-    var oldBest =
-        bestScore;
-
-    var adjusted =
-        repeatPenalty(
-            name,
-            points
-        );
-
-    score =
-        Math.max(
-            0,
-            score + adjusted
-        );
-
-    if (score > bestScore) {
-        bestScore = score;
-    }
-
-    activity.push({
-        name:name,
-        points:adjusted,
-        date:new Date().toISOString()
-    });
-
-    save();
-    closeSheet();
-    renderEverything();
+var oldBest =
+bestScore;
 
 
-    if (score > oldBest) {
-
-        showTemporary(
-            document.getElementById(
-                "recordBanner"
-            ),
-            "🏆 NEW ALL-TIME RECORD: " +
-            score
-        );
-    }
+var adjusted =
+repeatPenalty(
+name,
+points
+);
 
 
-    if (
-        adjusted < points &&
-        points < 0
-    ) {
-
-        showTemporary(
-            document.getElementById(
-                "newsBanner"
-            ),
-            "🚨 REPEAT OFFENDER ENHANCEMENT: penalty increased from " +
-            points +
-            " to " +
-            adjusted +
-            "."
-        );
-    }
+score =
+Math.max(
+0,
+score + adjusted
+);
 
 
-    var training =
-        trainingMessage(name);
+if (
+score > bestScore
+) {
 
-    if (training) {
-
-        setTimeout(function() {
-
-            showTemporary(
-                document.getElementById(
-                    "newsBanner"
-                ),
-                training
-            );
-
-        },2600);
-    }
+bestScore =
+score;
 }
 
 
-function openSheet(mode) {
+activity.push({
 
-    currentMode = mode;
+name:
+name,
 
-    var list =
-        mode === "positive"
-        ? compliments
-        : incidents;
+points:
+adjusted,
 
-    document.getElementById(
-        "sheetTitle"
-    ).textContent =
-        mode === "positive"
-        ? "💚 Commend Taylor"
-        : "🚨 Report Incident";
+date:
+new Date()
+.toISOString()
 
-    document.getElementById(
-        "sheetSubtitle"
-    ).textContent =
-        mode === "positive"
-        ? "Select qualifying boyfriend behavior."
-        : "Select the applicable violation. Repeat offenses may receive enhanced penalties.";
+});
 
-    var options =
-        document.getElementById(
-            "options"
-        );
 
-    options.innerHTML = "";
+save();
 
-    list.forEach(function(item) {
 
-        var button =
-            document.createElement(
-                "button"
-            );
+closeSheet();
 
-        button.className =
-            "option";
 
-        button.innerHTML =
-            "<span>" +
-            escapeHTML(item[0]) +
-            "</span>" +
+renderEverything();
 
-            "<strong>" +
-            (item[1] > 0 ? "+" : "") +
-            item[1] +
-            "</strong>";
 
-        button.onclick =
-            function() {
+animateTaylor(
+adjusted
+);
 
-                addBehavior(
-                    item[0],
-                    item[1]
-                );
-            };
 
-        options.appendChild(
-            button
-        );
-    });
+if (
+score > oldBest
+) {
 
-    document.getElementById(
-        "overlay"
-    ).classList.add("show");
+showTemporary(
+
+document.getElementById(
+"recordBanner"
+),
+
+"🏆 NEW ALL-TIME RECORD: "
++
+score
+
+);
 }
 
+
+if (
+
+adjusted < points
+
+&&
+
+points < 0
+
+) {
+
+showTemporary(
+
+document.getElementById(
+"newsBanner"
+),
+
+"🚨 REPEAT OFFENDER ENHANCEMENT: penalty increased from "
++
+points
++
+" to "
++
+adjusted
++
+"."
+
+);
+}
+
+
+var training =
+trainingMessage(
+name
+);
+
+
+if (
+training
+) {
+
+setTimeout(
+function() {
+
+showTemporary(
+
+document.getElementById(
+"newsBanner"
+),
+
+training
+
+);
+
+},
+2600
+);
+}
+}
+
+
+/* ---------------------------------
+   OPEN SHEET
+--------------------------------- */
+
+function openSheet(
+mode
+) {
+
+currentMode =
+mode;
+
+
+var list =
+mode ===
+"positive"
+
+? compliments
+
+: incidents;
+
+
+document
+.getElementById(
+"sheetTitle"
+)
+.textContent =
+
+mode ===
+"positive"
+
+? "💚 Commend Taylor"
+
+: "🚨 Report Incident";
+
+
+document
+.getElementById(
+"sheetSubtitle"
+)
+.textContent =
+
+mode ===
+"positive"
+
+? "Select qualifying boyfriend behavior."
+
+: "Select the applicable violation. Repeat offenses may receive enhanced penalties.";
+
+
+var options =
+document.getElementById(
+"options"
+);
+
+
+options.innerHTML =
+"";
+
+
+list.forEach(
+function(item) {
+
+var button =
+document.createElement(
+"button"
+);
+
+
+button.className =
+"option";
+
+
+button.innerHTML =
+
+"<span>"
++
+escapeHTML(
+item[0]
+)
++
+"</span>"
+
++
+
+"<strong>"
++
+(
+item[1] > 0
+? "+"
+: ""
+)
++
+item[1]
++
+"</strong>";
+
+
+button.onclick =
+function() {
+
+addBehavior(
+item[0],
+item[1]
+);
+
+};
+
+
+options.appendChild(
+button
+);
+
+}
+);
+
+
+document
+.getElementById(
+"customText"
+)
+.value =
+"";
+
+
+document
+.getElementById(
+"customPoints"
+)
+.value =
+3;
+
+
+document
+.getElementById(
+"overlay"
+)
+.classList.add(
+"show"
+);
+}
+
+
+/* ---------------------------------
+   CLOSE SHEET
+--------------------------------- */
 
 function closeSheet() {
 
-    document.getElementById(
-        "overlay"
-    ).classList.remove("show");
+document
+.getElementById(
+"overlay"
+)
+.classList.remove(
+"show"
+);
 }
 
+
+/* ---------------------------------
+   CUSTOM
+--------------------------------- */
 
 function addCustomBehavior() {
 
-    var name =
-        document.getElementById(
-            "customText"
-        ).value.trim();
+var name =
+document
+.getElementById(
+"customText"
+)
+.value
+.trim();
 
-    if (!name) {
-        return;
-    }
 
-    var amount =
-        Number(
-            document.getElementById(
-                "customPoints"
-            ).value
-        );
+if (
+!name
+) {
 
-    if (!Number.isFinite(amount)) {
-        amount = 3;
-    }
-
-    amount =
-        Math.max(
-            1,
-            Math.min(
-                50,
-                Math.abs(amount)
-            )
-        );
-
-    addBehavior(
-        name,
-        currentMode === "positive"
-        ? amount
-        : -amount
-    );
+return;
 }
 
+
+var amount =
+Number(
+document
+.getElementById(
+"customPoints"
+)
+.value
+);
+
+
+if (
+!Number.isFinite(
+amount
+)
+) {
+
+amount =
+3;
+}
+
+
+amount =
+Math.max(
+1,
+Math.min(
+50,
+Math.abs(
+amount
+)
+)
+);
+
+
+addBehavior(
+
+name,
+
+currentMode ===
+"positive"
+
+? amount
+
+: -amount
+
+);
+}
+
+
+/* ---------------------------------
+   NEW DAY
+--------------------------------- */
 
 function startNewDay() {
 
-    if (
-        !confirm(
-            "Archive today's performance and start a new Taylor log at 75?"
-        )
-    ) {
-        return;
-    }
+if (
 
-    history.push({
-        date:dayStarted,
-        score:score,
-        activities:activity.slice()
-    });
+!window.confirm(
 
-    score = START_SCORE;
-    activity = [];
-    dayStarted =
-        new Date().toISOString();
+"Archive today's performance and start a new Taylor log at 75?"
 
-    save();
-    renderEverything();
+)
 
-    showPage(
-        "todayPage",
-        "todayTab"
-    );
-}
-
-
-function showPage(
-    pageID,
-    tabID
 ) {
 
-    var pages =
-        document.querySelectorAll(
-            ".page"
-        );
-
-    for (
-        var i = 0;
-        i < pages.length;
-        i++
-    ) {
-
-        pages[i]
-        .classList
-        .remove("active");
-    }
-
-
-    var tabs =
-        document.querySelectorAll(
-            ".navButton"
-        );
-
-    for (
-        var j = 0;
-        j < tabs.length;
-        j++
-    ) {
-
-        tabs[j]
-        .classList
-        .remove("active");
-    }
-
-
-    document.getElementById(
-        pageID
-    ).classList.add("active");
-
-
-    document.getElementById(
-        tabID
-    ).classList.add("active");
-
-
-    window.scrollTo(
-        0,
-        0
-    );
-
-
-    renderEverything();
+return;
 }
 
+
+history.push({
+
+date:
+dayStarted,
+
+score:
+score,
+
+activities:
+activity.slice()
+
+});
+
+
+score =
+START_SCORE;
+
+
+activity =
+[];
+
+
+dayStarted =
+new Date()
+.toISOString();
+
+
+save();
+
+
+renderEverything();
+
+
+showPage(
+"todayPage",
+"todayTab"
+);
+}
+
+
+/* ---------------------------------
+   APPEAL
+--------------------------------- */
 
 function appealLastIncident() {
 
-    for (
-        var i = activity.length - 1;
-        i >= 0;
-        i--
-    ) {
+for (
+var i =
+activity.length - 1;
 
-        if (
-            activity[i].points < 0 &&
-            !activity[i].appealed
-        ) {
+i >= 0;
 
-            if (
-                !confirm(
-                    'Appeal "' +
-                    activity[i].name +
-                    '"?\n\nKatelin is the final appellate authority.'
-                )
-            ) {
-                return;
-            }
+i--
+) {
 
-            var refund =
-                Math.ceil(
-                    Math.abs(
-                        activity[i].points
-                    ) / 2
-                );
+if (
 
-            activity[i].appealed =
-                true;
+activity[i].points < 0
 
-            activity.push({
-                name:
-                    "Appeal partially granted: " +
-                    activity[i].name,
+&&
 
-                points:refund,
+!activity[i].appealed
 
-                date:
-                    new Date()
-                    .toISOString()
-            });
+) {
 
-            score += refund;
+if (
 
-            if (score > bestScore) {
-                bestScore = score;
-            }
+!window.confirm(
 
-            save();
-            renderEverything();
+'Appeal "'
++
+activity[i].name
++
+'"?\n\nKatelin is the final appellate authority.'
 
-            alert(
-                "⚖️ APPEAL PARTIALLY GRANTED\n\n" +
-                refund +
-                " points restored by order of the appellate authority."
-            );
+)
 
-            return;
-        }
-    }
+) {
 
-    alert(
-        "No appealable incident exists in today's active log."
-    );
+return;
 }
 
+
+var refund =
+Math.ceil(
+
+Math.abs(
+activity[i].points
+)
+
+/
+
+2
+
+);
+
+
+activity[i].appealed =
+true;
+
+
+activity.push({
+
+name:
+"Appeal partially granted: "
++
+activity[i].name,
+
+points:
+refund,
+
+date:
+new Date()
+.toISOString()
+
+});
+
+
+score +=
+refund;
+
+
+if (
+score > bestScore
+) {
+
+bestScore =
+score;
+}
+
+
+save();
+
+
+renderEverything();
+
+
+window.alert(
+
+"⚖️ APPEAL PARTIALLY GRANTED\n\n"
++
+refund
++
+" points restored by order of the appellate authority."
+
+);
+
+
+return;
+}
+}
+
+
+window.alert(
+
+"No appealable incident exists in today's active log."
+
+);
+}
+
+
+/* ---------------------------------
+   AUDITS
+--------------------------------- */
 
 var audits = [
 
 {
+
 question:
 "Has Taylor planned a date without being prompted recently?",
-yes:["Random Audit: Date Planning Compliance",3],
-no:["Random Audit: Date Planning Deficiency",-3]
+
+yes:
+[
+"Random Audit: Date Planning Compliance",
+3
+],
+
+no:
+[
+"Random Audit: Date Planning Deficiency",
+-3
+]
+
 },
 
 {
+
 question:
 "Has Taylor put his phone away during quality time?",
-yes:["Random Audit: Phone Compliance",3],
-no:["Random Audit: Phone Management Deficiency",-3]
+
+yes:
+[
+"Random Audit: Phone Compliance",
+3
+],
+
+no:
+[
+"Random Audit: Phone Management Deficiency",
+-3
+]
+
 },
 
 {
+
 question:
 "Has Taylor completed a chore without being asked?",
-yes:["Random Audit: Household Initiative",3],
-no:["Random Audit: Household Initiative Deficiency",-3]
+
+yes:
+[
+"Random Audit: Household Initiative",
+3
+],
+
+no:
+[
+"Random Audit: Household Initiative Deficiency",
+-3
+]
+
 },
 
 {
+
 question:
 "Has Taylor provided adequate affection today?",
-yes:["Random Audit: Affection Compliance",3],
-no:["Random Audit: Affection Deficiency",-3]
+
+yes:
+[
+"Random Audit: Affection Compliance",
+3
+],
+
+no:
+[
+"Random Audit: Affection Deficiency",
+-3
+]
+
 },
 
 {
+
 question:
 "Has Taylor committed a Deez Nuts offense in the last 24 hours?",
-yes:["Random Audit: Deez Nuts Compliance Failure",-4],
-no:["Random Audit: Deez Nuts-Free Certification",3]
+
+yes:
+[
+"Random Audit: Deez Nuts Compliance Failure",
+-4
+],
+
+no:
+[
+"Random Audit: Deez Nuts-Free Certification",
+3
+]
+
 }
 
 ];
 
 
+/* ---------------------------------
+   CONDUCT AUDIT
+--------------------------------- */
+
 function conductAudit() {
 
-    var audit =
-        audits[
-            Math.floor(
-                Math.random() *
-                audits.length
-            )
-        ];
+var audit =
+audits[
+Math.floor(
+Math.random()
+*
+audits.length
+)
+];
 
-    var answer =
-        confirm(
-            "🎲 RANDOM BOYFRIEND AUDIT\n\n" +
-            audit.question +
-            "\n\nTap OK for YES.\nTap Cancel for NO."
-        );
 
-    var result =
-        answer
-        ? audit.yes
-        : audit.no;
+var answer =
+window.confirm(
 
-    addBehavior(
-        result[0],
-        result[1]
-    );
+"🎲 RANDOM BOYFRIEND AUDIT\n\n"
++
+audit.question
++
+"\n\nTap OK for YES.\nTap Cancel for NO."
+
+);
+
+
+var result =
+answer
+
+? audit.yes
+
+: audit.no;
+
+
+addBehavior(
+result[0],
+result[1]
+);
 }
 
 
-document.getElementById(
-    "overlay"
-).onclick =
+/* ---------------------------------
+   NAVIGATION
+--------------------------------- */
+
+function showPage(
+pageID,
+tabID
+) {
+
+var pages =
+document
+.querySelectorAll(
+".page"
+);
+
+
+for (
+var i = 0;
+
+i < pages.length;
+
+i++
+) {
+
+pages[i]
+.classList
+.remove(
+"active"
+);
+}
+
+
+var tabs =
+document
+.querySelectorAll(
+".navButton"
+);
+
+
+for (
+var j = 0;
+
+j < tabs.length;
+
+j++
+) {
+
+tabs[j]
+.classList
+.remove(
+"active"
+);
+}
+
+
+document
+.getElementById(
+pageID
+)
+.classList
+.add(
+"active"
+);
+
+
+document
+.getElementById(
+tabID
+)
+.classList
+.add(
+"active"
+);
+
+
+window.scrollTo(
+0,
+0
+);
+
+
+renderEverything();
+}
+
+
+/* ---------------------------------
+   OVERLAY CLICK
+--------------------------------- */
+
+document
+.getElementById(
+"overlay"
+)
+.onclick =
 function(event) {
 
-    if (
-        event.target ===
-        document.getElementById(
-            "overlay"
-        )
-    ) {
-        closeSheet();
-    }
+if (
+
+event.target ===
+document.getElementById(
+"overlay"
+)
+
+) {
+
+closeSheet();
+}
 };
 
 
-/* migrate old saved scores */
+/* ---------------------------------
+   MIGRATE BEST SCORE
+--------------------------------- */
 
-if (score > bestScore) {
-    bestScore = score;
+if (
+score > bestScore
+) {
+
+bestScore =
+score;
 }
 
-history.forEach(function(day) {
 
-    if (day.score > bestScore) {
-        bestScore = day.score;
-    }
-});
+history.forEach(
+function(day) {
+
+if (
+day.score > bestScore
+) {
+
+bestScore =
+day.score;
+}
+
+}
+);
+
+
+/* ---------------------------------
+   INITIALIZE
+--------------------------------- */
 
 save();
+
 renderEverything();
 
 </script>
