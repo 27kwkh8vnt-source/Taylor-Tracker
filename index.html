@@ -2,467 +2,459 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f7f4ef">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Taylor Tracker">
-
-<link
-    rel="apple-touch-icon"
-    href="TaylorGoodStanding.png"
->
-
+<link rel="apple-touch-icon" href="TaylorGoodStanding.png">
 <title>Taylor Tracker</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent
 }
 
-html,
-body {
-    margin: 0;
-    background: #f7f4ef;
-    color: #171717;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+html,body{
+    margin:0;
+    background:#f7f4ef;
+    color:#171717;
+    font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif
 }
 
-body {
-    padding-bottom: 100px;
+body{
+    padding-bottom:100px
 }
 
-header {
-    text-align: center;
-    padding: 22px 16px 10px;
+header{
+    text-align:center;
+    padding:22px 16px 10px
 }
 
-header h1 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 900;
+header h1{
+    margin:0;
+    font-size:30px;
+    font-weight:900
 }
 
-header p {
-    margin: 6px 0 0;
-    color: #777;
-    font-size: 14px;
+header p{
+    margin:6px 0 0;
+    color:#777;
+    font-size:14px
 }
 
-.page {
-    display: none;
-    padding: 0 16px 24px;
-    max-width: 600px;
-    margin: auto;
+.page{
+    display:none;
+    padding:0 16px 24px;
+    max-width:600px;
+    margin:auto
 }
 
-.page.active {
-    display: block;
+.page.active{
+    display:block
 }
 
-.card {
-    background: white;
-    border-radius: 22px;
-    padding: 20px;
-    margin: 12px 0;
-    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+.card{
+    background:#fff;
+    border-radius:22px;
+    padding:20px;
+    margin:12px 0;
+    box-shadow:0 5px 20px rgba(0,0,0,.07)
 }
 
-.center {
-    text-align: center;
+.center{
+    text-align:center
 }
 
-.character {
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 8px;
+.character{
+    width:220px;
+    height:220px;
+    object-fit:contain;
+    display:block;
+    margin:0 auto 8px
 }
 
-.score {
-    font-size: 68px;
-    font-weight: 900;
-    line-height: 1;
+.score{
+    font-size:68px;
+    font-weight:900;
+    line-height:1
 }
 
-.label {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .8px;
-    margin-top: 10px;
+.label{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.8px;
+    margin-top:10px
 }
 
-.status {
-    font-size: 20px;
-    font-weight: 900;
-    margin-top: 10px;
+.status{
+    font-size:20px;
+    font-weight:900;
+    margin-top:10px
 }
 
-.message {
-    color: #777;
-    font-size: 14px;
-    font-style: italic;
-    margin-top: 7px;
+.message{
+    color:#777;
+    font-size:14px;
+    font-style:italic;
+    margin-top:7px
 }
 
-.progress {
-    height: 8px;
-    background: #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: 16px;
+.progress{
+    height:8px;
+    background:#eee;
+    border-radius:10px;
+    overflow:hidden;
+    margin-top:16px
 }
 
-#progressFill {
-    height: 100%;
-    width: 75%;
-    background: #2f9b62;
-    border-radius: 10px;
+.progressFill{
+    height:100%;
+    width:75%;
+    background:#2f9b62;
+    border-radius:10px;
+    transition:width .25s
 }
 
-button {
-    border: none;
-    border-radius: 15px;
-    padding: 17px 15px;
-    width: 100%;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-    touch-action: manipulation;
+button{
+    border:none;
+    border-radius:15px;
+    padding:17px 15px;
+    width:100%;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    touch-action:manipulation
 }
 
-.green {
-    background: #25c94a;
-    color: white;
+.green{
+    background:#25c94a;
+    color:#fff
 }
 
-.red {
-    background: #ff3934;
-    color: white;
+.red{
+    background:#ff3934;
+    color:#fff
 }
 
-.blue {
-    background: #4979bd;
-    color: white;
+.blue{
+    background:#4979bd;
+    color:#fff
 }
 
-.gray {
-    background: #ececec;
-    color: #222;
+.gray{
+    background:#ececec;
+    color:#222
 }
 
-.gap {
-    height: 10px;
+.gap{
+    height:10px
 }
 
-.sectionTitle {
-    font-size: 20px;
-    font-weight: 900;
-    margin: 18px 2px 8px;
+.sectionTitle{
+    font-size:20px;
+    font-weight:900;
+    margin:18px 2px 8px
 }
 
-.empty {
-    color: #888;
-    text-align: center;
-    padding: 22px 8px;
+.empty{
+    color:#888;
+    text-align:center;
+    padding:22px 8px
 }
 
-.activity {
-    padding: 13px 0;
-    border-bottom: 1px solid #eee;
+.activity{
+    padding:13px 0;
+    border-bottom:1px solid #eee
 }
 
-.activity:last-child {
-    border-bottom: none;
+.activity:last-child{
+    border-bottom:none
 }
 
-.activityTop {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
+.activityTop{
+    display:flex;
+    justify-content:space-between;
+    gap:12px
 }
 
-.activityName {
-    font-weight: 700;
+.activityName{
+    font-weight:700
 }
 
-.positive {
-    color: #168b49;
-    font-weight: 900;
+.positive{
+    color:#168b49;
+    font-weight:900
 }
 
-.negative {
-    color: #d62e2e;
-    font-weight: 900;
+.negative{
+    color:#d62e2e;
+    font-weight:900
 }
 
-.small {
-    color: #888;
-    font-size: 12px;
-    margin-top: 4px;
+.small{
+    color:#888;
+    font-size:12px;
+    margin-top:4px
 }
 
-.statsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+.statsGrid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px
 }
 
-.statCard {
-    background: white;
-    border-radius: 18px;
-    padding: 16px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+.statCard{
+    background:#fff;
+    border-radius:18px;
+    padding:16px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.05)
 }
 
-.statNumber {
-    font-size: 27px;
-    font-weight: 900;
+.statNumber{
+    font-size:27px;
+    font-weight:900
 }
 
-.statLabel {
-    color: #777;
-    font-size: 12px;
-    margin-top: 4px;
+.statLabel{
+    color:#777;
+    font-size:12px;
+    margin-top:4px
 }
 
-.historyRow {
-    padding: 15px 0;
-    border-bottom: 1px solid #eee;
+.historyRow{
+    padding:15px 0;
+    border-bottom:1px solid #eee
 }
 
-.historyRow:last-child {
-    border-bottom: none;
+.historyRow:last-child{
+    border-bottom:none
 }
 
-.historyTop {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
+.historyTop{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:center
 }
 
-.historyScore {
-    font-size: 24px;
-    font-weight: 900;
+.historyScore{
+    font-size:24px;
+    font-weight:900
 }
 
-.historyDetails {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
+.historyDetails{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px solid #eee
 }
 
-.historyBehavior {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 13px;
+.historyBehavior{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:6px 0;
+    font-size:13px
 }
 
 /* CALENDAR */
 
-.calendarHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.calendarHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px
 }
 
-.calendarMonthTitle {
-    font-size: 20px;
-    font-weight: 900;
+.calendarMonthTitle{
+    font-size:20px;
+    font-weight:900
 }
 
-.calendarArrow {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 50%;
-    background: #ececec;
-    color: #222;
-    font-size: 28px;
+.calendarArrow{
+    width:44px;
+    height:44px;
+    padding:0;
+    border-radius:50%;
+    background:#ececec;
+    color:#222;
+    font-size:28px
 }
 
-.calendarSummary {
-    color: #777;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 14px;
+.calendarSummary{
+    color:#777;
+    font-size:13px;
+    text-align:center;
+    margin-bottom:14px
 }
 
 .calendarWeekdays,
-.calendarGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+.calendarGrid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:5px
 }
 
-.calendarWeekdays {
-    margin-bottom: 5px;
+.calendarWeekdays{
+    margin-bottom:5px
 }
 
-.calendarWeekdays div {
-    text-align: center;
-    color: #888;
-    font-size: 11px;
-    font-weight: 800;
+.calendarWeekdays div{
+    text-align:center;
+    color:#888;
+    font-size:11px;
+    font-weight:800
 }
 
-.calendarDay {
-    min-height: 62px;
-    border-radius: 12px;
-    background: #f4f4f4;
-    text-align: center;
-    padding: 6px 2px;
-    cursor: pointer;
+.calendarDay{
+    min-height:62px;
+    border-radius:12px;
+    background:#f4f4f4;
+    text-align:center;
+    padding:6px 2px;
+    cursor:pointer;
+    touch-action:manipulation
 }
 
-.calendarBlank {
-    background: transparent;
+.calendarBlank{
+    background:transparent;
+    cursor:default
 }
 
-.calendarDate {
-    font-size: 12px;
-    font-weight: 800;
+.calendarDate{
+    font-size:12px;
+    font-weight:800
 }
 
-.calendarScore {
-    font-size: 13px;
-    font-weight: 900;
-    margin-top: 5px;
+.calendarScore{
+    font-size:13px;
+    font-weight:900;
+    margin-top:5px
 }
 
-.calendarElite {
-    background: #fff3c4;
+.calendarElite{
+    background:#fff3c4
 }
 
-.calendarGood {
-    background: #e8f7ee;
+.calendarGood{
+    background:#e8f7ee
 }
 
-.calendarReview {
-    background: #fff5d9;
+.calendarReview{
+    background:#fff5d9
 }
 
-.calendarProbation {
-    background: #ffe9e5;
+.calendarProbation{
+    background:#ffe9e5
 }
 
-.calendarJail {
-    background: #ececec;
+.calendarJail{
+    background:#ececec
 }
 
-.calendarToday {
-    outline: 2px solid #4979bd;
+.calendarToday{
+    outline:2px solid #4979bd
 }
 
-.calendarDetailTitle {
-    font-size: 19px;
-    font-weight: 900;
-    margin-bottom: 6px;
+.calendarDetailTitle{
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:6px
 }
 
 /* MODAL */
 
-.overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.42);
-    z-index: 1000;
-    align-items: flex-end;
-    justify-content: center;
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.42);
+    z-index:1000;
+    align-items:flex-end;
+    justify-content:center
 }
 
-.overlay.show {
-    display: flex;
+.overlay.show{
+    display:flex
 }
 
-.sheet {
-    width: 100%;
-    max-width: 600px;
-    background: white;
-    border-radius: 25px 25px 0 0;
-    padding: 20px 16px calc(20px + env(safe-area-inset-bottom));
-    max-height: 82vh;
-    overflow-y: auto;
+.sheet{
+    width:100%;
+    max-width:600px;
+    background:#fff;
+    border-radius:25px 25px 0 0;
+    padding:20px 16px calc(20px + env(safe-area-inset-bottom));
+    max-height:82vh;
+    overflow-y:auto
 }
 
-.option {
-    width: 100%;
-    background: #f4f4f4;
-    color: #171717;
-    margin: 6px 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    text-align: left;
+.option{
+    width:100%;
+    background:#f4f4f4;
+    color:#171717;
+    margin:6px 0;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    text-align:left
 }
 
-.customInput {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 16px;
-    margin: 8px 0;
+.customInput{
+    width:100%;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    font-size:16px;
+    margin:8px 0
 }
 
-.customRow {
-    display: flex;
-    gap: 8px;
+.customRow{
+    display:flex;
+    gap:8px
 }
 
-.customRow input {
-    width: 90px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 14px;
-    font-size: 16px;
+.customRow input{
+    width:90px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:14px;
+    font-size:16px
 }
 
 /* NAV */
 
-nav {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: calc(76px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
-    background: rgba(255,255,255,.98);
-    border-top: 1px solid #ddd;
-    display: flex;
+nav{
+    position:fixed;
+    z-index:999;
+    bottom:0;
+    left:0;
+    right:0;
+    height:calc(76px + env(safe-area-inset-bottom));
+    padding-bottom:env(safe-area-inset-bottom);
+    background:rgba(255,255,255,.98);
+    border-top:1px solid #ddd;
+    display:flex
 }
 
-.navButton {
-    flex: 1;
-    background: transparent;
-    color: #777;
-    border-radius: 0;
-    font-size: 10px;
-    padding: 8px 1px;
+.navButton{
+    flex:1;
+    background:transparent;
+    color:#777;
+    border-radius:0;
+    font-size:10px;
+    padding:8px 1px
 }
 
-.navButton span {
-    display: block;
-    font-size: 21px;
-    margin-bottom: 2px;
+.navButton span{
+    display:block;
+    font-size:21px;
+    margin-bottom:2px
 }
 
-.navButton.active {
-    color: #4979bd;
+.navButton.active{
+    color:#4979bd
 }
 </style>
 </head>
@@ -503,11 +495,10 @@ No corrective action required.
 </div>
 
 <div class="progress">
-<div id="progressFill"></div>
+<div id="progressFill" class="progressFill"></div>
 </div>
 
 </div>
-
 
 <button
 class="green"
@@ -533,7 +524,6 @@ onclick="startNewDay()"
 >
 🌅 START NEW DAY
 </button>
-
 
 <div class="sectionTitle">
 Today's Activity
@@ -625,7 +615,6 @@ Performance Analytics
 id="statsGrid"
 class="statsGrid"
 ></div>
-
 
 <div class="sectionTitle">
 Daily History
@@ -751,16 +740,8 @@ Personnel
 
 <script>
 
-/* ---------------------------------
-   SETTINGS
---------------------------------- */
-
 var START_SCORE = 75;
 
-
-/* ---------------------------------
-   BEHAVIORS
---------------------------------- */
 
 var compliments = [
 
@@ -854,43 +835,36 @@ var incidents = [
 ];
 
 
-/* ---------------------------------
-   STORAGE HELPERS
---------------------------------- */
+function loadJSON(key,fallback){
 
-function loadJSON(key,fallback) {
-
-    try {
+    try{
 
         var value =
             localStorage.getItem(key);
 
-        if(!value) {
-            return fallback;
-        }
+        return value
+            ? JSON.parse(value)
+            : fallback;
 
-        return JSON.parse(value);
-
-    } catch(error) {
+    }catch(error){
 
         return fallback;
     }
 }
 
 
-/* ---------------------------------
-   STATE
---------------------------------- */
-
 var storedScore =
     Number(
-        localStorage.getItem("taylorScore")
+        localStorage.getItem(
+            "taylorScore"
+        )
     );
+
 
 var score =
     Number.isFinite(storedScore)
-    ? storedScore
-    : START_SCORE;
+        ? storedScore
+        : START_SCORE;
 
 
 var activity =
@@ -909,18 +883,22 @@ var history =
 
 var storedBest =
     Number(
-        localStorage.getItem("taylorBestScore")
+        localStorage.getItem(
+            "taylorBestScore"
+        )
     );
 
 
 var bestScore =
     Number.isFinite(storedBest)
-    ? storedBest
-    : score;
+        ? storedBest
+        : score;
 
 
 var dayStarted =
-    localStorage.getItem("taylorDayStarted")
+    localStorage.getItem(
+        "taylorDayStarted"
+    )
     ||
     new Date().toISOString();
 
@@ -932,6 +910,7 @@ var currentMode =
 var calendarMonth =
     new Date();
 
+
 calendarMonth =
     new Date(
         calendarMonth.getFullYear(),
@@ -940,15 +919,28 @@ calendarMonth =
     );
 
 
-/* ---------------------------------
-   CLEAN OLD DATA
---------------------------------- */
+/* CLEAN OLD DATA */
 
-function normalizeEvent(event) {
+function normalizeEvent(event){
 
-    if(!event) {
+    if(!event){
         return null;
     }
+
+
+    var points =
+        Number(
+            event.points
+        );
+
+
+    if(
+        !Number.isFinite(points)
+    ){
+
+        points = 0;
+    }
+
 
     return {
 
@@ -958,9 +950,7 @@ function normalizeEvent(event) {
             "Unknown Behavior",
 
         points:
-            Number(event.points)
-            ||
-            0,
+            points,
 
         date:
             event.date
@@ -974,39 +964,64 @@ function normalizeEvent(event) {
 
 
 activity =
-    (Array.isArray(activity) ? activity : [])
-    .map(normalizeEvent)
-    .filter(Boolean);
+    (
+        Array.isArray(activity)
+        ? activity
+        : []
+    )
+    .map(
+        normalizeEvent
+    )
+    .filter(
+        Boolean
+    );
 
 
 history =
-    (Array.isArray(history) ? history : [])
+    (
+        Array.isArray(history)
+        ? history
+        : []
+    )
     .map(
-        function(day) {
+        function(day){
 
-            if(!day) {
+            if(!day){
                 return null;
             }
 
-            var dayScore =
+
+            var rawScore =
                 day.score;
 
+
             if(
-                dayScore === undefined
+                rawScore === undefined
                 ||
-                dayScore === null
-            ) {
-                dayScore =
+                rawScore === null
+            ){
+
+                rawScore =
                     day.finalScore;
             }
 
-            dayScore =
-                Number(dayScore);
 
-            if(!Number.isFinite(dayScore)) {
+            var dayScore =
+                Number(
+                    rawScore
+                );
+
+
+            if(
+                !Number.isFinite(
+                    dayScore
+                )
+            ){
+
                 dayScore =
                     START_SCORE;
             }
+
 
             var events =
                 day.activities
@@ -1014,6 +1029,7 @@ history =
                 day.activity
                 ||
                 [];
+
 
             return {
 
@@ -1030,41 +1046,72 @@ history =
                     dayScore,
 
                 activities:
-                    (Array.isArray(events) ? events : [])
-                    .map(normalizeEvent)
-                    .filter(Boolean)
+                    (
+                        Array.isArray(events)
+                        ? events
+                        : []
+                    )
+                    .map(
+                        normalizeEvent
+                    )
+                    .filter(
+                        Boolean
+                    )
 
             };
         }
     )
-    .filter(Boolean);
+    .filter(
+        Boolean
+    );
 
 
-/* ---------------------------------
-   SAVE
---------------------------------- */
+if(
+    isNaN(
+        new Date(
+            dayStarted
+        )
+        .getTime()
+    )
+){
 
-function saveState() {
+    dayStarted =
+        new Date()
+        .toISOString();
+}
+
+
+/* SAVE */
+
+function saveState(){
 
     localStorage.setItem(
         "taylorScore",
         String(score)
     );
 
+
     localStorage.setItem(
         "taylorActivity",
-        JSON.stringify(activity)
+        JSON.stringify(
+            activity
+        )
     );
+
 
     localStorage.setItem(
         "taylorHistory",
-        JSON.stringify(history)
+        JSON.stringify(
+            history
+        )
     );
+
 
     localStorage.setItem(
         "taylorBestScore",
         String(bestScore)
     );
+
 
     localStorage.setItem(
         "taylorDayStarted",
@@ -1073,13 +1120,11 @@ function saveState() {
 }
 
 
-/* ---------------------------------
-   TIER
---------------------------------- */
+/* TIERS */
 
-function getTier(value) {
+function getTier(value){
 
-    if(value >= 90) {
+    if(value >= 90){
 
         return {
             title:"👑 ELITE BOYFRIEND",
@@ -1088,7 +1133,8 @@ function getTier(value) {
         };
     }
 
-    if(value >= 75) {
+
+    if(value >= 75){
 
         return {
             title:"💚 GOOD STANDING",
@@ -1097,7 +1143,8 @@ function getTier(value) {
         };
     }
 
-    if(value >= 60) {
+
+    if(value >= 60){
 
         return {
             title:"⚠️ UNDER REVIEW",
@@ -1106,7 +1153,8 @@ function getTier(value) {
         };
     }
 
-    if(value >= 40) {
+
+    if(value >= 40){
 
         return {
             title:"📋 PROBATION",
@@ -1114,6 +1162,7 @@ function getTier(value) {
             image:"TaylorProbation.png"
         };
     }
+
 
     return {
         title:"🚔 BOYFRIEND JAIL",
@@ -1123,11 +1172,41 @@ function getTier(value) {
 }
 
 
-/* ---------------------------------
-   DATE HELPERS
---------------------------------- */
+/* DATE HELPERS */
 
-function formatDate(value) {
+function pad2(number){
+
+    return number < 10
+        ? "0" + number
+        : String(number);
+}
+
+
+function dateKey(value){
+
+    var date =
+        new Date(value);
+
+
+    return (
+        date.getFullYear()
+        +
+        "-"
+        +
+        pad2(
+            date.getMonth() + 1
+        )
+        +
+        "-"
+        +
+        pad2(
+            date.getDate()
+        )
+    );
+}
+
+
+function formatDate(value){
 
     return new Date(value)
         .toLocaleDateString(
@@ -1141,7 +1220,7 @@ function formatDate(value) {
 }
 
 
-function formatTime(value) {
+function formatTime(value){
 
     return new Date(value)
         .toLocaleTimeString(
@@ -1154,81 +1233,70 @@ function formatTime(value) {
 }
 
 
-function dateKey(value) {
+/* ESCAPE */
 
-    var date =
-        new Date(value);
-
-    var year =
-        date.getFullYear();
-
-    var month =
-        String(
-            date.getMonth() + 1
-        ).padStart(2,"0");
-
-    var day =
-        String(
-            date.getDate()
-        ).padStart(2,"0");
-
-    return (
-        year +
-        "-" +
-        month +
-        "-" +
-        day
-    );
-}
-
-
-/* ---------------------------------
-   ESCAPE HTML
---------------------------------- */
-
-function escapeHTML(text) {
+function escapeHTML(text){
 
     var div =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     div.textContent =
         String(text);
+
 
     return div.innerHTML;
 }
 
 
-/* ---------------------------------
-   SCORE
---------------------------------- */
+/* SCORE */
 
-function renderScore() {
+function renderScore(){
 
     var tier =
-        getTier(score);
+        getTier(
+            score
+        );
+
 
     document
-        .getElementById("score")
+        .getElementById(
+            "score"
+        )
         .textContent =
         score;
 
+
     document
-        .getElementById("status")
+        .getElementById(
+            "status"
+        )
         .textContent =
         tier.title;
 
+
     document
-        .getElementById("message")
+        .getElementById(
+            "message"
+        )
         .textContent =
         tier.message;
 
+
     document
-        .getElementById("taylorImage")
+        .getElementById(
+            "taylorImage"
+        )
         .src =
         tier.image;
 
+
     document
-        .getElementById("progressFill")
+        .getElementById(
+            "progressFill"
+        )
         .style.width =
         Math.min(
             100,
@@ -1242,22 +1310,24 @@ function renderScore() {
 }
 
 
-/* ---------------------------------
-   ACTIVITY HTML
---------------------------------- */
+/* ACTIVITY */
 
-function activityHTML(event) {
+function activityHTML(event){
 
     var positive =
         event.points >= 0;
 
+
     return (
+
         '<div class="activity">' +
 
             '<div class="activityTop">' +
 
                 '<div class="activityName">' +
-                    escapeHTML(event.name) +
+                    escapeHTML(
+                        event.name
+                    ) +
                 '</div>' +
 
                 '<div class="' +
@@ -1281,78 +1351,87 @@ function activityHTML(event) {
             '</div>' +
 
             '<div class="small">' +
-                formatDate(event.date) +
+
+                formatDate(
+                    event.date
+                ) +
+
                 " • " +
-                formatTime(event.date) +
+
+                formatTime(
+                    event.date
+                ) +
+
             '</div>' +
 
         '</div>'
+
     );
 }
 
 
-/* ---------------------------------
-   TODAY
---------------------------------- */
-
-function renderToday() {
+function renderToday(){
 
     var box =
         document.getElementById(
             "todayActivity"
         );
 
-    if(!activity.length) {
-
-        box.innerHTML =
-            '<div class="empty">' +
-                'No behavior logged yet today.' +
-            '</div>';
-
-        return;
-    }
 
     box.innerHTML =
-        activity
-        .slice()
-        .reverse()
-        .map(activityHTML)
-        .join("");
+
+        activity.length
+
+        ? activity
+            .slice()
+            .reverse()
+            .map(
+                activityHTML
+            )
+            .join("")
+
+        : '<div class="empty">' +
+            'No behavior logged yet today.' +
+          '</div>';
 }
 
 
-/* ---------------------------------
-   STATS
---------------------------------- */
+/* HISTORY STATS */
 
-function renderStats() {
+function renderStats(){
 
     var archivedScores =
         history.map(
-            function(day) {
+            function(day){
                 return day.score;
             }
         );
 
 
     var average =
+
         archivedScores.length
 
         ? Math.round(
+
             archivedScores.reduce(
-                function(a,b) {
+                function(a,b){
                     return a + b;
                 },
                 0
             )
+
             /
+
             archivedScores.length
+
         )
 
         : "—";
 
 
     var worst =
+
         archivedScores.length
 
         ? Math.min.apply(
@@ -1363,20 +1442,26 @@ function renderStats() {
         : "—";
 
 
-    var totalCommendations = 0;
-    var totalIncidents = 0;
+    var commendations = 0;
+
+    var incidentsCount = 0;
 
 
     history.forEach(
-        function(day) {
+        function(day){
 
             day.activities.forEach(
-                function(event) {
+                function(event){
 
-                    if(event.points >= 0) {
-                        totalCommendations++;
-                    } else {
-                        totalIncidents++;
+                    if(
+                        event.points >= 0
+                    ){
+
+                        commendations++;
+
+                    }else{
+
+                        incidentsCount++;
                     }
                 }
             );
@@ -1385,109 +1470,127 @@ function renderStats() {
 
 
     activity.forEach(
-        function(event) {
+        function(event){
 
-            if(event.points >= 0) {
-                totalCommendations++;
-            } else {
-                totalIncidents++;
+            if(
+                event.points >= 0
+            ){
+
+                commendations++;
+
+            }else{
+
+                incidentsCount++;
             }
         }
     );
 
 
-    var html =
+    document
+        .getElementById(
+            "statsGrid"
+        )
+        .innerHTML =
 
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
                 bestScore +
             '</div>' +
-
             '<div class="statLabel">' +
                 '🏆 Best Score Ever' +
             '</div>' +
-
         '</div>' +
 
-
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
                 average +
             '</div>' +
-
             '<div class="statLabel">' +
                 'Average Archived Score' +
             '</div>' +
-
         '</div>' +
 
-
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
-                totalCommendations +
+                commendations +
             '</div>' +
-
             '<div class="statLabel">' +
                 '💚 Lifetime Commendations' +
             '</div>' +
-
         '</div>' +
 
-
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
-                totalIncidents +
+                incidentsCount +
             '</div>' +
-
             '<div class="statLabel">' +
                 '🚨 Lifetime Incidents' +
             '</div>' +
-
         '</div>' +
 
-
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
                 history.length +
             '</div>' +
-
             '<div class="statLabel">' +
                 '📅 Archived Days' +
             '</div>' +
-
         '</div>' +
 
-
         '<div class="statCard">' +
-
             '<div class="statNumber">' +
                 worst +
             '</div>' +
-
             '<div class="statLabel">' +
                 'Lowest Archived Score' +
             '</div>' +
-
         '</div>';
-
-
-    document
-        .getElementById("statsGrid")
-        .innerHTML =
-        html;
 }
 
 
-/* ---------------------------------
-   HISTORY
---------------------------------- */
+/* HISTORY */
 
-function renderHistory() {
+function historyBehaviorHTML(event){
+
+    var positive =
+        event.points >= 0;
+
+
+    return (
+
+        '<div class="historyBehavior">' +
+
+            '<span>' +
+                escapeHTML(
+                    event.name
+                ) +
+            '</span>' +
+
+            '<strong class="' +
+                (
+                    positive
+                    ? "positive"
+                    : "negative"
+                ) +
+            '">' +
+
+                (
+                    positive
+                    ? "+"
+                    : ""
+                ) +
+
+                event.points +
+
+            '</strong>' +
+
+        '</div>'
+
+    );
+}
+
+
+function renderHistory(){
 
     var html =
 
@@ -1499,11 +1602,15 @@ function renderHistory() {
 
                     '<strong>' +
                         'TODAY — ' +
-                        formatDate(dayStarted) +
+                        formatDate(
+                            dayStarted
+                        ) +
                     '</strong>' +
 
                     '<div class="small">' +
-                        getTier(score).title +
+                        getTier(
+                            score
+                        ).title +
                         ' • ACTIVE LOG' +
                     '</div>' +
 
@@ -1516,47 +1623,20 @@ function renderHistory() {
             '</div>';
 
 
-    if(activity.length) {
+    if(
+        activity.length
+    ){
 
         html +=
-            '<div class="historyDetails">';
 
+            '<div class="historyDetails">' +
 
-        activity.forEach(
-            function(event) {
+                activity
+                    .map(
+                        historyBehaviorHTML
+                    )
+                    .join("") +
 
-                html +=
-
-                    '<div class="historyBehavior">' +
-
-                        '<span>' +
-                            escapeHTML(event.name) +
-                        '</span>' +
-
-                        '<strong class="' +
-                            (
-                                event.points >= 0
-                                ? "positive"
-                                : "negative"
-                            ) +
-                        '">' +
-
-                            (
-                                event.points >= 0
-                                ? "+"
-                                : ""
-                            ) +
-
-                            event.points +
-
-                        '</strong>' +
-
-                    '</div>';
-            }
-        );
-
-
-        html +=
             '</div>';
     }
 
@@ -1566,89 +1646,68 @@ function renderHistory() {
 
 
     history
-    .slice()
-    .reverse()
-    .forEach(
-        function(day) {
-
-            html +=
-
-                '<div class="historyRow">' +
-
-                    '<div class="historyTop">' +
-
-                        '<div>' +
-
-                            '<strong>' +
-                                formatDate(day.date) +
-                            '</strong>' +
-
-                            '<div class="small">' +
-                                getTier(day.score).title +
-                            '</div>' +
-
-                        '</div>' +
-
-                        '<div class="historyScore">' +
-                            day.score +
-                        '</div>' +
-
-                    '</div>';
-
-
-            if(day.activities.length) {
+        .slice()
+        .reverse()
+        .forEach(
+            function(day){
 
                 html +=
-                    '<div class="historyDetails">';
 
+                    '<div class="historyRow">' +
 
-                day.activities.forEach(
-                    function(event) {
+                        '<div class="historyTop">' +
 
-                        html +=
+                            '<div>' +
 
-                            '<div class="historyBehavior">' +
-
-                                '<span>' +
-                                    escapeHTML(event.name) +
-                                '</span>' +
-
-                                '<strong class="' +
-                                    (
-                                        event.points >= 0
-                                        ? "positive"
-                                        : "negative"
+                                '<strong>' +
+                                    formatDate(
+                                        day.date
                                     ) +
-                                '">' +
-
-                                    (
-                                        event.points >= 0
-                                        ? "+"
-                                        : ""
-                                    ) +
-
-                                    event.points +
-
                                 '</strong>' +
 
-                            '</div>';
-                    }
-                );
+                                '<div class="small">' +
+                                    getTier(
+                                        day.score
+                                    ).title +
+                                '</div>' +
+
+                            '</div>' +
+
+                            '<div class="historyScore">' +
+                                day.score +
+                            '</div>' +
+
+                        '</div>';
+
+
+                if(
+                    day.activities.length
+                ){
+
+                    html +=
+
+                        '<div class="historyDetails">' +
+
+                            day.activities
+                                .map(
+                                    historyBehaviorHTML
+                                )
+                                .join("") +
+
+                        '</div>';
+                }
 
 
                 html +=
                     '</div>';
             }
-
-
-            html +=
-                '</div>';
-        }
-    );
+        );
 
 
     document
-        .getElementById("historyList")
+        .getElementById(
+            "historyList"
+        )
         .innerHTML =
         html;
 
@@ -1657,22 +1716,22 @@ function renderHistory() {
 }
 
 
-/* ---------------------------------
-   PERSONNEL
---------------------------------- */
+/* PERSONNEL */
 
-function renderPersonnel() {
+function renderPersonnel(){
 
     var events = [];
 
 
     history.forEach(
-        function(day) {
+        function(day){
 
             day.activities.forEach(
-                function(event) {
+                function(event){
 
-                    events.push(event);
+                    events.push(
+                        event
+                    );
                 }
             );
         }
@@ -1680,33 +1739,43 @@ function renderPersonnel() {
 
 
     activity.forEach(
-        function(event) {
+        function(event){
 
-            events.push(event);
+            events.push(
+                event
+            );
         }
     );
 
 
     events.sort(
-        function(a,b) {
+        function(a,b){
 
             return (
-                new Date(b.date)
+                new Date(
+                    b.date
+                )
                 -
-                new Date(a.date)
+                new Date(
+                    a.date
+                )
             );
         }
     );
 
 
     document
-        .getElementById("personnelList")
+        .getElementById(
+            "personnelList"
+        )
         .innerHTML =
 
         events.length
 
         ? events
-            .map(activityHTML)
+            .map(
+                activityHTML
+            )
             .join("")
 
         : '<div class="empty">' +
@@ -1715,20 +1784,20 @@ function renderPersonnel() {
 }
 
 
-/* ---------------------------------
-   CALENDAR RECORDS
---------------------------------- */
+/* CALENDAR DATA */
 
-function calendarRecords() {
+function calendarRecords(){
 
     var records = {};
 
 
     history.forEach(
-        function(day) {
+        function(day){
 
             records[
-                dateKey(day.date)
+                dateKey(
+                    day.date
+                )
             ] = {
 
                 score:
@@ -1746,7 +1815,9 @@ function calendarRecords() {
 
 
     records[
-        dateKey(dayStarted)
+        dateKey(
+            dayStarted
+        )
     ] = {
 
         score:
@@ -1765,25 +1836,21 @@ function calendarRecords() {
 }
 
 
-/* ---------------------------------
-   CALENDAR COLORS
---------------------------------- */
+function calendarScoreClass(value){
 
-function calendarScoreClass(value) {
-
-    if(value >= 90) {
+    if(value >= 90){
         return "calendarElite";
     }
 
-    if(value >= 75) {
+    if(value >= 75){
         return "calendarGood";
     }
 
-    if(value >= 60) {
+    if(value >= 60){
         return "calendarReview";
     }
 
-    if(value >= 40) {
+    if(value >= 40){
         return "calendarProbation";
     }
 
@@ -1791,21 +1858,21 @@ function calendarScoreClass(value) {
 }
 
 
-function calendarScoreEmoji(value) {
+function calendarScoreEmoji(value){
 
-    if(value >= 90) {
+    if(value >= 90){
         return "👑";
     }
 
-    if(value >= 75) {
+    if(value >= 75){
         return "💚";
     }
 
-    if(value >= 60) {
+    if(value >= 60){
         return "⚠️";
     }
 
-    if(value >= 40) {
+    if(value >= 40){
         return "📋";
     }
 
@@ -1813,24 +1880,41 @@ function calendarScoreEmoji(value) {
 }
 
 
-/* ---------------------------------
-   CALENDAR
---------------------------------- */
+/* CALENDAR */
 
-function renderCalendar() {
+function renderCalendar(){
+
+    var title =
+        document.getElementById(
+            "calendarMonthTitle"
+        );
+
+
+    var grid =
+        document.getElementById(
+            "calendarGrid"
+        );
+
+
+    var summary =
+        document.getElementById(
+            "calendarSummary"
+        );
+
 
     var year =
-        calendarMonth.getFullYear();
+        calendarMonth
+        .getFullYear();
+
 
     var month =
-        calendarMonth.getMonth();
+        calendarMonth
+        .getMonth();
 
 
-    document
-        .getElementById("calendarMonthTitle")
-        .textContent =
-
-        calendarMonth.toLocaleDateString(
+    title.textContent =
+        calendarMonth
+        .toLocaleDateString(
             undefined,
             {
                 month:"long",
@@ -1839,12 +1923,17 @@ function renderCalendar() {
         );
 
 
+    grid.innerHTML =
+        "";
+
+
     var firstWeekday =
         new Date(
             year,
             month,
             1
-        ).getDay();
+        )
+        .getDay();
 
 
     var daysInMonth =
@@ -1852,7 +1941,8 @@ function renderCalendar() {
             year,
             month + 1,
             0
-        ).getDate();
+        )
+        .getDate();
 
 
     var records =
@@ -1865,17 +1955,25 @@ function renderCalendar() {
         );
 
 
-    var html = "";
-
-
     for(
         var blank = 0;
         blank < firstWeekday;
         blank++
-    ) {
+    ){
 
-        html +=
-            '<div class="calendarDay calendarBlank"></div>';
+        var blankCell =
+            document.createElement(
+                "div"
+            );
+
+
+        blankCell.className =
+            "calendarDay calendarBlank";
+
+
+        grid.appendChild(
+            blankCell
+        );
     }
 
 
@@ -1883,128 +1981,169 @@ function renderCalendar() {
 
 
     for(
-        var day = 1;
-        day <= daysInMonth;
-        day++
-    ) {
+        var dayNumber = 1;
+        dayNumber <= daysInMonth;
+        dayNumber++
+    ){
 
-        var date =
+        var cellDate =
             new Date(
                 year,
                 month,
-                day
+                dayNumber
             );
 
 
         var key =
-            dateKey(date);
+            dateKey(
+                cellDate
+            );
 
 
         var record =
-            records[key];
+            records[
+                key
+            ];
 
 
-        var todayClass =
+        var cell =
+            document.createElement(
+                "div"
+            );
+
+
+        cell.className =
+            "calendarDay";
+
+
+        if(
             key === todayKey
+        ){
 
-            ? " calendarToday"
+            cell.classList.add(
+                "calendarToday"
+            );
+        }
 
-            : "";
+
+        var dateNumber =
+            document.createElement(
+                "div"
+            );
 
 
-        if(record) {
+        dateNumber.className =
+            "calendarDate";
+
+
+        dateNumber.textContent =
+            dayNumber;
+
+
+        cell.appendChild(
+            dateNumber
+        );
+
+
+        if(
+            record
+        ){
 
             scores.push(
                 record.score
             );
 
 
-            html +=
-
-                '<div class="calendarDay ' +
-
-                    calendarScoreClass(
-                        record.score
-                    ) +
-
-                    todayClass +
-
-                '" onclick="showCalendarDay(\'' +
-                    key +
-                '\')">' +
-
-                    '<div class="calendarDate">' +
-                        day +
-                    '</div>' +
-
-                    '<div class="calendarScore">' +
-                        calendarScoreEmoji(
-                            record.score
-                        ) +
-                        " " +
-                        record.score +
-                    '</div>' +
-
-                '</div>';
-
-        } else {
-
-            html +=
-
-                '<div class="calendarDay' +
-                    todayClass +
-                '">' +
-
-                    '<div class="calendarDate">' +
-                        day +
-                    '</div>' +
-
-                '</div>';
-        }
-    }
-
-
-    document
-        .getElementById("calendarGrid")
-        .innerHTML =
-        html;
-
-
-    var summary =
-        document.getElementById(
-            "calendarSummary"
-        );
-
-
-    if(scores.length) {
-
-        var average =
-            Math.round(
-                scores.reduce(
-                    function(a,b) {
-                        return a + b;
-                    },
-                    0
+            cell.classList.add(
+                calendarScoreClass(
+                    record.score
                 )
-                /
-                scores.length
             );
 
 
-        var best =
+            var scoreLabel =
+                document.createElement(
+                    "div"
+                );
+
+
+            scoreLabel.className =
+                "calendarScore";
+
+
+            scoreLabel.textContent =
+                calendarScoreEmoji(
+                    record.score
+                )
+                +
+                " "
+                +
+                record.score;
+
+
+            cell.appendChild(
+                scoreLabel
+            );
+
+
+            cell.setAttribute(
+                "data-date",
+                key
+            );
+
+
+            cell.onclick =
+                function(){
+
+                    showCalendarDay(
+
+                        this.getAttribute(
+                            "data-date"
+                        )
+
+                    );
+                };
+        }
+
+
+        grid.appendChild(
+            cell
+        );
+    }
+
+
+    if(
+        scores.length
+    ){
+
+        var total =
+            scores.reduce(
+                function(a,b){
+
+                    return a + b;
+
+                },
+                0
+            );
+
+
+        summary.textContent =
+
+            "Average: "
+            +
+            Math.round(
+                total /
+                scores.length
+            )
+            +
+            " • Best: "
+            +
             Math.max.apply(
                 null,
                 scores
             );
 
-
-        summary.textContent =
-            "Average: " +
-            average +
-            " • Best: " +
-            best;
-
-    } else {
+    }else{
 
         summary.textContent =
             "No recorded scores this month.";
@@ -2012,30 +2151,45 @@ function renderCalendar() {
 }
 
 
-/* ---------------------------------
-   CALENDAR DAY DETAIL
---------------------------------- */
-
-function showCalendarDay(key) {
+function showCalendarDay(key){
 
     var record =
-        calendarRecords()[key];
+        calendarRecords()[
+            key
+        ];
 
 
-    if(!record) {
+    if(
+        !record
+    ){
+
         return;
     }
 
 
     var parts =
-        key.split("-");
+        key.split(
+            "-"
+        );
 
 
     var date =
         new Date(
-            Number(parts[0]),
-            Number(parts[1]) - 1,
-            Number(parts[2])
+
+            Number(
+                parts[0]
+            ),
+
+            Number(
+                parts[1]
+            )
+            -
+            1,
+
+            Number(
+                parts[2]
+            )
+
         );
 
 
@@ -2060,61 +2214,40 @@ function showCalendarDay(key) {
         '</div>' +
 
         '<div class="small">' +
-            getTier(record.score).title +
+
+            getTier(
+                record.score
+            ).title +
+
             (
                 record.current
                 ? " • ACTIVE LOG"
                 : ""
             ) +
+
         '</div>';
 
 
-    if(record.activities.length) {
+    if(
+        record.activities.length
+    ){
 
         html +=
-            '<div class="historyDetails">';
 
+            '<div class="historyDetails">' +
 
-        record.activities.forEach(
-            function(event) {
+                record.activities
+                    .map(
+                        historyBehaviorHTML
+                    )
+                    .join("") +
 
-                html +=
-
-                    '<div class="historyBehavior">' +
-
-                        '<span>' +
-                            escapeHTML(event.name) +
-                        '</span>' +
-
-                        '<strong class="' +
-                            (
-                                event.points >= 0
-                                ? "positive"
-                                : "negative"
-                            ) +
-                        '">' +
-
-                            (
-                                event.points >= 0
-                                ? "+"
-                                : ""
-                            ) +
-
-                            event.points +
-
-                        '</strong>' +
-
-                    '</div>';
-            }
-        );
-
-
-        html +=
             '</div>';
 
-    } else {
+    }else{
 
         html +=
+
             '<div class="empty">' +
                 'No behaviors recorded.' +
             '</div>';
@@ -2122,19 +2255,27 @@ function showCalendarDay(key) {
 
 
     document
-        .getElementById("calendarDetails")
+        .getElementById(
+            "calendarDetails"
+        )
         .innerHTML =
         html;
 }
 
 
-function changeMonth(amount) {
+function changeMonth(amount){
 
     calendarMonth =
         new Date(
+
             calendarMonth.getFullYear(),
-            calendarMonth.getMonth() + amount,
+
+            calendarMonth.getMonth()
+            +
+            amount,
+
             1
+
         );
 
 
@@ -2142,11 +2283,9 @@ function changeMonth(amount) {
 }
 
 
-/* ---------------------------------
-   ADD BEHAVIOR
---------------------------------- */
+/* ADD BEHAVIOR */
 
-function addBehavior(name,points) {
+function addBehavior(name,points){
 
     score =
         Math.max(
@@ -2155,7 +2294,9 @@ function addBehavior(name,points) {
         );
 
 
-    if(score > bestScore) {
+    if(
+        score > bestScore
+    ){
 
         bestScore =
             score;
@@ -2185,17 +2326,16 @@ function addBehavior(name,points) {
 }
 
 
-/* ---------------------------------
-   BEHAVIOR MENU
---------------------------------- */
+/* BEHAVIOR MENU */
 
-function openBehaviorMenu(mode) {
+function openBehaviorMenu(mode){
 
     currentMode =
         mode;
 
 
     var list =
+
         mode === "positive"
 
         ? compliments
@@ -2204,7 +2344,9 @@ function openBehaviorMenu(mode) {
 
 
     document
-        .getElementById("sheetTitle")
+        .getElementById(
+            "sheetTitle"
+        )
         .textContent =
 
         mode === "positive"
@@ -2225,7 +2367,7 @@ function openBehaviorMenu(mode) {
 
 
     list.forEach(
-        function(item) {
+        function(item){
 
             var button =
                 document.createElement(
@@ -2240,7 +2382,9 @@ function openBehaviorMenu(mode) {
             button.innerHTML =
 
                 '<span>' +
-                    escapeHTML(item[0]) +
+                    escapeHTML(
+                        item[0]
+                    ) +
                 '</span>' +
 
                 '<strong>' +
@@ -2257,7 +2401,7 @@ function openBehaviorMenu(mode) {
 
 
             button.onclick =
-                function() {
+                function(){
 
                     addBehavior(
                         item[0],
@@ -2274,58 +2418,79 @@ function openBehaviorMenu(mode) {
 
 
     document
-        .getElementById("customName")
+        .getElementById(
+            "customName"
+        )
         .value =
         "";
 
 
     document
-        .getElementById("customPoints")
+        .getElementById(
+            "customPoints"
+        )
         .value =
         3;
 
 
     document
-        .getElementById("overlay")
+        .getElementById(
+            "overlay"
+        )
         .classList.add(
             "show"
         );
 }
 
 
-function closeBehaviorMenu() {
+function closeBehaviorMenu(){
 
     document
-        .getElementById("overlay")
+        .getElementById(
+            "overlay"
+        )
         .classList.remove(
             "show"
         );
 }
 
 
-function addCustomBehavior() {
+function addCustomBehavior(){
 
     var name =
         document
-        .getElementById("customName")
+        .getElementById(
+            "customName"
+        )
         .value
         .trim();
 
 
-    if(!name) {
+    if(
+        !name
+    ){
+
         return;
     }
 
 
     var points =
         Number(
+
             document
-            .getElementById("customPoints")
+            .getElementById(
+                "customPoints"
+            )
             .value
+
         );
 
 
-    if(!Number.isFinite(points)) {
+    if(
+        !Number.isFinite(
+            points
+        )
+    ){
 
         points =
             3;
@@ -2337,12 +2502,16 @@ function addCustomBehavior() {
             1,
             Math.min(
                 50,
-                Math.abs(points)
+                Math.abs(
+                    points
+                )
             )
         );
 
 
-    if(currentMode === "negative") {
+    if(
+        currentMode === "negative"
+    ){
 
         points =
             -points;
@@ -2356,19 +2525,20 @@ function addCustomBehavior() {
 }
 
 
-/* ---------------------------------
-   START NEW DAY
---------------------------------- */
+/* START NEW DAY */
 
-function startNewDay() {
+function startNewDay(){
 
-    var confirmed =
-        window.confirm(
+    if(
+
+        !window.confirm(
+
             "Archive today's score and start a new day at 75?"
-        );
 
+        )
 
-    if(!confirmed) {
+    ){
+
         return;
     }
 
@@ -2404,6 +2574,7 @@ function startNewDay() {
 
     renderAll();
 
+
     showPage(
         "todayPage",
         "todayTab"
@@ -2411,18 +2582,23 @@ function startNewDay() {
 }
 
 
-/* ---------------------------------
-   NAVIGATION
---------------------------------- */
+/* NAVIGATION */
 
-function showPage(pageID,tabID) {
+function showPage(
+    pageID,
+    tabID
+){
 
     document
-        .querySelectorAll(".page")
+        .querySelectorAll(
+            ".page"
+        )
         .forEach(
-            function(page) {
+            function(page){
 
-                page.classList.remove(
+                page
+                .classList
+                .remove(
                     "active"
                 );
             }
@@ -2430,11 +2606,15 @@ function showPage(pageID,tabID) {
 
 
     document
-        .querySelectorAll(".navButton")
+        .querySelectorAll(
+            ".navButton"
+        )
         .forEach(
-            function(tab) {
+            function(tab){
 
-                tab.classList.remove(
+                tab
+                .classList
+                .remove(
                     "active"
                 );
             }
@@ -2442,15 +2622,21 @@ function showPage(pageID,tabID) {
 
 
     document
-        .getElementById(pageID)
-        .classList.add(
+        .getElementById(
+            pageID
+        )
+        .classList
+        .add(
             "active"
         );
 
 
     document
-        .getElementById(tabID)
-        .classList.add(
+        .getElementById(
+            tabID
+        )
+        .classList
+        .add(
             "active"
         );
 
@@ -2465,20 +2651,25 @@ function showPage(pageID,tabID) {
 }
 
 
-/* ---------------------------------
-   OVERLAY
---------------------------------- */
+/* OVERLAY */
 
 document
-.getElementById("overlay")
+.getElementById(
+    "overlay"
+)
 .addEventListener(
     "click",
-    function(event) {
+    function(event){
 
         if(
-            event.target ===
-            document.getElementById("overlay")
-        ) {
+
+            event.target
+            ===
+            document.getElementById(
+                "overlay"
+            )
+
+        ){
 
             closeBehaviorMenu();
         }
@@ -2486,11 +2677,11 @@ document
 );
 
 
-/* ---------------------------------
-   BEST SCORE MIGRATION
---------------------------------- */
+/* BEST SCORE MIGRATION */
 
-if(score > bestScore) {
+if(
+    score > bestScore
+){
 
     bestScore =
         score;
@@ -2498,9 +2689,11 @@ if(score > bestScore) {
 
 
 history.forEach(
-    function(day) {
+    function(day){
 
-        if(day.score > bestScore) {
+        if(
+            day.score > bestScore
+        ){
 
             bestScore =
                 day.score;
@@ -2509,11 +2702,9 @@ history.forEach(
 );
 
 
-/* ---------------------------------
-   RENDER
---------------------------------- */
+/* RENDER EVERYTHING */
 
-function renderAll() {
+function renderAll(){
 
     renderScore();
 
