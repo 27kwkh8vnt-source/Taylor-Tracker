@@ -43,7 +43,6 @@ body {
     margin: 0;
     background: #f7f4ef;
     color: #171717;
-
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -51,7 +50,6 @@ body {
         "Helvetica Neue",
         Arial,
         sans-serif;
-
     padding-bottom: 100px;
 }
 
@@ -72,9 +70,6 @@ header p {
     font-size: 14px;
 }
 
-
-/* PAGES */
-
 .page {
     display: none;
     padding: 0 16px 24px;
@@ -86,108 +81,70 @@ header p {
     display: block;
 }
 
-
-/* CARDS */
-
 .card {
     background: white;
     border-radius: 22px;
     padding: 20px;
     margin: 12px 0;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0, 0, 0, .07);
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
 }
 
 .center {
     text-align: center;
 }
 
-
-/* TAYLOR */
-
 .character {
     width: 220px;
     height: 220px;
-
     object-fit: contain;
-
     display: block;
-
-    margin:
-        0 auto 8px;
-
-    transform-origin:
-        center bottom;
+    margin: 0 auto 8px;
+    transform-origin: center bottom;
 }
 
 .jump {
-    animation:
-        jumpTaylor .7s ease;
+    animation: jumpTaylor .7s ease;
 }
 
 .slump {
-    animation:
-        slumpTaylor 1s ease;
+    animation: slumpTaylor 1s ease;
 }
 
 @keyframes jumpTaylor {
-
     0% {
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 
     40% {
-        transform:
-            translateY(-50px)
-            scale(1.06);
+        transform: translateY(-50px) scale(1.06);
     }
 
     70% {
-        transform:
-            translateY(4px)
-            scale(.98);
+        transform: translateY(4px) scale(.98);
     }
 
     100% {
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
 @keyframes slumpTaylor {
-
     0% {
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 
     40% {
-        transform:
-            translateY(22px)
-            scale(.92);
+        transform: translateY(22px) scale(.92);
     }
 
     80% {
-        transform:
-            translateY(22px)
-            scale(.92);
+        transform: translateY(22px) scale(.92);
     }
 
     100% {
-        transform:
-            translateY(0)
-            scale(1);
+        transform: translateY(0) scale(1);
     }
 }
-
-
-/* SCORE */
 
 .score {
     font-size: 68px;
@@ -216,53 +173,65 @@ header p {
     margin-top: 8px;
 }
 
+.recordBanner {
+    display: none;
+    margin-top: 12px;
+    background: #fff3c4;
+    border: 1px solid #f0cf54;
+    color: #6d5200;
+    border-radius: 14px;
+    padding: 11px 12px;
+    font-size: 14px;
+    font-weight: 900;
+}
 
-/* SCORE BAR */
+.recordBanner.show {
+    display: block;
+    animation: recordPop .5s ease;
+}
+
+@keyframes recordPop {
+    0% {
+        transform: scale(.85);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 .progress {
     width: 100%;
     height: 8px;
-
     background: #eee;
-
     border-radius: 10px;
-
     overflow: hidden;
-
     margin-top: 16px;
 }
 
 .progressFill {
     height: 100%;
     width: 75%;
-
     background: #2f9b62;
-
     border-radius: 10px;
-
-    transition:
-        width .25s ease;
+    transition: width .25s ease;
 }
-
-
-/* BUTTONS */
 
 button {
     border: none;
     border-radius: 15px;
-
-    padding:
-        17px 15px;
-
+    padding: 17px 15px;
     width: 100%;
-
     font-size: 16px;
     font-weight: 800;
-
     cursor: pointer;
-
-    touch-action:
-        manipulation;
+    touch-action: manipulation;
 }
 
 .green {
@@ -289,26 +258,15 @@ button {
     height: 10px;
 }
 
-
-/* SECTIONS */
-
 .sectionTitle {
     font-size: 20px;
     font-weight: 800;
-
-    margin:
-        18px 2px 8px;
+    margin: 18px 2px 8px;
 }
 
-
-/* ACTIVITY */
-
 .activity {
-    padding:
-        13px 0;
-
-    border-bottom:
-        1px solid #eee;
+    padding: 13px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .activity:last-child {
@@ -317,10 +275,7 @@ button {
 
 .activityTop {
     display: flex;
-
-    justify-content:
-        space-between;
-
+    justify-content: space-between;
     gap: 12px;
 }
 
@@ -346,22 +301,13 @@ button {
 
 .empty {
     color: #888;
-
     text-align: center;
-
-    padding:
-        25px 10px;
+    padding: 25px 10px;
 }
 
-
-/* HISTORY */
-
 .historyRow {
-    padding:
-        15px 0;
-
-    border-bottom:
-        1px solid #eee;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .historyRow:last-child {
@@ -370,12 +316,8 @@ button {
 
 .historyTop {
     display: flex;
-
-    justify-content:
-        space-between;
-
+    justify-content: space-between;
     align-items: center;
-
     gap: 12px;
 }
 
@@ -392,51 +334,30 @@ button {
 
 .historyDetails {
     margin-top: 12px;
-
     padding-top: 10px;
-
-    border-top:
-        1px solid #eee;
+    border-top: 1px solid #eee;
 }
 
 .historyBehavior {
     display: flex;
-
-    justify-content:
-        space-between;
-
+    justify-content: space-between;
     gap: 10px;
-
-    padding:
-        5px 0;
-
+    padding: 5px 0;
     font-size: 13px;
 }
 
-
-/* STATS */
-
 .statsGrid {
     display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
 .statCard {
     background: white;
-
     border-radius: 18px;
-
     padding: 16px;
-
     text-align: center;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0, 0, 0, .05);
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
 }
 
 .statNumber {
@@ -450,25 +371,13 @@ button {
     margin-top: 4px;
 }
 
-
-/* MODAL */
-
 .overlay {
     position: fixed;
-
     inset: 0;
-
-    background:
-        rgba(0, 0, 0, .42);
-
+    background: rgba(0,0,0,.42);
     display: none;
-
-    align-items:
-        flex-end;
-
-    justify-content:
-        center;
-
+    align-items: flex-end;
+    justify-content: center;
     z-index: 100;
 }
 
@@ -479,53 +388,33 @@ button {
 .sheet {
     width: 100%;
     max-width: 600px;
-
     background: white;
-
-    border-radius:
-        25px 25px 0 0;
-
+    border-radius: 25px 25px 0 0;
     padding:
         20px 16px
-        calc(
-            20px +
-            env(safe-area-inset-bottom)
-        );
-
+        calc(20px + env(safe-area-inset-bottom));
     max-height: 82vh;
-
     overflow-y: auto;
 }
 
 .sheet h2 {
-    margin:
-        0 0 5px;
+    margin: 0 0 5px;
 }
 
 .sheetSubtitle {
     color: #777;
-
     font-size: 13px;
-
     margin-bottom: 14px;
 }
 
 .option {
     width: 100%;
-
     text-align: left;
-
     background: #f4f4f4;
-
     color: #171717;
-
     margin: 6px 0;
-
     display: flex;
-
-    justify-content:
-        space-between;
-
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -533,15 +422,9 @@ button {
     flex-shrink: 0;
 }
 
-
-/* CUSTOM */
-
 .customSection {
     margin-top: 18px;
-
-    border-top:
-        1px solid #eee;
-
+    border-top: 1px solid #eee;
     padding-top: 15px;
 }
 
@@ -552,16 +435,10 @@ button {
 
 .customInput {
     width: 100%;
-
-    border:
-        1px solid #ddd;
-
+    border: 1px solid #ddd;
     border-radius: 12px;
-
     padding: 14px;
-
     font-size: 16px;
-
     margin-bottom: 8px;
 }
 
@@ -572,14 +449,9 @@ button {
 
 .pointsInput {
     width: 90px;
-
-    border:
-        1px solid #ddd;
-
+    border: 1px solid #ddd;
     border-radius: 12px;
-
     padding: 14px;
-
     font-size: 16px;
 }
 
@@ -587,61 +459,36 @@ button {
     flex: 1;
 }
 
-
-/* NAVIGATION */
-
 nav {
     position: fixed;
-
     bottom: 0;
     left: 0;
     right: 0;
-
     height:
         calc(
             72px +
             env(safe-area-inset-bottom)
         );
-
     padding-bottom:
         env(safe-area-inset-bottom);
-
     background:
         rgba(255, 255, 255, .97);
-
-    border-top:
-        1px solid #ddd;
-
+    border-top: 1px solid #ddd;
     display: flex;
-
     z-index: 50;
 }
 
 .navButton {
     flex: 1;
-
-    background:
-        transparent;
-
+    background: transparent;
     color: #777;
-
     border-radius: 0;
-
-    padding:
-        10px 4px;
-
+    padding: 10px 4px;
     font-size: 11px;
-
     display: flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .navButton .icon {
@@ -656,24 +503,15 @@ nav {
 </style>
 </head>
 
-
 <body>
 
 <header>
-
-    <h1>
-        Taylor Tracker
-    </h1>
-
+    <h1>Taylor Tracker</h1>
     <p>
-        Official Boyfriend
-        Performance Management System
+        Official Boyfriend Performance Management System
     </p>
-
 </header>
 
-
-<!-- TODAY -->
 
 <section
     id="todayPage"
@@ -714,6 +552,12 @@ nav {
             No corrective action required.
         </div>
 
+        <div
+            id="recordBanner"
+            class="recordBanner"
+        >
+            🏆 NEW ALL-TIME RECORD
+        </div>
 
         <div class="progress">
 
@@ -734,7 +578,6 @@ nav {
         💚 COMMEND TAYLOR
     </button>
 
-
     <div class="buttonGap"></div>
 
 
@@ -744,7 +587,6 @@ nav {
     >
         🚨 REPORT INCIDENT
     </button>
-
 
     <div class="buttonGap"></div>
 
@@ -772,8 +614,6 @@ nav {
 
 </section>
 
-
-<!-- HISTORY -->
 
 <section
     id="historyPage"
@@ -807,8 +647,6 @@ nav {
 </section>
 
 
-<!-- LOGS -->
-
 <section
     id="logsPage"
     class="page"
@@ -829,8 +667,6 @@ nav {
 
 </section>
 
-
-<!-- MODAL -->
 
 <div
     id="overlay"
@@ -879,7 +715,7 @@ nav {
                     class="pointsInput"
                     type="number"
                     min="1"
-                    max="25"
+                    max="50"
                     value="3"
                 >
 
@@ -910,8 +746,6 @@ nav {
 
 </div>
 
-
-<!-- NAVIGATION -->
 
 <nav>
 
@@ -959,7 +793,6 @@ nav {
 </nav>
 
 
-
 <script>
 
 (function () {
@@ -967,586 +800,146 @@ nav {
 "use strict";
 
 
-/* ---------------------------------
-   SETTINGS
---------------------------------- */
-
 var START_SCORE = 75;
 
 
-/* ---------------------------------
-   COMMENDATIONS
---------------------------------- */
+/* COMMENDATIONS */
 
 var compliments = [
 
     ["Forehead Kiss", 3],
-
     ["Random I Love You", 3],
-
     ["Brings Katelin Coffee", 4],
-
     ["Brings You Flowers", 5],
-
     ["Brings Home a Treat", 5],
-
     ["Cooks Dinner", 8],
-
     ["Brings You a Snack", 5],
-
     ["Unprompted Compliment", 4],
-
     ["Unprompted Cuddle", 3],
-
-    [
-        "Does a Chore Without Being Asked",
-        7
-    ],
-
-    [
-        "Remembers Something Katelin Mentioned",
-        6
-    ],
-
+    ["Does a Chore Without Being Asked", 7],
+    ["Remembers Something Katelin Mentioned", 6],
     ["Thoughtful Surprise", 8],
-
-    [
-        "Plans a Date Without Assistance",
-        10
-    ],
-
+    ["Plans a Date Without Assistance", 10],
     ["Unprompted Foot Rub", 10],
-
-    [
-        "Excellent Emotional Support",
-        8
-    ],
-
-    [
-        "Takes a Good Picture of Katelin",
-        5
-    ],
-
-    [
-        "Takes Multiple Good Pictures Without Complaining",
-        8
-    ],
-
-    [
-        "Handles an Annoying Errand",
-        6
-    ],
-
-    [
-        "Admits Katelin Was Right",
-        10
-    ],
-
-    [
-        "Apologizes Without Being Prompted",
-        8
-    ],
-
-    [
-        "Makes Katelin Laugh When Annoyed",
-        6
-    ],
-
-    [
-        "Exceptional Boyfriend Behavior",
-        15
-    ],
-
-    [
-        "Puts Phone Away Without Being Asked",
-        5
-    ],
-
+    ["Excellent Emotional Support", 8],
+    ["Takes a Good Picture of Katelin", 5],
+    ["Takes Multiple Good Pictures Without Complaining", 8],
+    ["Handles an Annoying Errand", 6],
+    ["Admits Katelin Was Right", 10],
+    ["Apologizes Without Being Prompted", 8],
+    ["Makes Katelin Laugh When Annoyed", 6],
+    ["Exceptional Boyfriend Behavior", 15],
+    ["Puts Phone Away Without Being Asked", 5],
     ["Makes the Bed", 4],
-
-    [
-        "Cleans Up After Himself Immediately",
-        5
-    ],
-
-    [
-        "Takes Out the Trash Without Being Asked",
-        4
-    ],
-
-    [
-        "Offers to Carry Something Heavy",
-        3
-    ],
-
-    [
-        "Brings Katelin Water Without Being Asked",
-        4
-    ],
-
-    [
-        "Gives Katelin the Better Bite",
-        4
-    ],
-
-    [
-        "Lets Katelin Pick the Movie Without Complaining",
-        3
-    ],
-
-    [
-        "Actually Watches the Movie Katelin Picked",
-        4
-    ],
-
-    [
-        "Remembers an Important Date",
-        8
-    ],
-
-    [
-        "Makes Plans Without Making Katelin Organize Everything",
-        6
-    ],
-
-    [
-        "Excellent Airport Boyfriend Performance",
-        10
-    ],
-
-    [
-        "Excellent Travel Boyfriend Performance",
-        10
-    ],
-
-    [
-        "Handles Spider or Bug Emergency",
-        5
-    ],
-
-    [
-        "Checks That Katelin Got Home Safe",
-        4
-    ],
-
-    [
-        "Offers Jacket When Katelin Is Cold",
-        4
-    ],
-
-    [
-        "Orders Food Katelin Likes Without Asking",
-        5
-    ],
-
-    [
-        "Voluntarily Runs to the Store",
-        5
-    ],
-
-    [
-        "Charges Katelin's Phone",
-        4
-    ],
-
-    [
-        "Makes Reservation Without Assistance",
-        7
-    ],
-
-    [
-        "Remembers Katelin's Order",
-        6
-    ],
-
-    [
-        "Notices Something Is Wrong Without Being Told",
-        8
-    ],
-
-    [
-        "Provides Snack at Critical Moment",
-        6
-    ],
-
-    [
-        "Excellent Public Boyfriend Performance",
-        7
-    ],
-
-    [
-        "Defends Katelin Correctly",
-        8
-    ],
-
-    [
-        "Survives Target Trip Without Complaining",
-        5
-    ],
-
-    [
-        "Gives Katelin the Comfier Spot",
-        4
-    ],
-
-    [
-        "Gets Up to Get Something So Katelin Doesn't Have To",
-        4
-    ],
-
-    [
-        "Sends Cute Text for No Reason",
-        4
-    ],
-
-    [
-        "Makes Genuine Effort With Katelin's Friends",
-        6
-    ],
-
-    [
-        "Makes Genuine Effort With Katelin's Family",
-        6
-    ],
-
-    [
-        "Remembers Tiny Detail From Previous Conversation",
-        7
-    ],
-
-    [
-        "Immediately Agrees to Take a Picture",
-        4
-    ],
-
+    ["Cleans Up After Himself Immediately", 5],
+    ["Takes Out the Trash Without Being Asked", 4],
+    ["Offers to Carry Something Heavy", 3],
+    ["Brings Katelin Water Without Being Asked", 4],
+    ["Gives Katelin the Better Bite", 4],
+    ["Lets Katelin Pick the Movie Without Complaining", 3],
+    ["Actually Watches the Movie Katelin Picked", 4],
+    ["Remembers an Important Date", 8],
+    ["Makes Plans Without Making Katelin Organize Everything", 6],
+    ["Excellent Airport Boyfriend Performance", 10],
+    ["Excellent Travel Boyfriend Performance", 10],
+    ["Handles Spider or Bug Emergency", 5],
+    ["Checks That Katelin Got Home Safe", 4],
+    ["Offers Jacket When Katelin Is Cold", 4],
+    ["Orders Food Katelin Likes Without Asking", 5],
+    ["Voluntarily Runs to the Store", 5],
+    ["Charges Katelin's Phone", 4],
+    ["Makes Reservation Without Assistance", 7],
+    ["Remembers Katelin's Order", 6],
+    ["Notices Something Is Wrong Without Being Told", 8],
+    ["Provides Snack at Critical Moment", 6],
+    ["Excellent Public Boyfriend Performance", 7],
+    ["Defends Katelin Correctly", 8],
+    ["Survives Target Trip Without Complaining", 5],
+    ["Gives Katelin the Comfier Spot", 4],
+    ["Gets Up to Get Something So Katelin Doesn't Have To", 4],
+    ["Sends Cute Text for No Reason", 4],
+    ["Makes Genuine Effort With Katelin's Friends", 6],
+    ["Makes Genuine Effort With Katelin's Family", 6],
+    ["Remembers Tiny Detail From Previous Conversation", 7],
+    ["Immediately Agrees to Take a Picture", 4],
     ["Takes Initiative", 8],
-
-    [
-        "Handles a Problem Before Katelin Has to Ask",
-        9
-    ],
-
-    [
-        "Above and Beyond Boyfriend Service",
-        12
-    ]
+    ["Handles a Problem Before Katelin Has to Ask", 9],
+    ["Above and Beyond Boyfriend Service", 12]
 
 ];
 
 
-/* ---------------------------------
-   INCIDENTS
---------------------------------- */
+/* INCIDENTS */
 
 var incidents = [
 
     ["Deez Nuts Joke", -3],
-
-    [
-        "That's What She Said Joke",
-        -3
-    ],
-
+    ["That's What She Said Joke", -3],
     ["Cheating Joke", -5],
-
-    [
-        "Katelin Says Something and Taylor Simply Does Not Respond",
-        -2
-    ],
-
-    [
-        "Was Clearly Not Listening",
-        -5
-    ],
-
-    [
-        "Phone Crimes During Quality Time",
-        -4
-    ],
-
-    [
-        "Excessive Phone Scrolling",
-        -3
-    ],
-
-    [
-        "Steals the Blanket",
-        -4
-    ],
-
-    [
-        "Falls Asleep During Movie Katelin Picked",
-        -3
-    ],
-
-    [
-        "Says It'll Be an Early Night, Stays Out Late",
-        -8
-    ],
-
-    [
-        "Fails to Provide ETA",
-        -4
-    ],
-
-    [
-        "Unnecessary Devil's Advocate Behavior",
-        -5
-    ],
-
-    [
-        "Weaponized Incompetence",
-        -7
-    ],
-
-    [
-        "Leaves Mess for Future Taylor",
-        -4
-    ],
-
-    [
-        "Repeated Deez Nuts Offense",
-        -7
-    ],
-
-    [
-        "Makes Same Joke After Being Told It Wasn't Funny",
-        -6
-    ],
-
-    [
-        "Fake Apology / Sorry You Feel That Way",
-        -10
-    ],
-
-    [
-        "Disturbing the Peace",
-        -5
-    ],
-
-    [
-        "General Boyfriend Misconduct",
-        -5
-    ],
-
-    [
-        "Boyfriend Felony",
-        -25
-    ],
-
-    [
-        "Leaves Cabinet Door Open",
-        -2
-    ],
-
-    [
-        "Leaves Drawer Open",
-        -2
-    ],
-
-    [
-        "Leaves Clothes on Floor",
-        -3
-    ],
-
-    [
-        "Creates Additional Chore",
-        -5
-    ],
-
-    [
-        "Asks Where Something Is Before Looking",
-        -3
-    ],
-
-    [
-        "Selective Hearing",
-        -4
-    ],
-
-    [
-        "Forgets What Katelin Just Said",
-        -4
-    ],
-
-    [
-        "Questionable Tone",
-        -4
-    ],
-
-    [
-        "Unnecessary Mansplaining",
-        -6
-    ],
-
-    [
-        "Argues About Something Easily Googleable",
-        -4
-    ],
-
-    [
-        "Says We'll See Instead of Making a Decision",
-        -3
-    ],
-
-    [
-        "Takes Forever in the Bathroom",
-        -3
-    ],
-
-    [
-        "Does Not Replace Toilet Paper Roll",
-        -4
-    ],
-
-    [
-        "Leaves Empty Container in Fridge",
-        -4
-    ],
-
-    [
-        "Puts Empty Box Back in Cabinet",
-        -4
-    ],
-
-    [
-        "Doesn't Know What He Wants to Eat but Rejects Suggestions",
-        -5
-    ],
-
-    [
-        "Asks What Katelin Wants to Do Then Rejects It",
-        -5
-    ],
-
-    [
-        "Forgets to Text Back",
-        -3
-    ],
-
-    [
-        "Unexplained Disappearance From Text Conversation",
-        -4
-    ],
-
-    [
-        "Fails to Notice Obvious Hair or Outfit Change",
-        -4
-    ],
-
-    [
-        "Complains During Photo Taking",
-        -5
-    ],
-
-    [
-        "Takes One Bad Picture and Says It's Fine",
-        -6
-    ],
-
-    [
-        "Refuses Reasonable Retake Request",
-        -5
-    ],
-
-    [
-        "Falls Asleep at Critical Plot Point",
-        -4
-    ],
-
+    ["Katelin Says Something and Taylor Simply Does Not Respond", -2],
+    ["Was Clearly Not Listening", -5],
+    ["Phone Crimes During Quality Time", -4],
+    ["Excessive Phone Scrolling", -3],
+    ["Steals the Blanket", -4],
+    ["Falls Asleep During Movie Katelin Picked", -3],
+    ["Says It'll Be an Early Night, Stays Out Late", -8],
+    ["Fails to Provide ETA", -4],
+    ["Unnecessary Devil's Advocate Behavior", -5],
+    ["Weaponized Incompetence", -7],
+    ["Leaves Mess for Future Taylor", -4],
+    ["Repeated Deez Nuts Offense", -7],
+    ["Makes Same Joke After Being Told It Wasn't Funny", -6],
+    ["Fake Apology / Sorry You Feel That Way", -10],
+    ["Disturbing the Peace", -5],
+    ["General Boyfriend Misconduct", -5],
+    ["Boyfriend Felony", -25],
+    ["Leaves Cabinet Door Open", -2],
+    ["Leaves Drawer Open", -2],
+    ["Leaves Clothes on Floor", -3],
+    ["Creates Additional Chore", -5],
+    ["Asks Where Something Is Before Looking", -3],
+    ["Selective Hearing", -4],
+    ["Forgets What Katelin Just Said", -4],
+    ["Questionable Tone", -4],
+    ["Unnecessary Mansplaining", -6],
+    ["Argues About Something Easily Googleable", -4],
+    ["Says We'll See Instead of Making a Decision", -3],
+    ["Takes Forever in the Bathroom", -3],
+    ["Does Not Replace Toilet Paper Roll", -4],
+    ["Leaves Empty Container in Fridge", -4],
+    ["Puts Empty Box Back in Cabinet", -4],
+    ["Doesn't Know What He Wants to Eat but Rejects Suggestions", -5],
+    ["Asks What Katelin Wants to Do Then Rejects It", -5],
+    ["Forgets to Text Back", -3],
+    ["Unexplained Disappearance From Text Conversation", -4],
+    ["Fails to Notice Obvious Hair or Outfit Change", -4],
+    ["Complains During Photo Taking", -5],
+    ["Takes One Bad Picture and Says It's Fine", -6],
+    ["Refuses Reasonable Retake Request", -5],
+    ["Falls Asleep at Critical Plot Point", -4],
     ["Spoils Something", -8],
-
-    [
-        "Hogs the Good Pillow",
-        -3
-    ],
-
-    [
-        "Hogs the Bed",
-        -4
-    ],
-
-    [
-        "Temperature Control Misconduct",
-        -4
-    ],
-
-    [
-        "Unnecessary Alarm Snoozing",
-        -5
-    ],
-
-    [
-        "Leaves Wet Towel Somewhere Unacceptable",
-        -4
-    ],
-
-    [
-        "Fails to Refill Water",
-        -3
-    ],
-
-    [
-        "Finishes Snack Without Warning Katelin",
-        -6
-    ],
-
-    [
-        "Eats Katelin's Food After Saying He Didn't Want Any",
-        -7
-    ],
-
-    [
-        "Fails to Bring Home Promised Treat",
-        -6
-    ],
-
-    [
-        "Makes Katelin Choose Every Single Plan",
-        -6
-    ],
-
-    [
-        "Needs Excessive Reminding",
-        -5
-    ],
-
-    [
-        "Says In a Minute and Does Not Do It",
-        -5
-    ],
-
-    [
-        "Repeat Offender Enhancement",
-        -8
-    ],
-
-    [
-        "Aggravated Boyfriend Misconduct",
-        -12
-    ],
-
-    [
-        "Conduct Unbecoming of a Boyfriend",
-        -10
-    ],
-
-    [
-        "Boyfriend Misdemeanor",
-        -8
-    ],
-
-    [
-        "Boyfriend Felony With Aggravating Circumstances",
-        -25
-    ]
+    ["Hogs the Good Pillow", -3],
+    ["Hogs the Bed", -4],
+    ["Temperature Control Misconduct", -4],
+    ["Unnecessary Alarm Snoozing", -5],
+    ["Leaves Wet Towel Somewhere Unacceptable", -4],
+    ["Fails to Refill Water", -3],
+    ["Finishes Snack Without Warning Katelin", -6],
+    ["Eats Katelin's Food After Saying He Didn't Want Any", -7],
+    ["Fails to Bring Home Promised Treat", -6],
+    ["Makes Katelin Choose Every Single Plan", -6],
+    ["Needs Excessive Reminding", -5],
+    ["Says In a Minute and Does Not Do It", -5],
+    ["Repeat Offender Enhancement", -8],
+    ["Aggravated Boyfriend Misconduct", -12],
+    ["Conduct Unbecoming of a Boyfriend", -10],
+    ["Boyfriend Misdemeanor", -8],
+    ["Boyfriend Felony With Aggravating Circumstances", -25]
 
 ];
 
 
-/* ---------------------------------
-   LOCAL STORAGE
---------------------------------- */
+/* STORAGE */
 
 function safeParse(
     value,
@@ -1604,6 +997,22 @@ var history =
     );
 
 
+var savedBestScore =
+    Number(
+        localStorage.getItem(
+            "taylorBestScore"
+        )
+    );
+
+
+var bestScore =
+    Number.isFinite(
+        savedBestScore
+    )
+        ? savedBestScore
+        : score;
+
+
 var dayStarted =
     localStorage.getItem(
         "taylorDayStarted"
@@ -1615,17 +1024,10 @@ if (!dayStarted) {
     dayStarted =
         new Date()
             .toISOString();
-
-    localStorage.setItem(
-        "taylorDayStarted",
-        dayStarted
-    );
 }
 
 
-/* ---------------------------------
-   ELEMENTS
---------------------------------- */
+/* ELEMENTS */
 
 var scoreEl =
     document.getElementById(
@@ -1640,6 +1042,11 @@ var statusEl =
 var messageEl =
     document.getElementById(
         "message"
+    );
+
+var recordBanner =
+    document.getElementById(
+        "recordBanner"
     );
 
 var progressFill =
@@ -1707,9 +1114,7 @@ var currentMode =
     "positive";
 
 
-/* ---------------------------------
-   SAVE
---------------------------------- */
+/* SAVE */
 
 function save() {
 
@@ -1736,12 +1141,15 @@ function save() {
         "taylorDayStarted",
         dayStarted
     );
+
+    localStorage.setItem(
+        "taylorBestScore",
+        String(bestScore)
+    );
 }
 
 
-/* ---------------------------------
-   TIER
---------------------------------- */
+/* TIER */
 
 function getTier(
     value
@@ -1825,9 +1233,7 @@ function getTier(
 }
 
 
-/* ---------------------------------
-   DATE HELPERS
---------------------------------- */
+/* DATE HELPERS */
 
 function formatDate(
     iso
@@ -1874,9 +1280,7 @@ function formatTime(
 }
 
 
-/* ---------------------------------
-   ESCAPE HTML
---------------------------------- */
+/* ESCAPE */
 
 function escapeHTML(
     text
@@ -1894,9 +1298,7 @@ function escapeHTML(
 }
 
 
-/* ---------------------------------
-   SCORE DISPLAY
---------------------------------- */
+/* SCORE DISPLAY */
 
 function renderScore() {
 
@@ -1921,19 +1323,17 @@ function renderScore() {
 
 
     progressFill.style.width =
-        Math.max(
-            0,
-            Math.min(
-                100,
+        Math.min(
+            100,
+            Math.max(
+                0,
                 score
             )
         ) + "%";
 }
 
 
-/* ---------------------------------
-   ACTIVITY HTML
---------------------------------- */
+/* ACTIVITY */
 
 function activityHTML(
     item
@@ -2001,9 +1401,7 @@ function activityHTML(
 }
 
 
-/* ---------------------------------
-   TODAY
---------------------------------- */
+/* TODAY */
 
 function renderToday() {
 
@@ -2047,9 +1445,7 @@ function renderToday() {
 }
 
 
-/* ---------------------------------
-   HISTORY
---------------------------------- */
+/* HISTORY */
 
 function renderHistory() {
 
@@ -2209,9 +1605,7 @@ function renderHistory() {
 }
 
 
-/* ---------------------------------
-   STATS
---------------------------------- */
+/* STATS */
 
 function renderStats() {
 
@@ -2219,58 +1613,9 @@ function renderStats() {
         history.length;
 
 
-    if (
-        totalDays === 0
-    ) {
-
-        statsGrid.innerHTML =
-
-            '<div class="statCard">' +
-
-                '<div class="statNumber">—</div>' +
-
-                '<div class="statLabel">Average Rating</div>' +
-
-            "</div>" +
-
-
-            '<div class="statCard">' +
-
-                '<div class="statNumber">0</div>' +
-
-                '<div class="statLabel">Archived Days</div>' +
-
-            "</div>" +
-
-
-            '<div class="statCard">' +
-
-                '<div class="statNumber">—</div>' +
-
-                '<div class="statLabel">Best Day</div>' +
-
-            "</div>" +
-
-
-            '<div class="statCard">' +
-
-                '<div class="statNumber">—</div>' +
-
-                '<div class="statLabel">Worst Day</div>' +
-
-            "</div>";
-
-        return;
-    }
-
-
     var totalScore = 0;
 
-    var best =
-        history[0].score;
-
-    var worst =
-        history[0].score;
+    var worst = null;
 
 
     for (
@@ -2286,18 +1631,8 @@ function renderStats() {
 
 
         if (
-            history[i].score >
-            best
-        ) {
-
-            best =
-                history[i].score;
-        }
-
-
-        if (
-            history[i].score <
-            worst
+            worst === null ||
+            history[i].score < worst
         ) {
 
             worst =
@@ -2307,10 +1642,18 @@ function renderStats() {
 
 
     var average =
-        Math.round(
-            totalScore /
-            history.length
-        );
+        totalDays > 0
+            ? Math.round(
+                totalScore /
+                totalDays
+              )
+            : "—";
+
+
+    var worstDisplay =
+        worst === null
+            ? "—"
+            : worst;
 
 
     statsGrid.innerHTML =
@@ -2332,7 +1675,20 @@ function renderStats() {
 
             '<div class="statNumber">' +
 
-                history.length +
+                bestScore +
+
+            "</div>" +
+
+            '<div class="statLabel">🏆 Best Score Ever</div>' +
+
+        "</div>" +
+
+
+        '<div class="statCard">' +
+
+            '<div class="statNumber">' +
+
+                totalDays +
 
             "</div>" +
 
@@ -2345,20 +1701,7 @@ function renderStats() {
 
             '<div class="statNumber">' +
 
-                best +
-
-            "</div>" +
-
-            '<div class="statLabel">Best Day</div>' +
-
-        "</div>" +
-
-
-        '<div class="statCard">' +
-
-            '<div class="statNumber">' +
-
-                worst +
+                worstDisplay +
 
             "</div>" +
 
@@ -2368,9 +1711,7 @@ function renderStats() {
 }
 
 
-/* ---------------------------------
-   ALL LOGS
---------------------------------- */
+/* LOGS */
 
 function renderLogs() {
 
@@ -2479,9 +1820,7 @@ function renderLogs() {
 }
 
 
-/* ---------------------------------
-   RENDER EVERYTHING
---------------------------------- */
+/* RENDER ALL */
 
 function renderEverything() {
 
@@ -2495,9 +1834,34 @@ function renderEverything() {
 }
 
 
-/* ---------------------------------
-   TAYLOR ANIMATION
---------------------------------- */
+/* RECORD */
+
+function showRecordBanner() {
+
+    recordBanner
+        .classList
+        .add(
+            "show"
+        );
+
+
+    setTimeout(
+
+        function () {
+
+            recordBanner
+                .classList
+                .remove(
+                    "show"
+                );
+        },
+
+        2200
+    );
+}
+
+
+/* ANIMATION */
 
 function animateTaylor(
     points
@@ -2588,14 +1952,16 @@ function animateTaylor(
 }
 
 
-/* ---------------------------------
-   ADD BEHAVIOR
---------------------------------- */
+/* ADD BEHAVIOR */
 
 function addBehavior(
     name,
     points
 ) {
+
+    var oldBest =
+        bestScore;
+
 
     score +=
         points;
@@ -2604,11 +1970,18 @@ function addBehavior(
     score =
         Math.max(
             0,
-            Math.min(
-                100,
-                score
-            )
+            score
         );
+
+
+    if (
+        score >
+        bestScore
+    ) {
+
+        bestScore =
+            score;
+    }
 
 
     activity.push({
@@ -2637,12 +2010,19 @@ function addBehavior(
     animateTaylor(
         points
     );
+
+
+    if (
+        score >
+        oldBest
+    ) {
+
+        showRecordBanner();
+    }
 }
 
 
-/* ---------------------------------
-   OPEN BEHAVIOR SHEET
---------------------------------- */
+/* OPEN SHEET */
 
 function openSheet(
     mode
@@ -2715,9 +2095,7 @@ function openSheet(
 }
 
 
-/* ---------------------------------
-   OPTION BUTTON
---------------------------------- */
+/* OPTION BUTTON */
 
 function addOptionButton(
     item
@@ -2778,9 +2156,7 @@ function addOptionButton(
 }
 
 
-/* ---------------------------------
-   CUSTOM BEHAVIOR
---------------------------------- */
+/* CUSTOM */
 
 function addCustomBehavior() {
 
@@ -2815,7 +2191,7 @@ function addCustomBehavior() {
         Math.max(
             1,
             Math.min(
-                25,
+                50,
                 Math.abs(
                     amount
                 )
@@ -2839,9 +2215,7 @@ function addCustomBehavior() {
 }
 
 
-/* ---------------------------------
-   CLOSE SHEET
---------------------------------- */
+/* CLOSE */
 
 function closeSheet() {
 
@@ -2853,9 +2227,7 @@ function closeSheet() {
 }
 
 
-/* ---------------------------------
-   START NEW DAY
---------------------------------- */
+/* NEW DAY */
 
 function startNewDay() {
 
@@ -2898,6 +2270,16 @@ function startNewDay() {
             .toISOString();
 
 
+    if (
+        score >
+        bestScore
+    ) {
+
+        bestScore =
+            score;
+    }
+
+
     save();
 
 
@@ -2910,9 +2292,7 @@ function startNewDay() {
 }
 
 
-/* ---------------------------------
-   NAVIGATION
---------------------------------- */
+/* NAV */
 
 function showPage(
     pageID
@@ -3013,9 +2393,7 @@ function showPage(
 }
 
 
-/* ---------------------------------
-   EVENT LISTENERS
---------------------------------- */
+/* LISTENERS */
 
 document
     .getElementById(
@@ -3143,9 +2521,38 @@ for (
 }
 
 
-/* ---------------------------------
-   INITIAL RENDER
---------------------------------- */
+/* INITIAL BEST SCORE MIGRATION */
+
+if (
+    score >
+    bestScore
+) {
+
+    bestScore =
+        score;
+}
+
+
+for (
+    var h = 0;
+
+    h < history.length;
+
+    h++
+) {
+
+    if (
+        history[h].score >
+        bestScore
+    ) {
+
+        bestScore =
+            history[h].score;
+    }
+}
+
+
+save();
 
 renderEverything();
 
